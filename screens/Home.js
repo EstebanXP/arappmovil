@@ -5,7 +5,7 @@ export default function Home({navigation}/*Si se necesita que el componente vaya
     return (
       <View style={styles.container}>
         <Button
-            title="Ir a administrar bandas"
+            title="Ir a administrar bandas chingonas"
             onPress={() => navigation.navigate('Bands Management')}
         />
         <Button
