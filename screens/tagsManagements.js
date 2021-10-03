@@ -1,13 +1,26 @@
-import React from "react";
+import React, {useState} from "react";
 import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput} from 'react-native';
 
 export default function tagsManagements() {
-    return (
+
+    const [state, setState] = useState({
+        tagName: ""
+    })
+
+    const handleChangeText = (field, value) =>{
+        setState({ ...state ,[field]: value});
+    }
+
+    return ( 
       <SafeAreaView>
           <TextInput 
             style={styles.input}
-            placeholder="Buscar tags"
-          />
+            placeholder="Nombre Tag"
+            onChangeText={(value) => handleChangeText("tagName", value)}
+          /> 
+          <View>
+              <Button title = "Guardar etiqueta" onPress = {() => console.log(state)}/>
+          </View>
       </SafeAreaView>
     );
 }
