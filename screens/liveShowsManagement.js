@@ -17,6 +17,22 @@ export default function tagsManagements() {
         setState({ ...state ,[field]: value});
     }
 
+    const addShow = async () => {
+      console.log(state)
+      /* FALTA LA BASE DE DATOS
+      await firebase.db.collection('nombre colección').add({
+        showLocation: state.showLocation,
+        showName: state.showName,
+        showTour: state.showTour,
+        showDate: state.showDate,
+        showPlace: state.showPlace,
+        showBand: state.showBand,
+        //showTag: "", hace falta saber como conectar los tags
+      })
+      */
+     alert('guardado')
+    }
+
     return ( 
       <SafeAreaView>
           <TextInput 
@@ -50,7 +66,7 @@ export default function tagsManagements() {
             onChangeText={(value) => handleChangeText("showBand", value)}
           /> 
           <View>
-              <Button title = "Guardar show" onPress = {() => console.log(state)}/>
+              <Button title = "Guardar show" onPress = {() => addShow()}/>
           </View>
       </SafeAreaView>
     );

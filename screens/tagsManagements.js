@@ -11,6 +11,16 @@ export default function tagsManagements() {
         setState({ ...state ,[field]: value});
     }
 
+    const addTag = async () => {
+        console.log(state)
+        /* FALTA LA BASE DE DATOS
+        await firebase.db.collection('nombre colección').add({
+          tagName: state.tagName,
+        })
+        */
+       alert('guardado')
+      }
+
     return ( 
       <SafeAreaView>
           <TextInput 
@@ -19,7 +29,7 @@ export default function tagsManagements() {
             onChangeText={(value) => handleChangeText("tagName", value)}
           /> 
           <View>
-              <Button title = "Guardar etiqueta" onPress = {() => console.log(state)}/>
+              <Button title = "Guardar etiqueta" onPress = {() => addTag()}/>
           </View>
       </SafeAreaView>
     );
