@@ -8,6 +8,7 @@ import bandsManagement from './screens/bandsManagement';
 import liveShowsManagement from './screens/liveShowsManagement';
 import setListManagement from './screens/setListManagement';
 import songsManagement from './screens/songsManagement';
+import tagsManagements from './screens/tagsManagements';
 
 const Stack=createNativeStackNavigator();
 
@@ -20,6 +21,7 @@ export default function App() {
           <Stack.Screen name="Live Shows Management" component={liveShowsManagement}  />
           <Stack.Screen name="Set List Management" component={setListManagement}  />
           <Stack.Screen name="Songs Management" component={songsManagement}  />
+          <Stack.Screen name="Tags Management" component={tagsManagements}  />
         </Stack.Navigator>
       </NavigationContainer>
   );

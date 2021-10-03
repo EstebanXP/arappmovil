@@ -20,6 +20,10 @@ export default function Home({navigation}/*Si se necesita que el componente vaya
             title="Ir a administrar canciones"
             onPress={() => navigation.navigate('Songs Management')}
         />
+        <Button
+            title="Ir a administrar etiquetas"
+            onPress={() => navigation.navigate('Tags Management')}
+        />
       </View>
     );
 }
