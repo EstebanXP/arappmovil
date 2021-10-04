@@ -1,5 +1,5 @@
-import React from "react";
-import { StyleSheet, Text, View } from 'react-native';
+import React, {useState} from "react";
+import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput} from 'react-native';
 
 export default function bandsMembersManagement() {
   
@@ -13,7 +13,7 @@ const handleChangeText = (field, value) =>{
     setState({ ...state ,[field]: value});
 }
 
-const addShow = async () => {
+const addMember = async () => {
   console.log(state)
   /* FALTA LA BASE DE DATOS
   await firebase.db.collection('nombre colección').add({
@@ -33,21 +33,21 @@ return (
   <SafeAreaView> 
       <TextInput 
         style={styles.input}
-        placeholder="Nombre del show"
+        placeholder="Nombre del miembro"
         onChangeText={(value) => handleChangeText("showName", value)}
       /> 
       <TextInput 
         style={styles.input}
-        placeholder="Tour del show"
+        placeholder="Nombre de usuario"
         onChangeText={(value) => handleChangeText("userName", value)}
       /> 
       <TextInput 
         style={styles.input}
-        placeholder="Fecha del show"
+        placeholder="Rol"
         onChangeText={(value) => handleChangeText("rol", value)}
       />  
       <View>
-          <Button title = "Guardar show" onPress = {() => addShow()}/>
+          <Button title = "Guardar miembro" onPress = {() => addMember()}/>
       </View>
   </SafeAreaView>
 );
