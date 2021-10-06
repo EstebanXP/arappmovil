@@ -97,11 +97,6 @@ export default function tagsManagements() {
                 <ListItem key={liveShow.id}>
                   <ListItem.Content>
                     <ListItem.Title>{liveShow.showName}</ListItem.Title>
-                    <ListItem>{liveShow.showLocation}</ListItem>
-                    <ListItem>{liveShow.showTour}</ListItem>
-                    <ListItem>{liveShow.showDate}</ListItem>
-                    <ListItem>{liveShow.showPlace}</ListItem>
-                    <ListItem>{liveShow.showBand}</ListItem>
                   </ListItem.Content>
                 </ListItem>
               )
