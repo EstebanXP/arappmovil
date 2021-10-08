@@ -28,6 +28,10 @@ export default function Home({navigation}/*Si se necesita que el componente vaya
             title="Ir a administrar miembros de banda"
             onPress={() => navigation.navigate('Bands Members Management')}
         />
+        <Button
+            title="Ir a registrar un usuario"
+            onPress={() => navigation.navigate('Register User')}
+        />
       </View>
     );
 }
