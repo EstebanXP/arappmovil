@@ -32,6 +32,10 @@ export default function Home({navigation}/*Si se necesita que el componente vaya
             title="Ir a registrar un usuario"
             onPress={() => navigation.navigate('Register User')}
         />
+        <Button
+            title="Ir a iniciar sesion"
+            onPress={() => navigation.navigate('Login User')}
+        />
       </View>
     );
 }

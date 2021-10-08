@@ -8,6 +8,7 @@
     "eject": "expo eject"
   },
   "dependencies": {
+    "@react-native-firebase/auth": "^12.9.0",
     "@react-navigation/native": "^6.0.4",
     "@react-navigation/native-stack": "^6.2.2",
     "expo": "~42.0.1",

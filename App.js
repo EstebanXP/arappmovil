@@ -11,6 +11,7 @@ import setListManagement from './screens/setListManagement';
 import songsManagement from './screens/songsManagement';
 import tagsManagements from './screens/tagsManagements';
 import registerUser from './screens/registerUser';
+import loginUser from './screens/loginUser';
 
 const Stack=createNativeStackNavigator();
 
@@ -26,6 +27,7 @@ export default function App() {
           <Stack.Screen name="Songs Management" component={songsManagement}  />
           <Stack.Screen name="Tags Management" component={tagsManagements}  />
           <Stack.Screen name="Register User" component={registerUser}  />
+          <Stack.Screen name="Login User" component={loginUser}  />
         </Stack.Navigator>
       </NavigationContainer>
   );

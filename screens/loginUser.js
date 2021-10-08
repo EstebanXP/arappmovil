@@ -36,14 +36,6 @@ export default function registerUser() {
             style={styles.input}
             placeholder="Password"
           />
-          <TextInput 
-            style={styles.input}
-            placeholder="Name"
-          />
-          <TextInput 
-            style={styles.input}
-            placeholder="Rol"
-          />
       </View>
     );
 }
