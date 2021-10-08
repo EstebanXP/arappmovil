@@ -97,6 +97,7 @@ export default function tagsManagements() {
                 <ListItem key={liveShow.id}>
                   <ListItem.Content>
                     <ListItem.Title>{liveShow.showName}</ListItem.Title>
+                    <ListItem.Subtitle>{liveShow.showDate}</ListItem.Subtitle>
                   </ListItem.Content>
                 </ListItem>
               )
