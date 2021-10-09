@@ -6,7 +6,7 @@ import firebase from "../database/firebase";
 export default function registerUser() {
     return (
       <View style={styles.container}>
-        <Text>Inicia Sesion</Text>
+        <Text>Inicia Sesion Aqui</Text>
         <Button title='Sign In With Google' onPress={() =>alert('button pressed')}></Button>
       </View>
     );
