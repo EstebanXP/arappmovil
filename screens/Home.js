@@ -9,8 +9,8 @@ export default function Home({navigation}/*Si se necesita que el componente vaya
             onPress={() => navigation.navigate('Bands Management')}
         />
         <Button
-            title="Ir a adminsitrar live shows"
-            onPress={() => navigation.navigate('Live Shows Management')}
+            title="Ir a lista de live shows"
+            onPress={() => navigation.navigate('Live Shows List')}
         />
         <Button
             title="Ir a administrar set lists"

@@ -3,9 +3,7 @@ import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput} from 'react-nati
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 
-export default function tagsManagements() {
-
-    const [liveShows, setLiveShows] = useState([])
+export default function liveShowsManagement() {
 
     const [state, setState] = useState({
         showLocation: "",
@@ -17,29 +15,8 @@ export default function tagsManagements() {
         //showTag: "", hace falta saber como conectar los tags
     })
 
-    useEffect(()=>{
-      firebase.db.collection('LiveShows').onSnapshot(querySnapshot=>{
-        const liveShows = [];
-
-        querySnapshot.docs.forEach(doc=>{
-          const {showLocation, showName, showTour, showDate, showPlace, showBand,} = doc.data()
-          liveShows.push({
-            id: doc.id,
-            showLocation,
-            showName,
-            showTour,
-            showDate,
-            showPlace,
-            showBand,
-
-          })
-        })
-        setLiveShows(liveShows)
-      })
-    })
-
     const handleChangeText = (field, value) =>{
-        setState({ ...state ,[field]: value});
+          setState({ ...state ,[field]: value});
     }
 
     const addShow = async () => {
@@ -91,18 +68,6 @@ export default function tagsManagements() {
           <View>
               <Button title = "Guardar show" onPress = {() => addShow()}/>
           </View>
-          {
-            liveShows.map(liveShow =>{
-              return(
-                <ListItem key={liveShow.id}>
-                  <ListItem.Content>
-                    <ListItem.Title>{liveShow.showName}</ListItem.Title>
-                    <ListItem.Subtitle>{liveShow.showDate}</ListItem.Subtitle>
-                  </ListItem.Content>
-                </ListItem>
-              )
-            })
-          }
       </SafeAreaView>
     );
 }
