@@ -21,7 +21,6 @@ export default function liveShowsManagement({navigation}) {
               showDate,
               showPlace,
               showBand,
-  
             })
           })
           if(!unmounted)
@@ -36,7 +35,7 @@ export default function liveShowsManagement({navigation}) {
       <SafeAreaView>
           <Button
             title="Ir a adminsitrar live shows"
-            onPress={() => navigation.navigate('Live Shows Management')}
+            onPress={() => navigation.navigate('Live Shows Create')}
         />
           {
             liveShows.map(liveShow =>{
