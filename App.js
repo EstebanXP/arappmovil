@@ -14,12 +14,14 @@ import songsManagement from './screens/songsManagement';
 import tagsManagements from './screens/tagsManagements';
 import registerUser from './screens/registerUser';
 import loginUser from './screens/loginUser';
+import showSongs from './screens/showSongs';
 
 const Stack=createNativeStackNavigator();
 
 export default function App() {
   return (
       <NavigationContainer>
+        
         <Stack.Navigator >
           <Stack.Screen name="Home" component={Home}  />
           <Stack.Screen name="Bands Management" component={bandsManagement}  />
@@ -32,6 +34,7 @@ export default function App() {
           <Stack.Screen name="Tags Management" component={tagsManagements}  />
           <Stack.Screen name="Register User" component={registerUser}  />
           <Stack.Screen name="Login User" component={loginUser}  />
+          <Stack.Screen name="Show Songs" component={showSongs}  />
         </Stack.Navigator>
       </NavigationContainer>
   );
