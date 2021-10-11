@@ -1,72 +1,113 @@
 import React, {useEffect, useState} from "react";
-import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput} from 'react-native';
+import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput, Alert} from 'react-native';
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 
-export default function liveShowsManagement() {
+export default function liveShowsManagement(props,{navigation}) {
 
-    const [state, setState] = useState({
-        showLocation: "",
-        showName: "",
-        showTour: "",
-        showDate: "",
-        showPlace: "",
-        showBand: "",
-        //showTag: "", hace falta saber como conectar los tags
+  const initialState = {
+      id: "",
+      showLocation: "",
+      showName: "",
+      showTour: "",
+      showDate: "",
+      showPlace: "",
+      showBand: "",
+      //showTag: "", hace falta saber como conectar los tags
+  }
+
+  const [show, setShow] = useState(initialState)
+
+  const getShowById = async (id) =>{
+    const dbRef = firebase.db.collection('LiveShows').doc(id)
+    const doc = await dbRef.get();
+    const liveShow = doc.data();
+    setShow({
+      ...liveShow,
+      id: doc.id,
     })
-
-    const handleChangeText = (field, value) =>{
-          setState({ ...state ,[field]: value});
     }
 
-    const addShow = async () => {
-      console.log(state)
-      await firebase.db.collection('LiveShows').add({
-        showLocation: state.showLocation,
-        showName: state.showName,
-        showTour: state.showTour,
-        showDate: state.showDate,
-        showPlace: state.showPlace,
-        showBand: state.showBand,
+  useEffect (()=>{
+      getShowById(props.route.params.showId);
+  }, [])
+
+  const handleChangeText = (field, value) =>{
+    setShow({ ...show ,[field]: value});
+  }
+
+  const deleteShow =  async () =>{
+    const dbRef = firebase.db.collection('LiveShows').doc(props.route.params.showId);
+    await dbRef.delete();
+    alert("Usuario eliminado")
+    props.navigation.navigate('Live Shows List')
+  }
+
+  const updateUser = async () =>{
+    const dbRef = firebase.db.collection('LiveShows').doc(props.route.params.showId);
+    await dbRef.set({
+        showLocation: show.showLocation,
+        showName: show.showName,
+        showTour: show.showTour,
+        showDate: show.showDate,
+        showPlace: show.showPlace,
+        showBand: show.showBand,
         showTag: "",
-      })
-     alert('guardado')
-    }
+    })
+    setShow(initialState)
+    props.navigation.navigate('Live Shows List')
+  }
+
+  const openConfirmationAlert = () =>{
+    Alert.alert("Eliminar Show", "Estas seguro?", [
+      {text: "Si", onPress: () => deleteShow()},
+      {text: "No", onPress: () => console.log("Nel")},
+    ])
+  }
 
     return ( 
       <SafeAreaView>
           <TextInput 
             style={styles.input}
             placeholder="Locación del show"
+            value={show.showLocation}
             onChangeText={(value) => handleChangeText("showLocation", value)}
           /> 
           <TextInput 
             style={styles.input}
             placeholder="Nombre del show"
+            value={show.showName}
             onChangeText={(value) => handleChangeText("showName", value)}
           /> 
           <TextInput 
             style={styles.input}
             placeholder="Tour del show"
+            value={show.showTour}
             onChangeText={(value) => handleChangeText("showTour", value)}
           /> 
           <TextInput 
             style={styles.input}
             placeholder="Fecha del show"
+            value={show.showDate}
             onChangeText={(value) => handleChangeText("showDate", value)}
           /> 
           <TextInput 
             style={styles.input}
             placeholder="Lugar del show"
+            value={show.showPlace}
             onChangeText={(value) => handleChangeText("showPlace", value)}
           /> 
           <TextInput 
             style={styles.input}
             placeholder="Banda del show"
+            value={show.showBand}
             onChangeText={(value) => handleChangeText("showBand", value)}
           /> 
           <View>
-              <Button title = "Guardar show" onPress = {() => addShow()}/>
+              <Button title = "Actualizar show" onPress = {() => updateUser()}/>
+          </View>
+          <View>
+              <Button title = "Eliminar show" onPress = {() => openConfirmationAlert()}/>
           </View>
       </SafeAreaView>
     );

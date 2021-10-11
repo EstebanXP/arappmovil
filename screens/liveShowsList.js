@@ -3,7 +3,7 @@ import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput} from 'react-nati
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 
-export default function liveShowsManagement({navigation}) {
+export default function liveShowsManagement(props,{navigation}) {
 
     const [liveShows, setLiveShows] = useState([])
 
@@ -35,12 +35,16 @@ export default function liveShowsManagement({navigation}) {
       <SafeAreaView>
           <Button
             title="Crear live show"
-            onPress={() => navigation.navigate('Live Shows Create')}
+            onPress={() => props.navigation.navigate('Live Shows Create')}
         />
           {
             liveShows.map(liveShow =>{
               return(
-                <ListItem key={liveShow.id} bottomDivider onPress={() => alert(liveShow.id)}>
+                <ListItem key={liveShow.id} bottomDivider onPress={() => {
+                  props.navigation.navigate('Live Shows Management', {
+                    showId: liveShow.id 
+                  })
+                }}>
                   <ListItem.Content>
                     <ListItem.Title>{liveShow.showName}</ListItem.Title>
                     <ListItem.Subtitle>{liveShow.showDate}</ListItem.Subtitle>
