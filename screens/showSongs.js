@@ -1,10 +1,16 @@
 import React,{useState,useEffect} from 'react'
-import { Text, View, SafeAreaView} from 'react-native';
+import { Text, View, SafeAreaView, ScrollView, FlatList} from 'react-native';
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
+import Item from './Item';
 
 export default function showSongs(){
     const [songs, setSongs] = useState([]);
+
+    const renderItem=({item})=>(
+      <Item >{item.title}</Item>
+    )
+  
 
     useEffect(()=>{
        let unmounted = false;
@@ -32,10 +38,31 @@ export default function showSongs(){
      },[])
 
     return (
-        <SafeAreaView>
+      <SafeAreaView>
+      {
+        songs.map(song =>{
+          return(
+            <ScrollView>
+            <ListItem key={song.id} bottomDivider onPress={() => alert(song.id)}>
+              <ListItem.Content>
+                <ListItem.Title>{song.title}</ListItem.Title>
+                <ListItem.Subtitle>{song.artist}</ListItem.Subtitle>
+              </ListItem.Content>
+            </ListItem>
+            </ScrollView>
+          )
+        })
+      }
+  </SafeAreaView>
+    )
+}
+
+/*
+<SafeAreaView>
           {
             songs.map(song =>{
               return(
+                <ScrollView>
                 <ListItem key={song.id} bottomDivider onPress={() => alert(song.id)}>
                   <ListItem.Content>
                     <ListItem.Title>{song.title}</ListItem.Title>
@@ -43,9 +70,8 @@ export default function showSongs(){
 
                   </ListItem.Content>
                 </ListItem>
+                </ScrollView>
               )
             })
           }
-      </SafeAreaView>
-    )
-}
+      </SafeAreaView>*/

@@ -58,9 +58,7 @@ export default function songsManagement() {
     }
   }
 
-  useEffect(() => {
-    
-  }, []);
+  useEffect(() => {}, []);
   return (
     <View>
       <SafeAreaView>
@@ -84,14 +82,10 @@ export default function songsManagement() {
       {status === true ? (
         <View>
           <Text>Letra Encontrada: </Text>
-          <TextInput
-            multiline
-            style={{ maxHeight: 400 }}
-            value={lyrics}
-          ></TextInput>
-          {/*<ScrollView>
-            <Text style={{height:400}}>{lyrics}</Text>
-            </ScrollView>*/}
+          <ScrollView style={{height:400}}>
+            <Text >{lyrics}</Text>
+          </ScrollView>
+
           <Button title="Save song" onPress={() => saveData()}></Button>
           <Button title="Discard song"></Button>
         </View>
