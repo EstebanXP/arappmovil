@@ -16,16 +16,24 @@ export default class registerUser extends React.Component{
   }
   createAccount =()=>{
     //MANEJAR ERRORES
-    //LONGITUD DE CONTRASEñA
+    //LONGITUD DE CONTRASEñA 
+    let signUpState = true
     if(this.state.password != this.state.confirmPassword){
+      
       Alert.alert("Password does not match");
+    }
+    else if(this.state.password.length <6){
+      Alert.alert("Password must be over 6 characters")
     }
     else{
         firebase.firebase.app().auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
-        .catch((err)=>{
-          Alert.alert(err.mesage + 'Sorry')
+        .catch((error)=>{
+          Alert.alert('Sorry. ' + error.message)
+          signUpState = false
         })
-        .then(Alert.alert("Signed up succesfuly"))
+        if(signUpState){
+          Alert.alert('Signed Up')
+        }
     }
   }
     render(){
