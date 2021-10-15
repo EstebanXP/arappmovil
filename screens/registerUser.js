@@ -1,51 +1,59 @@
-import React from "react";
-import { StyleSheet, Text, View,TextInput } from 'react-native';
+import React, {useState} from "react";
+import { StyleSheet, Text, View,TextInput, Alert } from 'react-native';
+import { Button } from "react-native-elements/dist/buttons/Button";
 import firebase from "../database/firebase";
+import { NavigationContainer } from "@react-navigation/native";
+import { render } from "react-dom";
 
-export default function registerUser() {
-    function componentDidMoun(){
-        this.checkIfLoggedIn();
+export default class registerUser extends React.Component{
+  constructor(props){
+    super(props)
+    this.state ={
+      email: '',
+      password: '',
+      confirmPassword: '',
     }
-
-    //Checa si el usuario esta Loggeado, falta modificar las vistas
-    checkIfLoggedIn = () => {
-        firebase.auth().onAuthStateChanged(user=>{
-            if(user){
-                this.props.navigation.navigate('Login User');
-            }
-            else{
-                this.props.navigation.navigate('Register User');
-            }
-        })
+  }
+  createAccount =()=>{
+    //MANEJAR ERRORES
+    //LONGITUD DE CONTRASEñA
+    if(this.state.password != this.state.confirmPassword){
+      Alert.alert("Password does not match");
     }
-    /*useEffect(()=>{
-        firebase.db.collection('songs').onSnapshot(querySnapshot=>{
-          querySnapshot.docs.forEach(doc=>{
-            console.log(doc.id,doc.data());
-          })
+    else{
+        firebase.firebase.app().auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
+        .catch((err)=>{
+          Alert.alert(err.mesage + 'Sorry')
         })
-      },[])*/
-    return (
-      <View style={styles.container}>
-        <Text>Hola mundo desde el registro</Text>
-        <TextInput 
-            style={styles.input}
-            placeholder="Username"
-          />
-          <TextInput 
-            style={styles.input}
-            placeholder="Password"
-          />
-          <TextInput 
-            style={styles.input}
-            placeholder="Name"
-          />
-          <TextInput 
-            style={styles.input}
-            placeholder="Rol"
-          />
-      </View>
-    );
+        .then(Alert.alert("Signed up succesfuly"))
+    }
+  }
+    render(){
+      return (
+        <View style={styles.container}>
+          <Text>Signup</Text>
+          <TextInput placeholder="type email" onChangeText={(email) => {
+            this.setState({email:email})
+          }} value={this.state.email}/>
+          <TextInput placeholder="type password" onChangeText={(password) => {
+            this.setState({password:password})
+          }} 
+          value={this.state.password} 
+          secureTextEntry={true}
+          autoCapitalize={false}
+          autoCorrect={false}/>
+          <TextInput placeholder="confirm password" onChangeText={(confirmPassword) => {
+            this.setState({confirmPassword:confirmPassword})
+          }} 
+          value={this.state.confirmPassword}
+          secureTextEntry={true}
+          autoCapitalize={false}
+          autoCorrect={false}/>
+          <Button title="Sign Up" style={styles.button} onPress={this.createAccount} ></Button>
+          
+        </View>
+      );
+    }
 }
 
 const styles = StyleSheet.create({
@@ -55,11 +63,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
-    input: {
-        height: 40,
-        margin: 12,
-        borderWidth: 1,
-        padding: 10,
-    },
+    button:{
+      backgroundColor: '#000',
+    }
   });
-  
