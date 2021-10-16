@@ -21,8 +21,8 @@ export default function Home({navigation}/*Si se necesita que el componente vaya
             onPress={() => navigation.navigate('Songs Management')}
         />
         <Button
-            title="Ir a administrar etiquetas"
-            onPress={() => navigation.navigate('Tags Management')}
+            title="Ir a Lista de etiquetas"
+            onPress={() => navigation.navigate('Tags List')}
         />
         <Button
             title="Ir a administrar miembros de banda"
