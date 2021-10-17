@@ -15,9 +15,6 @@ export default class registerUser extends React.Component{
     }
   }
   createAccount =()=>{
-    //MANEJAR ERRORES
-    //LONGITUD DE CONTRASEñA 
-    let signUpState = true
     if(this.state.password != this.state.confirmPassword){
       
       Alert.alert("Password does not match");
@@ -29,11 +26,13 @@ export default class registerUser extends React.Component{
         firebase.firebase.app().auth().createUserWithEmailAndPassword(this.state.email, this.state.password)
         .catch((error)=>{
           Alert.alert('Sorry. ' + error.message)
-          signUpState = false
+          
         })
-        if(signUpState){
-          Alert.alert('Signed Up')
-        }
+        firebase.firebase.app().auth().onAuthStateChanged((user)=>{
+          if(user){
+            Alert.alert("Signed in");
+          }
+        })
     }
   }
     render(){
@@ -48,14 +47,12 @@ export default class registerUser extends React.Component{
           }} 
           value={this.state.password} 
           secureTextEntry={true}
-          autoCapitalize={false}
           autoCorrect={false}/>
           <TextInput placeholder="confirm password" onChangeText={(confirmPassword) => {
             this.setState({confirmPassword:confirmPassword})
           }} 
           value={this.state.confirmPassword}
           secureTextEntry={true}
-          autoCapitalize={false}
           autoCorrect={false}/>
           <Button title="Sign Up" style={styles.button} onPress={this.createAccount} ></Button>
           

@@ -1,59 +1,47 @@
 import React, {useState} from "react";
-import { StyleSheet, Text, View,TextInput } from 'react-native';
+import { StyleSheet, Text, View,TextInput, Alert } from 'react-native';
 import { Button } from "react-native-elements/dist/buttons/Button";
 import firebase from "../database/firebase";
-import * as Google from 'expo-google-app-auth';
-import { NavigationContainer } from "@react-navigation/native";
+import { render } from "react-dom";
 
-export default function loginUser() {
-  const[hidePassword, setHidePassword]= useState(true);
-  const [message, setMessage] = useState();
-  const [messageType, setMessageType] = useState();
-  const [googleSubmitting,setGoogleSubmitting] = useState(false);
-
-    const handleMessage = (message, type = 'FAILED') => {
-      setMessage(message);
-      setMessageType(type);
+export default class loginUser extends React.Component{
+  constructor(props){
+    super(props)
+    this.state ={
+      email: '',
+      password: '',
     }
-    const handleGoogleSignIn = () => {
-      setGoogleSubmitting(true);
-        const config = {iosClientId : `126323543490-qo8841if2ddlrss6c5hru3uspkc4elu5.apps.googleusercontent.com`, 
-                        androidClientId: `126323543490-jsbg1t6cpnvjletki8udrkn3sb341sfv.apps.googleusercontent.com`,
-                        scopes: ['profile', 'email']}
-        Google.logInAsync(config)
-        .then((result)=> {
-          const {type, user} = result;
-          if (type == 'succes'){
-            const{email, name, photoUrl} = user;
-            handleMessage('Google sign-in succesful', 'SUCCESS');
-            setTimeout(()=>NavigationContainer.navigate('Home',{email, name, photoUrl}), 1000);
-          }else{
-            handleMessage('Google sign-in was cancelled');
-          }
-          setGoogleSubmitting(false);
-        })
-        .catch(error => {
-          console.log(error);
-          handleMessage('An error has ocurred. Check your network and try again :(');
-          setGoogleSubmitting(false);
-        })
+  }
+  loginAccount =()=>{
+    firebase.firebase.app().auth().signInWithEmailAndPassword(this.state.email,this.state.password)
+    .catch((error)=>{
+      Alert.alert('Sorry. ' + error.message)
+      
+    })
+    firebase.firebase.app().auth().onAuthStateChanged((user)=>{
+      if(user){
+        Alert.alert("Signed in");
+      }
+    })
+  }
+    render(){
+      return (
+        <View style={styles.container}>
+          <Text>Sing in</Text>
+          <TextInput placeholder="type email" onChangeText={(email) => {
+            this.setState({email:email})
+          }} value={this.state.email}/>
+          <TextInput placeholder="type password" onChangeText={(password) => {
+            this.setState({password:password})
+          }} 
+          value={this.state.password} 
+          secureTextEntry={true}
+          autoCorrect={false}/>
+          <Button title="Sign In" style={styles.button} onPress={this.loginAccount} ></Button>
+          
+        </View>
+      );
     }
-
-    return (
-      <View style={styles.container}>
-        <Text>Inicia Sesion Aqui</Text>
-        {!googleSubmitting && (
-          <Button title="Sign in with Google" google={true} onPress={handleGoogleSignIn}>
-            
-          </Button>
-        )}
-        {googleSubmitting && (
-          <Button title="Sign in with Google" google={true} disabled={true}>
-            
-          </Button>
-        )}
-      </View>
-    );
 }
 
 const styles = StyleSheet.create({
@@ -63,11 +51,7 @@ const styles = StyleSheet.create({
       alignItems: 'center',
       justifyContent: 'center',
     },
-    input: {
-        height: 40,
-        margin: 12,
-        borderWidth: 1,
-        padding: 10,
-    },
+    button:{
+      backgroundColor: '#000',
+    }
   });
-  
