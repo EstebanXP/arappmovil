@@ -2,14 +2,16 @@ import React, {useEffect, useState} from "react";
 import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput} from 'react-native';
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
+import {Picker} from '@react-native-picker/picker';
 
 export default function liveShowsManagement(props,{navigation}) {
 
     const [liveShows, setLiveShows] = useState([])
+    const [sort, setSort] = useState("showName");
 
     useEffect(()=>{
       let unmounted = false;
-        firebase.db.collection('LiveShows').onSnapshot(querySnapshot=>{
+        firebase.db.collection('LiveShows').orderBy(sort).onSnapshot(querySnapshot=>{
           const liveShows = [];
           querySnapshot.docs.forEach(doc=>{
             const {showLocation, showName, showTour, showDate, showPlace, showBand,} = doc.data()
@@ -29,7 +31,7 @@ export default function liveShowsManagement(props,{navigation}) {
         return () => {
           unmounted = true;
         }
-    })
+    },[sort])
 
     return ( 
       <SafeAreaView>
@@ -37,6 +39,13 @@ export default function liveShowsManagement(props,{navigation}) {
             title="Crear live show 1"
             onPress={() => props.navigation.navigate('Live Shows Create')}
         />
+        <Picker
+          selectedValue={sort}
+          onValueChange={(itemValue,itemIndex)=>setSort(itemValue)}
+        > 
+        <Picker.Item label="Nombre" value="showName" />
+        <Picker.Item label="Fecha" value="showDate" />
+        </Picker>
           {
             liveShows.map(liveShow =>{
               return(
