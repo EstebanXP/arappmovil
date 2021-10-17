@@ -39,11 +39,11 @@ export default function liveShowsManagement(props,{navigation}) {
   const deleteShow =  async () =>{
     const dbRef = firebase.db.collection('LiveShows').doc(props.route.params.showId);
     await dbRef.delete();
-    alert("Usuario eliminado")
+    alert("Show eliminado")
     props.navigation.navigate('Live Shows List')
   }
 
-  const updateUser = async () =>{
+  const updateShow = async () =>{
     const dbRef = firebase.db.collection('LiveShows').doc(props.route.params.showId);
     await dbRef.set({
         showLocation: show.showLocation,
@@ -104,7 +104,7 @@ export default function liveShowsManagement(props,{navigation}) {
             onChangeText={(value) => handleChangeText("showBand", value)}
           /> 
           <View>
-              <Button title = "Actualizar show" onPress = {() => updateUser()}/>
+              <Button title = "Actualizar show" onPress = {() => updateShow()}/>
           </View>
           <View>
               <Button title = "Eliminar show" onPress = {() => openConfirmationAlert()}/>

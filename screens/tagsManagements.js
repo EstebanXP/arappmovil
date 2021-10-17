@@ -3,62 +3,70 @@ import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput} from 'react-nati
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 
-export default function tagsManagements() {
+export default function tagsManagements(props,{navigation}) {
 
-    const [tags, setTags] = useState([])
+  const initialState = {
+    id: "",
+    tagName: "",
+  }
+  
+  const [tag, setTag] = useState(initialState)
 
-    const [state, setState] = useState({
-        tagName: ""
+  const getTagById = async (id) =>{
+    const dbRef = firebase.db.collection('Tag').doc(id)
+    const doc = await dbRef.get();
+    const tag = doc.data();
+    setTag({
+      ...tag,
+      id: doc.id,
     })
-
-    useEffect(()=>{
-      firebase.db.collection('Tag').onSnapshot(querySnapshot=>{
-        const tags = [];
-
-        querySnapshot.docs.forEach(doc=>{
-          const {tagName} = doc.data()
-          tags.push({
-            id: doc.id,
-            tagName
-          })
-        })
-        setTags(tags)
-      })
-    })
-
-    const handleChangeText = (field, value) =>{
-        setState({ ...state ,[field]: value});
     }
 
-    const addTag = async () => {
-        console.log(state)
-        await firebase.db.collection('Tag').add({
-          tagName: state.tagName,
-        })
-       alert('guardado')
-      }
+    useEffect (()=>{
+      getTagById(props.route.params.tagId);
+  }, [])
+
+  const handleChangeText = (field, value) =>{
+    setTag({ ...tag ,[field]: value});
+  }
+
+  const deleteTag =  async () =>{
+    const dbRef = firebase.db.collection('Tag').doc(props.route.params.tagId);
+    await dbRef.delete();
+    alert("Tag eliminada")
+    props.navigation.navigate('Tags List')
+  }
+
+  const updateTag = async () =>{
+    const dbRef = firebase.db.collection('Tag').doc(props.route.params.tagId);
+    await dbRef.set({
+        tagName: tag.tagName,
+    })
+    setTag(initialState)
+    props.navigation.navigate('Tags List')
+  }
+
+  const openConfirmationAlert = () =>{
+    Alert.alert("Eliminar Tag", "Estas seguro?", [
+      {text: "Si", onPress: () => deleteTag()},
+      {text: "No", onPress: () => console.log("Nel")},
+    ])
+  }
 
     return ( 
       <SafeAreaView>
           <TextInput 
             style={styles.input}
             placeholder="Nombre Tag"
+            value={tag.tagName}
             onChangeText={(value) => handleChangeText("tagName", value)}
           /> 
           <View>
-              <Button title = "Guardar etiqueta" onPress = {() => addTag()}/>
+              <Button title = "Actualizar Tag" onPress = {() => updateTag()}/>
           </View>
-          {
-            tags.map(tag =>{
-              return(
-                <ListItem key={tag.id}>
-                  <ListItem.Content>
-                    <ListItem.Title>{tag.tagName}</ListItem.Title>
-                  </ListItem.Content>
-                </ListItem>
-              )
-            })
-          }
+          <View>
+              <Button title = "Eliminar Tag" onPress = {() => openConfirmationAlert()}/>
+          </View>
       </SafeAreaView>
     );
 }

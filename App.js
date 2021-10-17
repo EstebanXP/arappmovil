@@ -11,10 +11,13 @@ import liveShowsCreate from './screens/liveShowsCreate';
 import liveShowsManagement from './screens/liveShowsManagement';
 import setListManagement from './screens/setListManagement';
 import songsManagement from './screens/songsManagement';
+import tagsList from './screens/tagsList';
+import tagsCreate from './screens/tagsCreate';
 import tagsManagements from './screens/tagsManagements';
 import registerUser from './screens/registerUser';
 import loginUser from './screens/loginUser';
 import showSongs from './screens/showSongs';
+import rsm from './screens/rsm';
 
 const Stack=createNativeStackNavigator();
 
@@ -30,11 +33,15 @@ export default function App() {
           <Stack.Screen name="Live Shows Create" component={liveShowsCreate}  />
           <Stack.Screen name="Live Shows Management" component={liveShowsManagement}  />
           <Stack.Screen name="Set List Management" component={setListManagement}  />
-          <Stack.Screen name="Songs Management" component={songsManagement}  />
+          <Stack.Screen name="Add Songs" component={songsManagement}  />
+          <Stack.Screen name="Tags List" component={tagsList}  />
+          <Stack.Screen name="Tags Create" component={tagsCreate}  />
           <Stack.Screen name="Tags Management" component={tagsManagements}  />
           <Stack.Screen name="Register User" component={registerUser}  />
           <Stack.Screen name="Login User" component={loginUser}  />
           <Stack.Screen name="Show Songs" component={showSongs}  />
+          <Stack.Screen name="Manage Song" component={rsm}  />
+          
         </Stack.Navigator>
       </NavigationContainer>
   );
