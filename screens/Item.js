@@ -4,13 +4,13 @@ import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 
 export default function Item({item}){
-    
+    const [var1,setVar1]= useState("Hola mundo");
     useEffect(()=>{
      },[])
 
     return (
         <View>
-            <Text>{item}</Text>
+            <Text>{var1}</Text>
         </View>
     )
 }

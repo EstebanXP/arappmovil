@@ -2,19 +2,16 @@ import React,{useState,useEffect} from 'react'
 import { Text, View, SafeAreaView, ScrollView, FlatList} from 'react-native';
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
-import Item from './Item';
+import {Picker} from '@react-native-picker/picker';
 
-export default function showSongs(){
+export default function showSongs(props,{navigation}){
     const [songs, setSongs] = useState([]);
-
-    const renderItem=({item})=>(
-      <Item >{item.title}</Item>
-    )
-  
+    const [sort, setSort] = useState("title");
 
     useEffect(()=>{
+      console.log(sort);
        let unmounted = false;
-       firebase.db.collection('songs').onSnapshot(querySnapshot=>{
+       firebase.db.collection('songs').orderBy(sort).onSnapshot(querySnapshot=>{
          const docs=[];
          querySnapshot.docs.forEach(doc=>{
            const {artist,chords,lyrics,title}=doc.data();
@@ -35,15 +32,28 @@ export default function showSongs(){
        return () => {
         unmounted = true;
       }
-     },[])
+     },[sort])
 
     return (
       <SafeAreaView>
+        <Picker
+          selectedValue={sort}
+          onValueChange={(itemValue,itemIndex)=>setSort(itemValue)}
+        > 
+        <Picker.Item label="Title" value="title" />
+        <Picker.Item label="Artist" value="artist" />
+        </Picker>
       {
         songs.map(song =>{
           return(
             <ScrollView>
-            <ListItem key={song.id} bottomDivider onPress={() => alert(song.id)}>
+            <ListItem key={song.id} bottomDivider onPress={() => {props.navigation.navigate('Manage Song',{
+              songId:song.id,
+              songTitle:song.title,
+              songLyrics:song.lyrics
+            }
+              )}}>
+                
               <ListItem.Content>
                 <ListItem.Title>{song.title}</ListItem.Title>
                 <ListItem.Subtitle>{song.artist}</ListItem.Subtitle>

@@ -34,7 +34,7 @@ export default function liveShowsManagement(props,{navigation}) {
     return ( 
       <SafeAreaView>
           <Button
-            title="Crear live show"
+            title="Crear live show 1"
             onPress={() => props.navigation.navigate('Live Shows Create')}
         />
           {

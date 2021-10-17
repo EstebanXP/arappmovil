@@ -18,7 +18,7 @@ export default function Home({navigation}/*Si se necesita que el componente vaya
         />
         <Button
             title="Ir a administrar canciones"
-            onPress={() => navigation.navigate('Songs Management')}
+            onPress={() => navigation.navigate('Add Songs')}
         />
         <Button
             title="Ir a Lista de etiquetas"
