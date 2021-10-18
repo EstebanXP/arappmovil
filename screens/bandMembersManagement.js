@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput} from 'react-native';
+import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput, Alert} from 'react-native';
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 
@@ -33,21 +33,21 @@ const handleChangeText = (field, value) =>{
 }
 
 const deleteMember =  async () =>{
-  const dbRef = firebase.db.collection('bandMembers').doc(props.route.params.showId);
+  const dbRef = firebase.db.collection('bandMembers').doc(props.route.params.memberId);
   await dbRef.delete();
   alert("Miembro eliminado")
   props.navigation.navigate('Band Members List')
 }
 
 const updateMember = async () =>{
-  const dbRef = firebase.db.collection('bandMembers').doc(props.route.params.showId);
+  const dbRef = firebase.db.collection('bandMembers').doc(props.route.params.memberId);
   await dbRef.set({
       memberName: member.memberName,
       userName: member.userName,
       rol: member.rol,
   })
-  setShow(initialState)
-  props.navigation.navigate('Live Shows List')
+  setBandMember(initialState)
+  props.navigation.navigate('Band Members List')
 }   
 
 const openConfirmationAlert = () =>{

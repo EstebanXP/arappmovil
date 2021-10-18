@@ -30,9 +30,9 @@ export default function App() {
         <Stack.Navigator >
           <Stack.Screen name="Home" component={Home}  />
           <Stack.Screen name="Bands Management" component={bandsManagement}  />
-          <Stack.Screen name="Bands Members List" component={bandMembersList}  />
-          <Stack.Screen name="Bands Members Create" component={bandMembersCreate}  />
-          <Stack.Screen name="Bands Members Management" component={bandMembersManagement}  />
+          <Stack.Screen name="Band Members List" component={bandMembersList}  />
+          <Stack.Screen name="Band Members Create" component={bandMembersCreate}  />
+          <Stack.Screen name="Band Members Management" component={bandMembersManagement}  />
           <Stack.Screen name="Live Shows List" component={liveShowsList}  />
           <Stack.Screen name="Live Shows Create" component={liveShowsCreate}  />
           <Stack.Screen name="Live Shows Management" component={liveShowsManagement}  />

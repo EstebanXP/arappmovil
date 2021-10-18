@@ -36,12 +36,12 @@ export default function bandmembersManagement(props,{navigation}) {
             title="Crear miembro"
             onPress={() => props.navigation.navigate('Band Members Create')}
         />
-        <Picker
+         <Picker
           selectedValue={sort}
           onValueChange={(itemValue,itemIndex)=>setSort(itemValue)}
         > 
         <Picker.Item label="Nombre" value="memberName" />
-        <Picker.Item label="Usuario" value="userName" />
+        <Picker.Item label="Rol" value="rol" />
         </Picker>
           {
             bandMembers.map(bandMember =>{
@@ -53,7 +53,7 @@ export default function bandmembersManagement(props,{navigation}) {
                 }}>
                   <ListItem.Content>
                     <ListItem.Title>{bandMember.memberName}</ListItem.Title>
-                    <ListItem.Subtitle>{bandMember.userName}</ListItem.Subtitle>
+                    <ListItem.Subtitle>{bandMember.rol}</ListItem.Subtitle>
                   </ListItem.Content>
                 </ListItem>
               )

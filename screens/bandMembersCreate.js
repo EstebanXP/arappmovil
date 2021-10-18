@@ -17,7 +17,7 @@ export default function bandMembersCreate({navigation}) {
 
     const addMember = async () => {
       console.log(state)
-      await firebase.db.collection('BandsMembers').add({
+      await firebase.db.collection('bandMembers').add({
         memberName: state.memberName,
         userName: state.userName,
         rol: state.rol,

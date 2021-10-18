@@ -61,7 +61,7 @@ export default function liveShowsManagement(props,{navigation}) {
   const openConfirmationAlert = () =>{
     Alert.alert("Eliminar Show", "Estas seguro?", [
       {text: "Si", onPress: () => deleteShow()},
-      {text: "No", onPress: () => console.log("Nel")},
+      {text: "No", onPress: () => console.log("Ne")},
     ])
   }
 
