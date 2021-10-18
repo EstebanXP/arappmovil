@@ -5,7 +5,7 @@ export default function Home({navigation}/*Si se necesita que el componente vaya
     return (
       <View style={styles.container}>
         <Button
-            title="Ir a administrar bandas chingonas"
+            title="Ir a administrar bandas"
             onPress={() => navigation.navigate('Bands Management')}
         />
         <Button
@@ -26,7 +26,7 @@ export default function Home({navigation}/*Si se necesita que el componente vaya
         />
         <Button
             title="Ir a administrar miembros de banda"
-            onPress={() => navigation.navigate('Bands Members Management')}
+            onPress={() => navigation.navigate('Band Members Management')}
         />
         <Button
             title="Ir a registrar un usuario"

@@ -5,7 +5,9 @@ import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from "./screens/Home";
 import bandsManagement from './screens/bandsManagement';
-import bandsMembersManagement from './screens/bandsMembersManagement';
+import bandMembersList from './screens/bandMembersList';
+import bandMembersCreate from './screens/bandMembersCreate';
+import bandMembersManagement from './screens/bandMembersManagement';
 import liveShowsList from './screens/liveShowsList';
 import liveShowsCreate from './screens/liveShowsCreate';
 import liveShowsManagement from './screens/liveShowsManagement';
@@ -28,7 +30,9 @@ export default function App() {
         <Stack.Navigator >
           <Stack.Screen name="Home" component={Home}  />
           <Stack.Screen name="Bands Management" component={bandsManagement}  />
-          <Stack.Screen name="Bands Members Management" component={bandsMembersManagement}  />
+          <Stack.Screen name="Bands Members List" component={bandMembersList}  />
+          <Stack.Screen name="Bands Members Create" component={bandMembersCreate}  />
+          <Stack.Screen name="Bands Members Management" component={bandMembersManagement}  />
           <Stack.Screen name="Live Shows List" component={liveShowsList}  />
           <Stack.Screen name="Live Shows Create" component={liveShowsCreate}  />
           <Stack.Screen name="Live Shows Management" component={liveShowsManagement}  />
