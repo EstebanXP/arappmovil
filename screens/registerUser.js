@@ -4,7 +4,7 @@ import { Button } from "react-native-elements/dist/buttons/Button";
 import firebase from "../database/firebase";
 import { NavigationContainer } from "@react-navigation/native";
 import { render } from "react-dom";
-
+//https://abbey-road-app.firebaseapp.com/__/auth/handler
 export default class registerUser extends React.Component{
   constructor(props){
     super(props)
@@ -12,6 +12,8 @@ export default class registerUser extends React.Component{
       email: '',
       password: '',
       confirmPassword: '',
+      username: '',
+      name: ''
     }
   }
   createAccount =()=>{
@@ -39,6 +41,12 @@ export default class registerUser extends React.Component{
       return (
         <View style={styles.container}>
           <Text>Signup</Text>
+          <TextInput placeholder="type name" onChangeText={(name) => {
+            this.setState({name:name})
+          }} value={this.state.email}/>
+          <TextInput placeholder="type username" onChangeText={(username) => {
+            this.setState({username:username})
+          }} value={this.state.email}/>
           <TextInput placeholder="type email" onChangeText={(email) => {
             this.setState({email:email})
           }} value={this.state.email}/>

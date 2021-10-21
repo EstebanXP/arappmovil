@@ -1,7 +1,17 @@
-import React from "react";
-import { StyleSheet, Text, View, Button } from 'react-native';
-
+import React, {useEffect} from "react";
+import { StyleSheet, Text, View, Button, Alert } from 'react-native';
+import firebase from "../database/firebase";
 export default function Home({navigation}/*Si se necesita que el componente vaya a otras pantallas, necesita heredar esto */) {
+    useEffect(()=>{
+        checkIfLoggedIn();
+    },[]);
+    checkIfLoggedIn = () => {
+        firebase.firebase.app().auth().onAuthStateChanged(user =>{
+            if(!user){
+                navigation.navigate('Login User');
+            }
+        })
+    }
     return (
       <View style={styles.container}>
         <Button
