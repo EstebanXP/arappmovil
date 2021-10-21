@@ -3,11 +3,13 @@ import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput} from 'react-nati
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 import {Picker} from '@react-native-picker/picker';
+import { Input } from 'react-native-elements/dist/input/Input';
 
 export default function liveShowsManagement(props,{navigation}) {
 
     const [liveShows, setLiveShows] = useState([])
     const [sort, setSort] = useState("showName");
+    const [searchVar,setSearchVar] = useState("");
 
     useEffect(()=>{
       let unmounted = false;
@@ -35,6 +37,7 @@ export default function liveShowsManagement(props,{navigation}) {
 
     return ( 
       <SafeAreaView>
+        <Input placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
           <Button
             title="Crear live show 1"
             onPress={() => props.navigation.navigate('Live Shows Create')}
@@ -47,7 +50,15 @@ export default function liveShowsManagement(props,{navigation}) {
         <Picker.Item label="Fecha" value="showDate" />
         </Picker>
           {
-            liveShows.map(liveShow =>{
+            liveShows.filter((val)=>{
+              if(searchVar===""){
+                return val;
+              }else if(val.showName.toLowerCase().includes(searchVar.toLocaleLowerCase())){
+                return val;
+              }else if(val.showDate.toLowerCase().includes(searchVar.toLocaleLowerCase())){
+                return val;
+              }
+            }).map(liveShow =>{
               return(
                 <ListItem key={liveShow.id} bottomDivider onPress={() => {
                   props.navigation.navigate('Live Shows Management', {
