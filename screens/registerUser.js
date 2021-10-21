@@ -4,6 +4,7 @@ import { Button } from "react-native-elements/dist/buttons/Button";
 import firebase from "../database/firebase";
 import { NavigationContainer } from "@react-navigation/native";
 import { render } from "react-dom";
+import * as Google from 'expo-google-app-auth';
 //https://abbey-road-app.firebaseapp.com/__/auth/handler
 export default class registerUser extends React.Component{
   constructor(props){
@@ -37,6 +38,26 @@ export default class registerUser extends React.Component{
         })
     }
   }
+
+    signInWithGoogleAsync = async()=> {
+      try {
+        const result = await Google.logInAsync({
+          behavior: 'web',
+          androidClientId: '126323543490-jsbg1t6cpnvjletki8udrkn3sb341sfv.apps.googleusercontent.com',
+          iosClientId: '126323543490-qo8841if2ddlrss6c5hru3uspkc4elu5.apps.googleusercontent.com',
+          scopes: ['profile', 'email'],
+        });
+
+        if (result.type === 'success') {
+          return result.accessToken;
+        } else {
+          return { cancelled: true };
+        }
+      } catch (e) {
+        return { error: true };
+      }
+    }
+    
     render(){
       return (
         <View style={styles.container}>
@@ -63,7 +84,7 @@ export default class registerUser extends React.Component{
           secureTextEntry={true}
           autoCorrect={false}/>
           <Button title="Sign Up" style={styles.button} onPress={this.createAccount} ></Button>
-          
+          <Button title="Sign Up with Google" style={styles.button} onPress={this.signInWithGoogleAsync} ></Button>
         </View>
       );
     }
