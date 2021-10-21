@@ -13,7 +13,7 @@ export default function Home({navigation}/*Si se necesita que el componente vaya
       <View style={styles.container}>
         <Button
             title="Ir a administrar bandas"
-            onPress={() => navigation.navigate('Bands Management')}
+            onPress={() => navigation.navigate('Bands List')}
         />
         <Button
             title="Ir a lista de live shows"

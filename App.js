@@ -4,6 +4,8 @@ import { StyleSheet, Text, View } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from "./screens/Home";
+import bandsList from './screens/bandsList';
+import bandsCreate from './screens/bandsCreate';
 import bandsManagement from './screens/bandsManagement';
 import bandMembersList from './screens/bandMembersList';
 import bandMembersCreate from './screens/bandMembersCreate';
@@ -29,6 +31,8 @@ export default function App() {
         
         <Stack.Navigator >
           <Stack.Screen name="Home" component={Home}  />
+          <Stack.Screen name="Bands List" component={bandsList}  />
+          <Stack.Screen name="Bands Create" component={bandsCreate}  />
           <Stack.Screen name="Bands Management" component={bandsManagement}  />
           <Stack.Screen name="Band Members List" component={bandMembersList}  />
           <Stack.Screen name="Band Members Create" component={bandMembersCreate}  />
