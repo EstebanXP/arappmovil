@@ -59,7 +59,7 @@ export default function BandsList(props,{navigation}) {
             }).map(band =>{
               return(
                 <ListItem key={band.id} bottomDivider onPress={() => {
-                  props.navigation.navigate('Live Shows Management', {
+                  props.navigation.navigate('Bands Management', {
                     bandId: band.id 
                   })
                 }}>
