@@ -3,11 +3,13 @@ import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput} from 'react-nati
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 import {Picker} from '@react-native-picker/picker';
+import { Input } from 'react-native-elements/dist/input/Input';
 
 export default function bandmembersManagement(props,{navigation}) {
 
     const [bandMembers, setBandMember] = useState([])
     const [sort, setSort] = useState("memberName");
+    const [searchVar,setSearchVar] = useState("");
 
     useEffect(()=>{
       let unmounted = false;
@@ -32,6 +34,7 @@ export default function bandmembersManagement(props,{navigation}) {
 
     return ( 
       <SafeAreaView>
+        <Input placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
           <Button
             title="Crear miembro"
             onPress={() => props.navigation.navigate('Band Members Create')}
@@ -44,7 +47,15 @@ export default function bandmembersManagement(props,{navigation}) {
         <Picker.Item label="Rol" value="rol" />
         </Picker>
           {
-            bandMembers.map(bandMember =>{
+            bandMembers.filter((val)=>{
+              if(searchVar===""){
+                return val;
+              }else if(val.memberName.toLowerCase().includes(searchVar.toLocaleLowerCase())){
+                return val;
+              }else if(val.rol.toLowerCase().includes(searchVar.toLocaleLowerCase())){
+                return val;
+              }
+            }).map(bandMember =>{
               return(
                 <ListItem key={bandMember.id} bottomDivider onPress={() => {
                   props.navigation.navigate('Band Members Management', {
