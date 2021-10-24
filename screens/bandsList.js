@@ -53,7 +53,7 @@ export default function BandsList(props,{navigation}) {
                 return val;
               }else if(val.bandName.toLowerCase().includes(searchVar.toLocaleLowerCase())){
                 return val;
-              }else if(val.BandGenres.toLowerCase().includes(searchVar.toLocaleLowerCase())){
+              }else if(val.bandGenres.toLowerCase().includes(searchVar.toLocaleLowerCase())){
                 return val;
               }
             }).map(band =>{
