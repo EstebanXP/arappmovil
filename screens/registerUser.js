@@ -34,6 +34,7 @@ export default class registerUser extends React.Component{
         firebase.firebase.app().auth().onAuthStateChanged((user)=>{
           if(user){
             Alert.alert("Signed in");
+            console.log(user.uid);
           }
         })
     }

@@ -1,6 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
-import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
+import React, { Fragment, useState } from 'react';
+import { SafeAreaView, StyleSheet, Text, View } from 'react-native';
 import {NavigationContainer} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Home from "./screens/Home";
@@ -19,13 +19,21 @@ import tagsList from './screens/tagsList';
 import tagsCreate from './screens/tagsCreate';
 import tagsManagements from './screens/tagsManagements';
 import registerUser from './screens/registerUser';
-import loginUser from './screens/loginUser';
+import LoginUser from './screens/LoginUser';
 import showSongs from './screens/showSongs';
 import rsm from './screens/rsm';
+import LoginTest from './screens/LoginTest';
 
 const Stack=createNativeStackNavigator();
 
 export default function App() {
+
+  const [userActive,setUserActive]=useState(true);//SI NECESITAN TRABAJAR NADA MAS CAMBIEN ESTE ESTADO A TRUE Y DEJARLO EN FALSE ANTES DE HACER COMMIT
+  if(userActive===false){
+    return(
+        <LoginUser></LoginUser>
+    );
+  }else{
   return (
       <NavigationContainer>
         
@@ -46,13 +54,14 @@ export default function App() {
           <Stack.Screen name="Tags Create" component={tagsCreate}  />
           <Stack.Screen name="Tags Management" component={tagsManagements}  />
           <Stack.Screen name="Register User" component={registerUser}  />
-          <Stack.Screen name="Login User" component={loginUser}  />
+          <Stack.Screen name="Login User" component={LoginUser}  />
           <Stack.Screen name="Show Songs" component={showSongs}  />
           <Stack.Screen name="Manage Song" component={rsm}  />
           
         </Stack.Navigator>
       </NavigationContainer>
   );
+  }
 }
 
 

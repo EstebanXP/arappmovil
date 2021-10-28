@@ -1,10 +1,10 @@
 import React, {useState} from "react";
-import { StyleSheet, Text, View,TextInput, Alert } from 'react-native';
-import { Button } from "react-native-elements/dist/buttons/Button";
+import { StyleSheet, Text, View,TextInput, Alert,Button } from 'react-native';
+//import { Button } from "react-native-elements/dist/buttons/Button";
 import firebase from "../database/firebase";
 import { render } from "react-dom";
 
-export default class loginUser extends React.Component{
+export default class LoginUser extends React.Component{
   constructor(props){
     super(props)
     this.state ={

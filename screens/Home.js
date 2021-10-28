@@ -1,7 +1,12 @@
 import React, {useEffect} from "react";
 import { StyleSheet, Text, View, Button, Alert } from 'react-native';
 import firebase from "../database/firebase";
+import Item from "./Item";
+import LoginUser from "./LoginUser";
+import registerUser from "./registerUser";
 export default function Home({navigation}/*Si se necesita que el componente vaya a otras pantallas, necesita heredar esto */) {
+
+    
     useEffect(()=>{
     firebase.firebase.app().auth().onAuthStateChanged(user =>{
             if(!user){
