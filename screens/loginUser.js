@@ -12,8 +12,21 @@ export default class LoginUser extends React.Component{
       password: '',
     }
   }
+
+  getData=async (id)=>{
+    const dbRef = firebase.db.collection("Users").doc(id);
+    const doc = await dbRef.get();
+    const userData = doc.data();
+    this.props.setRole(userData.userRole);
+  }
+
   loginAccount =()=>{
     firebase.firebase.app().auth().signInWithEmailAndPassword(this.state.email,this.state.password)
+    .then((user)=>{
+      this.props.setUserActive(true);
+      this.props.setUser(user.user);
+      this.getData(user.user.uid);
+    })
     .catch((error)=>{
       Alert.alert('Sorry. ' + error.message)
       
@@ -38,7 +51,7 @@ export default class LoginUser extends React.Component{
           secureTextEntry={true}
           autoCorrect={false}/>
           <Button title="Sign In" style={styles.button} onPress={this.loginAccount} ></Button>
-          
+          <Button title="AAAAA" style={styles.button} onPress={()=>console.log(this.props.u12)} ></Button>
         </View>
       );
     }
