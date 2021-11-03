@@ -10,7 +10,7 @@ import songsManagement from "../screens/songsManagement";
 import useRoleContext from "../useContext/useRoleContext";
 export default function Home(
   {
-    navigation
+    navigation,
   } /*Si se necesita que el componente vaya a otras pantallas, necesita heredar esto */
 ) {
   const [state1, setstate1] = useState(true);
@@ -25,13 +25,14 @@ export default function Home(
             return (
               <View>
                 <Button
-                  title="Ir a administrar canciones"
-                  onPress={() => navigation.navigate("Add Songs")}
-                />
-                <Button
                   title="Ir a Lista de etiquetas"
                   onPress={() => navigation.navigate("Tags List")}
                 />
+              </View>
+            );
+          case "Live Experience Designer":
+            return (
+              <View>
                 <Button
                   title="Ir a mostrar canciones"
                   onPress={() => navigation.navigate("Show Songs")}
@@ -40,18 +41,27 @@ export default function Home(
                   title="Ir a administrar canciones"
                   onPress={() => navigation.navigate("Add Songs")}
                 />
-              </View>
-            );
-          case "Live Experience Designer":
-            return (
-              <View>
-                <Text>{roleAux}</Text>
+                <Button
+                  title="Ir a administrar set lists"
+                  onPress={() => navigation.navigate("Set List Management")}
+                />
               </View>
             );
           case "Band Manager":
             return (
               <View>
-                <Text>{roleAux}</Text>
+                <Button
+                  title="Ir a administrar miembros de banda"
+                  onPress={() => navigation.navigate("Band Members List")}
+                />
+                <Button
+                  title="Ir a administrar bandas"
+                  onPress={() => navigation.navigate("Bands List")}
+                />
+                <Button
+                  title="Ir a lista de live shows"
+                  onPress={() => navigation.navigate("Live Shows List")}
+                />
               </View>
             );
           default:
