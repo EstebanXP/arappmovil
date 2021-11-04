@@ -16,6 +16,7 @@ export default function rsm(props, { navigation }) {
     id: "",
     title: "",
     artist: "",
+    chords: "",
     lyrics: "",
   });
 
@@ -66,6 +67,11 @@ export default function rsm(props, { navigation }) {
       <TextInput
         onChangeText={(value) => handleChangeText("artist", value)}
         value={song.artist}
+      ></TextInput>
+      <Text>Chords: </Text>
+      <TextInput
+        onChangeText={(value) => handleChangeText("chords", value)}
+        value={song.chords}
       ></TextInput>
       <Button
         title="Save"
