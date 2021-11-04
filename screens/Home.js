@@ -4,7 +4,7 @@ import React, { useEffect, useState } from "react";
 import { StyleSheet, Text, View, Button, Alert } from "react-native";
 import firebase from "../database/firebase";
 import Item from "./Item";
-import LoginUser from "./LoginUser";
+import LoginUser from "./loginUser";
 import registerUser from "./registerUser";
 import songsManagement from "../screens/songsManagement";
 import useRoleContext from "../useContext/useRoleContext";
