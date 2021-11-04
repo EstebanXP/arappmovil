@@ -25,14 +25,22 @@ export default function Home(
             return (
               <View>
                 <Button
-                  title="Ir a Lista de etiquetas"
-                  onPress={() => navigation.navigate("Tags List")}
+                  title="Ir a administrar set lists"
+                  onPress={() => navigation.navigate("Set List Management")}
+                />
+                <Button
+                  title="Ir a administrar sets"
+                  onPress={() => navigation.navigate("Sets List")}
                 />
               </View>
             );
           case "Live Experience Designer":
             return (
               <View>
+                <Button
+                  title="Ir a Lista de etiquetas"
+                  onPress={() => navigation.navigate("Tags List")}
+                />
                 <Button
                   title="Ir a mostrar canciones"
                   onPress={() => navigation.navigate("Show Songs")}
@@ -44,6 +52,10 @@ export default function Home(
                 <Button
                   title="Ir a administrar set lists"
                   onPress={() => navigation.navigate("Set List Management")}
+                />
+                <Button
+                  title="Ir a administrar sets"
+                  onPress={() => navigation.navigate("Sets Management")}
                 />
               </View>
             );

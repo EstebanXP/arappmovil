@@ -38,7 +38,7 @@ export default function setsManagement(props,{navigation}) {
     props.navigation.navigate('List Of Sets')
   }
 
-  const updateBand = async () =>{
+  const updateSet = async () =>{
     const dbRef = firebase.db.collection('Sets').doc(props.route.params.setId);
     await dbRef.set({
         setName: set.setName,

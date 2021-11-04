@@ -14,6 +14,9 @@ import liveShowsList from "./screens/liveShowsList";
 import liveShowsCreate from "./screens/liveShowsCreate";
 import liveShowsManagement from "./screens/liveShowsManagement";
 import setListManagement from "./screens/setListManagement";
+import setsManagement from "./screens/setsManagement";
+import setsCreate from "./screens/setsCreate";
+import setsList from "./screens/setsList";
 import songsManagement from "./screens/songsManagement";
 import tagsList from "./screens/tagsList";
 import tagsCreate from "./screens/tagsCreate";
@@ -90,6 +93,18 @@ export default function App() {
             <Stack.Screen
               name="Set List Management"
               component={setListManagement}
+            />
+            <Stack.Screen
+              name="Sets Management"
+              component={setsManagement}
+            />
+            <Stack.Screen
+              name="Sets Create"
+              component={setsCreate}
+            />
+            <Stack.Screen
+              name="Sets Lists"
+              component={setsList}
             />
             <Stack.Screen name="Add Songs" component={songsManagement} />
             <Stack.Screen name="Tags List" component={tagsList} />
