@@ -36,6 +36,8 @@ export default function rsm(props, { navigation }) {
     await dbRef.set({
       title: song.title,
       lyrics: song.lyrics,
+      artist: song.artist,
+      chords: song.chords,
     });
     props.navigation.navigate("Show Songs");
   }
@@ -65,13 +67,13 @@ export default function rsm(props, { navigation }) {
       ></TextInput>
       <Text>Artist: </Text>
       <TextInput
-        onChangeText={(value) => handleChangeText("artist", value)}
         value={song.artist}
+        onChangeText={(value) => handleChangeText("artist", value)}
       ></TextInput>
       <Text>Chords: </Text>
       <TextInput
-        onChangeText={(value) => handleChangeText("chords", value)}
         value={song.chords}
+        onChangeText={(value) => handleChangeText("chords", value)}
       ></TextInput>
       <Button
         title="Save"
