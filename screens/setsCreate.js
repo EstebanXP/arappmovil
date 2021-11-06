@@ -17,10 +17,10 @@ export default function setCreate({navigation}) {
     const addSet = async () => {
       console.log(state)
       await firebase.db.collection('Sets').add({
-        bandName: state.setName,
+        setName: state.setName,
       })
      alert('guardado')
-     navigation.navigate('List Of Sets')
+     navigation.navigate('Sets Lists')
     }
 
     return ( 

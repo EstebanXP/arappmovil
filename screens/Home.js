@@ -55,7 +55,7 @@ export default function Home(
                 />
                 <Button
                   title="Ir a administrar sets"
-                  onPress={() => navigation.navigate("Sets Management")}
+                  onPress={() => navigation.navigate("Sets Lists")}
                 />
               </View>
             );

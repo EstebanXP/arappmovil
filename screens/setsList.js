@@ -14,7 +14,7 @@ export default function SetsList(props,{navigation}) {
     useEffect(()=>{
       let unmounted = false;
         firebase.db.collection('Sets').orderBy(sort).onSnapshot(querySnapshot=>{
-          const Bands = [];
+          const Sets = [];
           querySnapshot.docs.forEach(doc=>{
             const {setName,/*que pedo con las rolas*/} = doc.data()
             Sets.push({

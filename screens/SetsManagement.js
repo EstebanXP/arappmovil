@@ -28,24 +28,24 @@ export default function setsManagement(props,{navigation}) {
   }, [])
 
   const handleChangeText = (field, value) =>{
-    setset({ ...set ,[field]: value});
+    setSet({ ...set ,[field]: value});
   }
 
   const deleteSet =  async () =>{
     const dbRef = firebase.db.collection('Sets').doc(props.route.params.setId);
     await dbRef.delete();
     alert("Set eliminado")
-    props.navigation.navigate('List Of Sets')
+    props.navigation.navigate('Sets Lists')
   }
 
   const updateSet = async () =>{
     const dbRef = firebase.db.collection('Sets').doc(props.route.params.setId);
     await dbRef.set({
         setName: set.setName,
-        songsList: set.songsList,
+        //songsList: set.songsList,
     })
     setSet(initialState)
-    props.navigation.navigate('List Of Sets')
+    props.navigation.navigate('Sets Lists')
   }
 
   const openConfirmationAlert = () =>{
