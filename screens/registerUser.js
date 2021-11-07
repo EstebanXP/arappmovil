@@ -6,7 +6,7 @@ import { NavigationContainer } from "@react-navigation/native";
 import { render } from "react-dom";
 import * as Google from 'expo-google-app-auth';
 //https://abbey-road-app.firebaseapp.com/__/auth/handler
-export default class registerUser extends React.Component{
+export default class RegisterUser extends React.Component{
   constructor(props){
     super(props)
     this.state ={
@@ -86,6 +86,7 @@ export default class registerUser extends React.Component{
           autoCorrect={false}/>
           <Button title="Sign Up" style={styles.button} onPress={this.createAccount} ></Button>
           <Button title="Sign Up with Google" style={styles.button} onPress={this.signInWithGoogleAsync} ></Button>
+          
         </View>
       );
     }

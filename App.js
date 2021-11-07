@@ -21,13 +21,14 @@ import songsManagement from "./screens/songsManagement";
 import tagsList from "./screens/tagsList";
 import tagsCreate from "./screens/tagsCreate";
 import tagsManagements from "./screens/tagsManagements";
-import registerUser from "./screens/registerUser";
+import RegisterUser from "./screens/RegisterUser";
 import LoginUser from "./screens/loginUser";
 import showSongs from "./screens/showSongs";
 import rsm from "./screens/rsm";
 import LoginTest from "./screens/LoginTest";
 import firebase from "./database/firebase";
 import RoleContext from "./exports/RoleContext";
+import { Button } from "react-native";
 
 const Stack = createNativeStackNavigator();
 
@@ -35,35 +36,46 @@ export default function App() {
   const [userActive, setUserActive] = useState(false); //SI NECESITAN TRABAJAR NADA MAS CAMBIEN ESTE ESTADO A TRUE Y DEJARLO EN FALSE ANTES DE HACER COMMIT
   const [user, setUser] = useState();
   const [role, setRole] = useState("");
+  const [viewState, setViewState] = useState(true);
 
   const getUserFromDb = async (id) => {
     const dbRef = firebase.db.collection("Users").doc(id);
     const doc = await dbRef.get();
     const userData = doc.data();
     setRole(userData.userRole);
-    
   };
 
   useEffect(() => {
     if (user != null) {
       //getUserFromDb(user.uid);
-      
     }
   });
 
   if (userActive === false) {
     return (
-        <LoginUser
-          u12={userActive}
-          setUserActive={setUserActive}
-          setUser={setUser}
-          setRole={setRole}
-        ></LoginUser>
+      <View>
+        {viewState ? (
+          <LoginUser
+            u12={userActive}
+            setUserActive={setUserActive}
+            setUser={setUser}
+            setRole={setRole}
+            setViewState={setViewState}
+          />
+        ) : (
+          <RegisterUser setViewState={setViewState}></RegisterUser>
+        )}
+        <Button
+          title="Switch"
+          onPress={() => setViewState(!viewState)}
+          style={styles.button}
+        ></Button>
+      </View>
     );
   } else {
     return (
       <NavigationContainer>
-      <RoleContext.Provider value={role}>
+        <RoleContext.Provider value={role}>
           <Stack.Navigator>
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Bands List" component={bandsList} />
@@ -94,30 +106,20 @@ export default function App() {
               name="Set List Management"
               component={setListManagement}
             />
-            <Stack.Screen
-              name="Sets Management"
-              component={setsManagement}
-            />
-            <Stack.Screen
-              name="Sets Create"
-              component={setsCreate}
-            />
-            <Stack.Screen
-              name="Sets Lists"
-              component={setsList}
-            />
+            <Stack.Screen name="Sets Management" component={setsManagement} />
+            <Stack.Screen name="Sets Create" component={setsCreate} />
+            <Stack.Screen name="Sets Lists" component={setsList} />
             <Stack.Screen name="Add Songs" component={songsManagement} />
             <Stack.Screen name="Tags List" component={tagsList} />
             <Stack.Screen name="Tags Create" component={tagsCreate} />
             <Stack.Screen name="Tags Management" component={tagsManagements} />
-            <Stack.Screen name="Register User" component={registerUser} />
+            <Stack.Screen name="Register User" component={RegisterUser} />
             <Stack.Screen name="Login User" component={LoginUser} />
             <Stack.Screen name="Show Songs" component={showSongs} />
             <Stack.Screen name="Manage Song" component={rsm} />
           </Stack.Navigator>
-          </RoleContext.Provider>
-        </NavigationContainer>
-      
+        </RoleContext.Provider>
+      </NavigationContainer>
     );
   }
 }
@@ -129,6 +131,9 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
   },
+  button:{
+    backgroundColor: '#000',
+  }
 });
 /*
 <NavigationContainer>

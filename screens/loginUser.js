@@ -51,7 +51,7 @@ export default class LoginUser extends React.Component{
           secureTextEntry={true}
           autoCorrect={false}/>
           <Button title="Sign In" style={styles.button} onPress={this.loginAccount} ></Button>
-          <Button title="AAAAA" style={styles.button} onPress={()=>console.log(this.props.u12)} ></Button>
+          
         </View>
       );
     }
