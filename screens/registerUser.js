@@ -65,10 +65,10 @@ export default class RegisterUser extends React.Component{
           <Text>Signup</Text>
           <TextInput placeholder="type name" onChangeText={(name) => {
             this.setState({name:name})
-          }} value={this.state.email}/>
+          }} value={this.state.name}/>
           <TextInput placeholder="type username" onChangeText={(username) => {
             this.setState({username:username})
-          }} value={this.state.email}/>
+          }} value={this.state.username}/>
           <TextInput placeholder="type email" onChangeText={(email) => {
             this.setState({email:email})
           }} value={this.state.email}/>
