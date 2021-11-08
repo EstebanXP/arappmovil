@@ -8,21 +8,21 @@ import { Input } from 'react-native-elements/dist/input/Input';
 export default function setList(props,{navigation}) {
 
     const [SetList, setSetLists] = useState([])
-    const [sort, setSort] = useState("setListName");
+    const [sort, setSort] = useState("name");
     const [searchVar,setSearchVar] = useState("");
 
     useEffect(()=>{
       let unmounted = false;
-        firebase.db.collection('setLists').orderBy(sort).onSnapshot(querySnapshot=>{
+        firebase.db.collection('setlists').orderBy(sort).onSnapshot(querySnapshot=>{
           const SetList = [];
           querySnapshot.docs.forEach(doc=>{
-            const {setListName, set, showName, bandName,} = doc.data()
-            Bands.push({
+            const {name, set, show, band,} = doc.data()
+            SetList.push({
               id: doc.id,
-              setListName,
+              name,
               set,
-              showName, 
-              bandName,
+              show, 
+              band,
             })
           })
           if(!unmounted)
@@ -44,8 +44,8 @@ export default function setList(props,{navigation}) {
           selectedValue={sort}
           onValueChange={(itemValue,itemIndex)=>setSort(itemValue)}
         > 
-        <Picker.Item label="Nombre" value="setListName" />
-        <Picker.Item label="Show" value="showName" />
+        <Picker.Item label="Nombre" value="name" />
+        <Picker.Item label="Show" value="show" />
         </Picker>
           {
             SetList.filter((val)=>{
@@ -60,12 +60,12 @@ export default function setList(props,{navigation}) {
               return(
                 <ListItem key={setList.id} bottomDivider onPress={() => {
                   props.navigation.navigate('SetList Management', {
-                    setLitsId: setList.id 
+                    setListId: setList.id 
                   })
                 }}>
                   <ListItem.Content>
-                    <ListItem.Title>{setList.setListName}</ListItem.Title>
-                    <ListItem.Subtitle>{setList.showName}</ListItem.Subtitle>
+                    <ListItem.Title>{setList.name}</ListItem.Title>
+                    <ListItem.Subtitle>{setList.show}</ListItem.Subtitle>
                   </ListItem.Content>
                 </ListItem>
               )

@@ -8,18 +8,19 @@ import { Input } from 'react-native-elements/dist/input/Input';
 export default function SetsList(props,{navigation}) {
 
     const [Sets, setSets] = useState([])
-    const [sort, setSort] = useState("setName");
+    const [sort, setSort] = useState("asc");
     const [searchVar,setSearchVar] = useState("");
 
     useEffect(()=>{
       let unmounted = false;
-        firebase.db.collection('Sets').orderBy(sort).onSnapshot(querySnapshot=>{
+        firebase.db.collection('sets').orderBy("name", sort).onSnapshot(querySnapshot=>{
           const Sets = [];
           querySnapshot.docs.forEach(doc=>{
-            const {setName,/*que pedo con las rolas*/} = doc.data()
+            const {name, songs,/*que pedo con las rolas*/} = doc.data()
             Sets.push({
               id: doc.id,
-              setName,
+              name,
+              songs,
             })
           })
           if(!unmounted)
@@ -41,13 +42,14 @@ export default function SetsList(props,{navigation}) {
           selectedValue={sort}
           onValueChange={(itemValue,itemIndex)=>setSort(itemValue)}
         > 
-        <Picker.Item label="Nombre" value="setName" />
+        <Picker.Item label="A-Z" value="asc" />
+        <Picker.Item label="Z-A" value="desc" />
         </Picker>
           {
             Sets.filter((val)=>{
               if(searchVar===""){
                 return val;
-              }else if(val.setName.toLowerCase().includes(searchVar.toLocaleLowerCase())){
+              }else if(val.name.toLowerCase().includes(searchVar.toLocaleLowerCase())){
                 return val;
               }
             }).map(set =>{
@@ -58,7 +60,7 @@ export default function SetsList(props,{navigation}) {
                   })
                 }}>
                   <ListItem.Content>
-                    <ListItem.Title>{set.setName}</ListItem.Title>
+                    <ListItem.Title>{set.name}</ListItem.Title>
                   </ListItem.Content>
                 </ListItem>
               )

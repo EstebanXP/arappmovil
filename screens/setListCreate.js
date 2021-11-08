@@ -6,10 +6,10 @@ import {ListItem} from 'react-native-elements'
 export default function setListCreate({navigation}) {
 
     const [state, setState] = useState({
-        setListName: "",
-        //set: "",
-        showName: "",
-        bandName: "",
+        name: "",
+        set: "",
+        show: "",
+        band: "",
         //showTag: "", hace falta saber como conectar los tags
     })
 
@@ -20,10 +20,10 @@ export default function setListCreate({navigation}) {
     const addSetList = async () => {
       console.log(state)
       await firebase.db.collection('setlists').add({
-        setListName: state.setListName,
-        //set: state.set,
-        showName: state.showName,
-        bandName: state.bandName,
+        name: state.name,
+        set: state.set,
+        show: state.show,
+        band: state.band,
       })
      alert('guardado')
      navigation.navigate('SetList List')
@@ -38,8 +38,8 @@ export default function setListCreate({navigation}) {
           /> 
           <TextInput 
             style={styles.input}
-            placeholder="Seet"
-            onChangeText={(value) => handleChangeText("sets", value)}
+            placeholder="Set"
+            onChangeText={(value) => handleChangeText("set", value)}
           /> 
           <TextInput 
             style={styles.input}

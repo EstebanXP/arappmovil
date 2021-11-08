@@ -53,7 +53,7 @@ export default function App() {
     }
   });
 
-  if (userActive === false) {
+  if (userActive === false) { 
     return (
       <View>
         {viewState ? (

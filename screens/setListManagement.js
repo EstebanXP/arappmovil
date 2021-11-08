@@ -6,10 +6,10 @@ import {ListItem} from 'react-native-elements'
 export default function setListsManagement(props,{navigation}) {
 
   const initialState = {
-    setListName: "",
-    //set: "",
-    presentationName: "",
-    bandName: "",
+    name: "",
+    set: "",
+    show: "",
+    band: "",
     //showTag: "", hace falta saber como conectar los tags
   }
 
@@ -43,10 +43,10 @@ export default function setListsManagement(props,{navigation}) {
   const updateSetList = async () =>{
     const dbRef = firebase.db.collection('setlists').doc(props.route.params.setListId);
     await dbRef.set({
-        setListName: setList.setListName,
-        //set: setList.set,
-        showName: setList.showName,
-        bandName: setList.bandName,
+        name: setList.name,
+        set: setList.set,
+        show: setList.show,
+        band: setList.band,
     })
     setSetList(initialState)
     props.navigation.navigate('SetList List')
@@ -64,25 +64,25 @@ export default function setListsManagement(props,{navigation}) {
           <TextInput 
             style={styles.input}
             placeholder="Nombre Del SetList"
-            value={setList.setListName}
+            value={setList.name}
             onChangeText={(value) => handleChangeText("name", value)}
           /> 
           <TextInput 
             style={styles.input}
             placeholder="Set"
             value={setList.set}
-            onChangeText={(value) => handleChangeText("sets", value)}
+            onChangeText={(value) => handleChangeText("set", value)}
           /> 
           <TextInput 
             style={styles.input}
             placeholder="Show"
-            value={setList.showName}
+            value={setList.show}
             onChangeText={(value) => handleChangeText("show", value)}
           /> 
           <TextInput 
             style={styles.input}
             placeholder="Banda"
-            value={setList.bandName}
+            value={setList.band}
             onChangeText={(value) => handleChangeText("band", value)}
           />
           <View>

@@ -6,9 +6,9 @@ import {ListItem} from 'react-native-elements'
 export default function setsManagement(props,{navigation}) {
 
   const initialState = {
-    setName: "",
-    songsList: "",
-      //showTag: "", hace falta saber como conectar los tags
+    name: "",
+    songs: "",
+    //showTag: "", hace falta saber como conectar los tags
   }
 
   const [set, setSet] = useState(initialState)
@@ -32,17 +32,17 @@ export default function setsManagement(props,{navigation}) {
   }
 
   const deleteSet =  async () =>{
-    const dbRef = firebase.db.collection('Sets').doc(props.route.params.setId);
+    const dbRef = firebase.db.collection('sets').doc(props.route.params.setId);
     await dbRef.delete();
     alert("Set eliminado")
     props.navigation.navigate('Sets Lists')
   }
 
   const updateSet = async () =>{
-    const dbRef = firebase.db.collection('Sets').doc(props.route.params.setId);
+    const dbRef = firebase.db.collection('sets').doc(props.route.params.setId);
     await dbRef.set({
-        setName: set.setName,
-        //songsList: set.songsList,
+        name: set.name,
+        songs: set.songs,
     })
     setSet(initialState)
     props.navigation.navigate('Sets Lists')
@@ -60,8 +60,14 @@ export default function setsManagement(props,{navigation}) {
           <TextInput 
             style={styles.input}
             placeholder="Nombre del set"
-            value={set.setName}
-            onChangeText={(value) => handleChangeText("setName", value)}
+            value={set.name}
+            onChangeText={(value) => handleChangeText("name", value)}
+          /> 
+          <TextInput 
+            style={styles.input}
+            placeholder="Cancion"
+            value={set.songs}
+            onChangeText={(value) => handleChangeText("songs", value)}
           /> 
           <View>
               <Button title = "Actualizar set" onPress = {() => updateSet()}/>

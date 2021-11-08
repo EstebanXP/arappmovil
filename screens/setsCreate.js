@@ -6,7 +6,8 @@ import {ListItem} from 'react-native-elements'
 export default function setCreate({navigation}) {
 
     const [state, setState] = useState({
-        setName: "",
+        name: "",
+        songs: "",
         //showTag: "", hace falta saber como conectar los tags
     })
 
@@ -16,8 +17,9 @@ export default function setCreate({navigation}) {
 
     const addSet = async () => {
       console.log(state)
-      await firebase.db.collection('Sets').add({
-        setName: state.setName,
+      await firebase.db.collection('sets').add({
+        name: state.name,
+        songs: state.songs,
       })
      alert('guardado')
      navigation.navigate('Sets Lists')
@@ -28,7 +30,12 @@ export default function setCreate({navigation}) {
           <TextInput 
             style={styles.input}
             placeholder="Nombre de set"
-            onChangeText={(value) => handleChangeText("setName", value)}
+            onChangeText={(value) => handleChangeText("name", value)}
+          /> 
+          <TextInput 
+            style={styles.input}
+            placeholder="Cancion"
+            onChangeText={(value) => handleChangeText("songs", value)}
           /> 
           <View>
               <Button title = "Guardar set" onPress = {() => addSet()}/>
