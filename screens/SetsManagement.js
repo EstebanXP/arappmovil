@@ -14,7 +14,7 @@ export default function setsManagement(props,{navigation}) {
   const [set, setSet] = useState(initialState)
 
   const getSetId = async (id) =>{
-    const dbRef = firebase.db.collection('Sets').doc(id)
+    const dbRef = firebase.db.collection('sets').doc(id)
     const doc = await dbRef.get();
     const set = doc.data();
     setSet({

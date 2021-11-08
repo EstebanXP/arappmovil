@@ -26,7 +26,7 @@ export default function Home(
               <View>
                 <Button
                   title="Ir a administrar set lists"
-                  onPress={() => navigation.navigate("Set List Management")}
+                  onPress={() => navigation.navigate("SetList List")}
                 />
                 <Button
                   title="Ir a administrar sets"
@@ -51,7 +51,7 @@ export default function Home(
                 />
                 <Button
                   title="Ir a administrar set lists"
-                  onPress={() => navigation.navigate("Set List Management")}
+                  onPress={() => navigation.navigate("SetList List")}
                 />
                 <Button
                   title="Ir a administrar sets"

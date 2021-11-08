@@ -14,6 +14,8 @@ import liveShowsList from "./screens/liveShowsList";
 import liveShowsCreate from "./screens/liveShowsCreate";
 import liveShowsManagement from "./screens/liveShowsManagement";
 import setListManagement from "./screens/setListManagement";
+import setListCreate from "./screens/setListCreate";
+import setList from "./screens/setList";
 import setsManagement from "./screens/setsManagement";
 import setsCreate from "./screens/setsCreate";
 import setsList from "./screens/setsList";
@@ -94,18 +96,11 @@ export default function App() {
               component={bandMembersManagement}
             />
             <Stack.Screen name="Live Shows List" component={liveShowsList} />
-            <Stack.Screen
-              name="Live Shows Create"
-              component={liveShowsCreate}
-            />
-            <Stack.Screen
-              name="Live Shows Management"
-              component={liveShowsManagement}
-            />
-            <Stack.Screen
-              name="Set List Management"
-              component={setListManagement}
-            />
+            <Stack.Screen name="Live Shows Create" component={liveShowsCreate} />
+            <Stack.Screen name="Live Shows Management" component={liveShowsManagement} />
+            <Stack.Screen name="SetList Management" component={setListManagement} />
+            <Stack.Screen name="SetList Create" component={setListCreate} />
+            <Stack.Screen name="SetList List" component={setList} />
             <Stack.Screen name="Sets Management" component={setsManagement} />
             <Stack.Screen name="Sets Create" component={setsCreate} />
             <Stack.Screen name="Sets Lists" component={setsList} />
