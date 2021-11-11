@@ -16,14 +16,14 @@ import liveShowsManagement from "./screens/liveShowsManagement";
 import setListManagement from "./screens/setListManagement";
 import setListCreate from "./screens/setListCreate";
 import setList from "./screens/setList";
-import setsManagement from "./screens/setsManagement";
+import setsManagement from "./screens/SetsManagement";
 import setsCreate from "./screens/setsCreate";
 import setsList from "./screens/setsList";
 import songsManagement from "./screens/songsManagement";
 import tagsList from "./screens/tagsList";
 import tagsCreate from "./screens/tagsCreate";
 import tagsManagements from "./screens/tagsManagements";
-import RegisterUser from "./screens/RegisterUser";
+import RegisterUser from "./screens/registerUser";
 import LoginUser from "./screens/loginUser";
 import showSongs from "./screens/showSongs";
 import rsm from "./screens/rsm";
@@ -55,7 +55,7 @@ export default function App() {
 
   if (userActive === false) { 
     return (
-      <View>
+      <View style={styles.container}>
         {viewState ? (
           <LoginUser
             u12={userActive}
