@@ -23,7 +23,7 @@ import songsManagement from "./screens/songsManagement";
 import tagsList from "./screens/tagsList";
 import tagsCreate from "./screens/tagsCreate";
 import tagsManagements from "./screens/tagsManagements";
-import RegisterUser from "./screens/registerUser";
+import RegisterUser from "./screens/RegisterUser";
 import LoginUser from "./screens/loginUser";
 import showSongs from "./screens/showSongs";
 import rsm from "./screens/rsm";

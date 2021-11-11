@@ -5,7 +5,7 @@ import { StyleSheet, Text, View, Button, Alert } from "react-native";
 import firebase from "../database/firebase";
 import Item from "./Item";
 import LoginUser from "./loginUser";
-import RegisterUser from "./registerUser";
+import RegisterUser from "./RegisterUser";
 import songsManagement from "../screens/songsManagement";
 import useRoleContext from "../useContext/useRoleContext";
 export default function Home(
