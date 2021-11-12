@@ -32,7 +32,7 @@ import LoginTest from "./screens/LoginTest";
 import firebase from "./database/firebase";
 import RoleContext from "./exports/RoleContext";
 import { Button } from "react-native";
-
+import {NativeBaseProvider} from "native-base"
 import { useFonts } from 'expo-font';
 const Stack = createNativeStackNavigator();
 
