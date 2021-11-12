@@ -62,7 +62,7 @@ export default class RegisterUser extends React.Component{
     render(){
       return (
         <View style={styles.container}>
-          <Text>Signup</Text>
+          <Text style={{ fontFamily: 'CerebriSansRegular', fontSize: 36 }}>Signup</Text>
           <TextInput placeholder="type name" onChangeText={(name) => {
             this.setState({name:name})
           }} value={this.state.name}/>

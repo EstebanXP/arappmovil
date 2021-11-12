@@ -44,7 +44,7 @@ export default class LoginUser extends React.Component{
       
       return (
         <View style={styles.container}>
-          <Text style={{ fontFamily: 'CerebriSans-Regular', fontSize: 30 }}>Sing in</Text>
+          <Text style={{ fontFamily: 'CerebriSansRegular', fontSize: 36 }}>Sing in</Text>
           <TextInput placeholder="type email" onChangeText={(email) => {
             this.setState({email:email})
           }} value={this.state.email}/>

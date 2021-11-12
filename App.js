@@ -31,10 +31,11 @@ import LoginTest from "./screens/LoginTest";
 import firebase from "./database/firebase";
 import RoleContext from "./exports/RoleContext";
 import { Button } from "react-native";
-
+import { useFonts } from 'expo-font';
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+
   const [userActive, setUserActive] = useState(false); //SI NECESITAN TRABAJAR NADA MAS CAMBIEN ESTE ESTADO A TRUE Y DEJARLO EN FALSE ANTES DE HACER COMMIT
   const [user, setUser] = useState();
   const [role, setRole] = useState("");
