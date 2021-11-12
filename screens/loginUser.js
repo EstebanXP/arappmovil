@@ -1,11 +1,14 @@
 import React, {useState} from "react";
-import { StyleSheet, Text, View,TextInput, Alert,Button } from 'react-native';
+import { StyleSheet, View, TextInput, Alert} from 'react-native';
+
 //import { Button } from "react-native-elements/dist/buttons/Button";
 import firebase from "../database/firebase";
 import { render } from "react-dom";
 import { useFonts } from 'expo-font';
-
-export default class LoginUser extends React.Component{
+import { Container, Button, Center, NativeBaseProvider,Stack, Input, Heading, Text} from "native-base"
+import { useNavigation } from '@react-navigation/native';
+import { NavigationContainer } from "@react-navigation/native";
+class LoginUser extends React.Component{
 
   constructor(props){
     super(props)
@@ -15,7 +18,6 @@ export default class LoginUser extends React.Component{
     }
   }
   
-
   getData=async (id)=>{
     const dbRef = firebase.db.collection("Users").doc(id);
     const doc = await dbRef.get();
@@ -41,22 +43,41 @@ export default class LoginUser extends React.Component{
     })
   }
     render(){
-      
       return (
-        <View style={styles.container}>
-          <Text style={{ fontFamily: 'CerebriSansRegular', fontSize: 36 }}>Sing in</Text>
-          <TextInput placeholder="type email" onChangeText={(email) => {
-            this.setState({email:email})
-          }} value={this.state.email}/>
-          <TextInput placeholder="type password" onChangeText={(password) => {
-            this.setState({password:password})
-          }} 
-          value={this.state.password} 
-          secureTextEntry={true}
-          autoCorrect={false}/>
-          <Button title="Sign In" style={styles.button} onPress={this.loginAccount} ></Button>
-          
-        </View>
+        
+        <NativeBaseProvider>
+          <View style={styles.container}>
+            <Heading textAlign="center" size="2xl" mb="10" mt="20">
+                  Sign In
+                </Heading>
+            <Stack
+              space={4}
+              w={{
+                base: "75%",
+                md: "25%",
+              }}
+            >
+              <Center>
+                <Input variant="underlined" placeholder="username/email" onChangeText={(email) => {
+                  this.setState({email:email})
+                }} value={this.state.email}/>
+                <Input variant="underlined" placeholder="password" mb="10" onChangeText={(password) => {
+                  this.setState({password:password})
+                }} 
+                value={this.state.password} 
+                secureTextEntry={true}
+                autoCorrect={false}/>
+              </Center>
+              
+            </Stack>
+            <Button size={'lg'} onPress={this.loginAccount} mb="5" >Sign In</Button>
+            <Text fontSize="sm">or sign in using</Text>
+            <Button.Group mt="5">
+              <Button>Facebook</Button>
+              <Button>Google</Button>
+            </Button.Group>
+          </View>
+        </NativeBaseProvider>
       );
     }
 }
@@ -67,10 +88,25 @@ const styles = StyleSheet.create({
       backgroundColor: '#fff',
       alignItems: 'center',
       justifyContent: 'center',
+      marginBottom: '-60%'
     },
-    button:{
-      backgroundColor: '#000',
+    bottom: {
+      marginBottom:'60%'
     }
+    
   });
 
-  
+  export default function(props,{navigation}) {
+    return(
+
+      <NativeBaseProvider>
+        <LoginUser/>
+        <Container style={styles.bottom}>
+          <Text italic fontSize="sm">Already have an account? Sign in</Text>
+        </Container>
+
+      </NativeBaseProvider>
+      
+
+    )
+  }

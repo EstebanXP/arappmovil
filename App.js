@@ -31,6 +31,7 @@ import LoginTest from "./screens/LoginTest";
 import firebase from "./database/firebase";
 import RoleContext from "./exports/RoleContext";
 import { Button } from "react-native";
+
 import { useFonts } from 'expo-font';
 const Stack = createNativeStackNavigator();
 
@@ -77,6 +78,7 @@ export default function App() {
     );
   } else {
     return (
+      <NativeBaseProvider>
       <NavigationContainer>
         <RoleContext.Provider value={role}>
           <Stack.Navigator>
@@ -116,6 +118,7 @@ export default function App() {
           </Stack.Navigator>
         </RoleContext.Provider>
       </NavigationContainer>
+      </NativeBaseProvider>
     );
   }
 }
