@@ -9,6 +9,7 @@ import RegisterUser from "./registerUser";
 import songsManagement from "../screens/songsManagement";
 import NavigationBMember from "../screens/NavigationBMember";
 import useRoleContext from "../useContext/useRoleContext";
+import {NativeBaseProvider} from "native-base"
 export default function Home(
   {
     navigation,
