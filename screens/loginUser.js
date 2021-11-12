@@ -8,7 +8,7 @@ import { useFonts } from 'expo-font';
 import { Container, Button, Center, NativeBaseProvider,Stack, Input, Heading, Text} from "native-base"
 import { useNavigation } from '@react-navigation/native';
 import { NavigationContainer } from "@react-navigation/native";
-class LoginUser extends React.Component{
+export default class LoginUser extends React.Component{
 
   constructor(props){
     super(props)
@@ -76,6 +76,7 @@ class LoginUser extends React.Component{
               <Button>Facebook</Button>
               <Button>Google</Button>
             </Button.Group>
+            <Text italic fontSize="sm">Already have an account? Sign in</Text>
           </View>
         </NativeBaseProvider>
       );
@@ -95,18 +96,3 @@ const styles = StyleSheet.create({
     }
     
   });
-
-  export default function(props,{navigation}) {
-    return(
-
-      <NativeBaseProvider>
-        <LoginUser/>
-        <Container style={styles.bottom}>
-          <Text italic fontSize="sm">Already have an account? Sign in</Text>
-        </Container>
-
-      </NativeBaseProvider>
-      
-
-    )
-  }
