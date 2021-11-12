@@ -17,7 +17,7 @@ import {
 } from 'native-base';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 
-export default function navigation() {
+export default function nav({navigation}) {
   const [selected, setSelected] = React.useState(1);
   return (
     <NativeBaseProvider>
@@ -28,7 +28,7 @@ export default function navigation() {
             opacity={selected === 0 ? 1 : 0.5}
             py="3"
             flex={1}
-            onPress={() => setSelected(0)}>
+            onPress={() => {setSelected(0), navigation.navigate("Sets List")}}>
             <Center>
               <Icon
                 mb="1"
