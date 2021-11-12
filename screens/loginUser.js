@@ -3,8 +3,10 @@ import { StyleSheet, Text, View,TextInput, Alert,Button } from 'react-native';
 //import { Button } from "react-native-elements/dist/buttons/Button";
 import firebase from "../database/firebase";
 import { render } from "react-dom";
+import { useFonts } from 'expo-font';
 
 export default class LoginUser extends React.Component{
+
   constructor(props){
     super(props)
     this.state ={
@@ -12,6 +14,7 @@ export default class LoginUser extends React.Component{
       password: '',
     }
   }
+  
 
   getData=async (id)=>{
     const dbRef = firebase.db.collection("Users").doc(id);
@@ -38,9 +41,10 @@ export default class LoginUser extends React.Component{
     })
   }
     render(){
+      
       return (
         <View style={styles.container}>
-          <Text>Sing in</Text>
+          <Text style={{ fontFamily: 'CerebriSans-Regular', fontSize: 30 }}>Sing in</Text>
           <TextInput placeholder="type email" onChangeText={(email) => {
             this.setState({email:email})
           }} value={this.state.email}/>
@@ -68,3 +72,5 @@ const styles = StyleSheet.create({
       backgroundColor: '#000',
     }
   });
+
+  
