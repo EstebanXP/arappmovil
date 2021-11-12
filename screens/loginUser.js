@@ -1,6 +1,6 @@
 import React, {useState} from "react";
 import { StyleSheet, View, TextInput, Alert} from 'react-native';
-
+import NavigationBMember from "../screens/NavigationBMember";
 //import { Button } from "react-native-elements/dist/buttons/Button";
 import firebase from "../database/firebase";
 import { render } from "react-dom";

@@ -4,6 +4,7 @@ import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./screens/Home";
+import NavigationBMember from "./screens/NavigationBMember";
 import bandsList from "./screens/bandsList";
 import bandsCreate from "./screens/bandsCreate";
 import bandsManagement from "./screens/bandsManagement";
@@ -115,6 +116,7 @@ export default function App() {
             <Stack.Screen name="Login User" component={LoginUser} />
             <Stack.Screen name="Show Songs" component={showSongs} />
             <Stack.Screen name="Manage Song" component={rsm} />
+            <Stack.Screen name="Navigation" component={NavigationBMember} />
           </Stack.Navigator>
         </RoleContext.Provider>
       </NavigationContainer>

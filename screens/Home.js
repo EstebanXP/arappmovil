@@ -7,6 +7,7 @@ import Item from "./Item";
 import LoginUser from "./loginUser";
 import RegisterUser from "./registerUser";
 import songsManagement from "../screens/songsManagement";
+import NavigationBMember from "../screens/NavigationBMember";
 import useRoleContext from "../useContext/useRoleContext";
 export default function Home(
   {
@@ -23,58 +24,65 @@ export default function Home(
         switch (roleAux) {
           case "Band Member":
             return (
-              <View>
-                <Button
-                  title="Ir a administrar set lists"
-                  onPress={() => navigation.navigate("SetList List")}
-                />
-                <Button
-                  title="Ir a administrar sets"
-                  onPress={() => navigation.navigate("Sets List")}
-                />
-              </View>
+              <NativeBaseProvider>
+                <View>
+                  <Button
+                    title="Ir a administrar set lists"
+                    onPress={() => navigation.navigate("SetList List")}
+                  />
+                  <Button
+                    title="Ir a administrar sets"
+                    onPress={() => navigation.navigate("Sets List")}
+                  />
+                  <NavigationBMember></NavigationBMember>
+                </View>
+              </NativeBaseProvider>
             );
           case "Live Experience Designer":
             return (
-              <View>
-                <Button
-                  title="Ir a Lista de etiquetas"
-                  onPress={() => navigation.navigate("Tags List")}
-                />
-                <Button
-                  title="Ir a mostrar canciones"
-                  onPress={() => navigation.navigate("Show Songs")}
-                />
-                <Button
-                  title="Ir a administrar canciones"
-                  onPress={() => navigation.navigate("Add Songs")}
-                />
-                <Button
-                  title="Ir a administrar set lists"
-                  onPress={() => navigation.navigate("SetList List")}
-                />
-                <Button
-                  title="Ir a administrar sets"
-                  onPress={() => navigation.navigate("Sets Lists")}
-                />
-              </View>
+              <NativeBaseProvider>
+                <View>
+                  <Button
+                    title="Ir a Lista de etiquetas"
+                    onPress={() => navigation.navigate("Tags List")}
+                  />
+                  <Button
+                    title="Ir a mostrar canciones"
+                    onPress={() => navigation.navigate("Show Songs")}
+                  />
+                  <Button
+                    title="Ir a administrar canciones"
+                    onPress={() => navigation.navigate("Add Songs")}
+                  />
+                  <Button
+                    title="Ir a administrar set lists"
+                    onPress={() => navigation.navigate("SetList List")}
+                  />
+                  <Button
+                    title="Ir a administrar sets"
+                    onPress={() => navigation.navigate("Sets Lists")}
+                  />
+                </View>
+              </NativeBaseProvider>
             );
           case "Band Manager":
             return (
-              <View>
-                <Button
-                  title="Ir a administrar miembros de banda"
-                  onPress={() => navigation.navigate("Band Members List")}
-                />
-                <Button
-                  title="Ir a administrar bandas"
-                  onPress={() => navigation.navigate("Bands List")}
-                />
-                <Button
-                  title="Ir a lista de live shows"
-                  onPress={() => navigation.navigate("Live Shows List")}
-                />
-              </View>
+              <NativeBaseProvider>
+                <View>
+                  <Button
+                    title="Ir a administrar miembros de banda"
+                    onPress={() => navigation.navigate("Band Members List")}
+                  />
+                  <Button
+                    title="Ir a administrar bandas"
+                    onPress={() => navigation.navigate("Bands List")}
+                  />
+                  <Button
+                    title="Ir a lista de live shows"
+                    onPress={() => navigation.navigate("Live Shows List")}
+                  />
+                </View>
+              </NativeBaseProvider>
             );
           default:
             break;
