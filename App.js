@@ -29,6 +29,7 @@ import LoginUser from "./screens/loginUser";
 import showSongs from "./screens/showSongs";
 import rsm from "./screens/rsm";
 import LoginTest from "./screens/LoginTest";
+import demo from "./screens/demoNavigation.js";
 import firebase from "./database/firebase";
 import RoleContext from "./exports/RoleContext";
 import { Button } from "react-native";
@@ -117,6 +118,7 @@ export default function App() {
             <Stack.Screen name="Show Songs" component={showSongs} />
             <Stack.Screen name="Manage Song" component={rsm} />
             <Stack.Screen name="Navigation" component={NavigationBMember} />
+            <Stack.Screen name="Demo" component={demo} />
           </Stack.Navigator>
         </RoleContext.Provider>
       </NavigationContainer>

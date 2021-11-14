@@ -9,10 +9,11 @@ import RegisterUser from "./registerUser";
 import songsManagement from "../screens/songsManagement";
 import NavigationBMember from "../screens/NavigationBMember";
 import useRoleContext from "../useContext/useRoleContext";
-import {NativeBaseProvider} from "native-base"
+import {NativeBaseProvider} from "native-base";
+import Demo from "../screens/demoNavigation";
 export default function Home(
   {
-    navigation,
+    navigation
   } /*Si se necesita que el componente vaya a otras pantallas, necesita heredar esto */
 ) {
   const [state1, setstate1] = useState(true);
@@ -33,9 +34,15 @@ export default function Home(
                   />
                   <Button
                     title="Ir a administrar sets"
-                    onPress={() => navigation.navigate("Sets List")}
+                    onPress={() => navigation.navigate("Sets Lists")}
                   />
+                  <Demo props={{navigation}} ></Demo>
                   <NavigationBMember></NavigationBMember>
+                  <Button
+                    title="Ir a administrar set lists"
+                    onPress={() => navigation.navigate("Demo")}
+                  />
+                  
                 </View>
               </NativeBaseProvider>
             );
