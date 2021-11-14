@@ -36,12 +36,8 @@ export default function Home(
                     title="Ir a administrar sets"
                     onPress={() => navigation.navigate("Sets Lists")}
                   />
-                  <Demo props={{navigation}} ></Demo>
                   <NavigationBMember></NavigationBMember>
-                  <Button
-                    title="Ir a administrar set lists"
-                    onPress={() => navigation.navigate("Demo")}
-                  />
+                  
                   
                 </View>
               </NativeBaseProvider>

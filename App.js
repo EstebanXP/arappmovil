@@ -34,6 +34,7 @@ import firebase from "./database/firebase";
 import RoleContext from "./exports/RoleContext";
 import { Button } from "react-native";
 import {NativeBaseProvider} from "native-base"
+import profile from "./screens/profile";
 import { useFonts } from 'expo-font';
 const Stack = createNativeStackNavigator();
 
@@ -118,10 +119,11 @@ export default function App() {
             <Stack.Screen name="Show Songs" component={showSongs} />
             <Stack.Screen name="Manage Song" component={rsm} />
             <Stack.Screen name="Navigation" component={NavigationBMember} />
-            <Stack.Screen name="Demo" component={demo} />
+            <Stack.Screen name="Profile" component={profile} />
           </Stack.Navigator>
         </RoleContext.Provider>
       </NavigationContainer>
+      <NavigationBMember></NavigationBMember>
       </NativeBaseProvider>
     );
   }

@@ -36,11 +36,6 @@ export default class LoginUser extends React.Component{
       Alert.alert('Sorry. ' + error.message)
       
     })
-    firebase.firebase.app().auth().onAuthStateChanged((user)=>{
-      if(user){
-        Alert.alert("Signed in");
-      }
-    })
   }
     render(){
       return (
