@@ -28,6 +28,7 @@ import RegisterUser from "./screens/registerUser";
 import LoginUser from "./screens/loginUser";
 import showSongs from "./screens/showSongs";
 import rsm from "./screens/rsm";
+import { navigationRef } from "./screens/RootNavigation";
 import LoginTest from "./screens/LoginTest";
 import demo from "./screens/demoNavigation.js";
 import firebase from "./database/firebase";
@@ -82,7 +83,7 @@ export default function App() {
   } else {
     return (
       <NativeBaseProvider>
-      <NavigationContainer>
+      <NavigationContainer ref={navigationRef}>
         <RoleContext.Provider value={role}>
           <Stack.Navigator>
             <Stack.Screen name="Home" component={Home} />
@@ -121,9 +122,11 @@ export default function App() {
             <Stack.Screen name="Navigation" component={NavigationBMember} />
             <Stack.Screen name="Profile" component={profile} />
           </Stack.Navigator>
+          
         </RoleContext.Provider>
+        <NavigationBMember></NavigationBMember>
       </NavigationContainer>
-      <NavigationBMember></NavigationBMember>
+      
       </NativeBaseProvider>
     );
   }

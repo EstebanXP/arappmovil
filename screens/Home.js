@@ -9,11 +9,11 @@ import RegisterUser from "./registerUser";
 import songsManagement from "../screens/songsManagement";
 import NavigationBMember from "../screens/NavigationBMember";
 import useRoleContext from "../useContext/useRoleContext";
-import {NativeBaseProvider} from "native-base";
+import { NativeBaseProvider } from "native-base";
 import Demo from "../screens/demoNavigation";
 export default function Home(
   {
-    navigation
+    navigation,
   } /*Si se necesita que el componente vaya a otras pantallas, necesita heredar esto */
 ) {
   const [state1, setstate1] = useState(true);
@@ -37,8 +37,6 @@ export default function Home(
                     onPress={() => navigation.navigate("Sets Lists")}
                   />
                   <NavigationBMember></NavigationBMember>
-                  
-                  
                 </View>
               </NativeBaseProvider>
             );
@@ -46,26 +44,29 @@ export default function Home(
             return (
               <NativeBaseProvider>
                 <View>
-                  <Button
-                    title="Ir a Lista de etiquetas"
-                    onPress={() => navigation.navigate("Tags List")}
-                  />
-                  <Button
-                    title="Ir a mostrar canciones"
-                    onPress={() => navigation.navigate("Show Songs")}
-                  />
-                  <Button
-                    title="Ir a administrar canciones"
-                    onPress={() => navigation.navigate("Add Songs")}
-                  />
-                  <Button
-                    title="Ir a administrar set lists"
-                    onPress={() => navigation.navigate("SetList List")}
-                  />
-                  <Button
-                    title="Ir a administrar sets"
-                    onPress={() => navigation.navigate("Sets Lists")}
-                  />
+                  <View>
+                    <Button
+                      title="Ir a Lista de etiquetas"
+                      onPress={() => navigation.navigate("Tags List")}
+                    />
+                    <Button
+                      title="Ir a mostrar canciones"
+                      onPress={() => navigation.navigate("Show Songs")}
+                    />
+                    <Button
+                      title="Ir a administrar canciones"
+                      onPress={() => navigation.navigate("Add Songs")}
+                    />
+                    <Button
+                      title="Ir a administrar set lists"
+                      onPress={() => navigation.navigate("SetList List")}
+                    />
+                    <Button
+                      title="Ir a administrar sets"
+                      onPress={() => navigation.navigate("Sets Lists")}
+                    />
+                  </View>
+                  
                 </View>
               </NativeBaseProvider>
             );
