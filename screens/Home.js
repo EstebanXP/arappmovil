@@ -36,7 +36,6 @@ export default function Home(
                     title="Ir a administrar sets"
                     onPress={() => navigation.navigate("Sets Lists")}
                   />
-                  <NavigationBMember></NavigationBMember>
                 </View>
               </NativeBaseProvider>
             );

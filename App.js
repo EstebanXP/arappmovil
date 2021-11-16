@@ -36,6 +36,7 @@ import RoleContext from "./exports/RoleContext";
 import { Button } from "react-native";
 import {NativeBaseProvider} from "native-base"
 import profile from "./screens/profile";
+import Search from "./screens/search";
 import { useFonts } from 'expo-font';
 const Stack = createNativeStackNavigator();
 
@@ -122,8 +123,8 @@ export default function App() {
             <Stack.Screen name="Navigation" component={NavigationBMember} />
             <Stack.Screen name="Profile" component={profile} />
           </Stack.Navigator>
-          
         </RoleContext.Provider>
+        <Search></Search>
         <NavigationBMember></NavigationBMember>
       </NavigationContainer>
       

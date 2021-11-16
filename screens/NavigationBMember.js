@@ -1,4 +1,3 @@
-
 import React from 'react';
 import {
   NativeBaseProvider,
@@ -25,7 +24,7 @@ export default function nav() {
   return (
     <NativeBaseProvider>
       
-        <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={9} width={"2xs"} position="absolute" zIndex="2" bottom="6"  left="-28" borderRadius={60} height="16">
+        <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={9} width={"2xs"} position="absolute" zIndex="2" bottom="6"  left="20" borderRadius={60} height="16">
         <Pressable
             mb="-9"
             ml="3"
@@ -102,4 +101,3 @@ export default function nav() {
     </NativeBaseProvider>
   );
 }
-
