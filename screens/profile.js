@@ -49,7 +49,6 @@ const Example = () => {
                 <Example />
             </Center>
         </NativeBaseProvider>
-        </SafeAreaView>
-       
+        </SafeAreaView>    
       )
     }
