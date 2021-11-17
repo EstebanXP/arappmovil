@@ -30,10 +30,10 @@ export default function nav() {
         <Pressable
             position="absolute" zIndex="3"  left="5"
             
-            opacity={selected === 3 ? 1 : 0.5}
+            opacity={selected === 1 ? 1 : 0.5}
             py="2"
             flex={1}
-            onPress={() => {setSelected(3), RootNavigation.navigate("Profile")}}
+            onPress={() => {setSelected(1), RootNavigation.navigate("Profile")}}
           >
             <Center>
               <Icon
@@ -56,7 +56,7 @@ export default function nav() {
             opacity={selected === 0 ? 1 : 0.5}
             py="3"
             flex={1}
-            onPress={() => {setSelected(0), RootNavigation.navigate("Sets Lists")}}>
+            onPress={() => {setSelected(0), RootNavigation.navigate("Home")}}>
             <Center>
               <Icon
                 mb="1"

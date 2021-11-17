@@ -7,7 +7,6 @@ import Item from "./Item";
 import LoginUser from "./loginUser";
 import RegisterUser from "./registerUser";
 import songsManagement from "../screens/songsManagement";
-import NavigationBMember from "../screens/NavigationBMember";
 import useRoleContext from "../useContext/useRoleContext";
 import { NativeBaseProvider } from "native-base";
 import Demo from "../screens/demoNavigation";

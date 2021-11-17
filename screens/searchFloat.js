@@ -28,7 +28,7 @@ export default function search() {
         <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={9} width="12" position="absolute" zIndex="2" bottom="24"  right="16" borderRadius={60} height="12">
         <Pressable
             position="absolute" zIndex="3" bottom="2" left="0" right="0" 
-            opacity={selected === 3 ? 1 : 0.5}
+            opacity={0.5}
             
             flex={1}
             onPress={() => {setSelected(3), RootNavigation.navigate("Profile")}}

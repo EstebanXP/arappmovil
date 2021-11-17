@@ -87,7 +87,7 @@ export default function App() {
       <NativeBaseProvider>
       <NavigationContainer ref={navigationRef}>
         <RoleContext.Provider value={role}>
-          <Stack.Navigator>
+          <Stack.Navigator screenOptions={{ animationEnabled: false }}>
             <Stack.Screen name="Home" component={Home} />
             <Stack.Screen name="Bands List" component={bandsList} />
             <Stack.Screen name="Bands Create" component={bandsCreate} />
@@ -121,7 +121,7 @@ export default function App() {
             <Stack.Screen name="Login User" component={LoginUser} />
             <Stack.Screen name="Show Songs" component={showSongs} />
             <Stack.Screen name="Manage Song" component={rsm} />
-            <Stack.Screen name="Navigation" component={NavigationBMember} />
+            <Stack.Screen name="Navigation" component={Navigation} />
             <Stack.Screen name="Profile" component={profile} />
           </Stack.Navigator>
           <Search ></Search>
