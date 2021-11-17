@@ -36,7 +36,7 @@ import RoleContext from "./exports/RoleContext";
 import { Button } from "react-native";
 import {NativeBaseProvider} from "native-base"
 import profile from "./screens/profile";
-import Search from "./screens/search";
+import Search from "./screens/searchFloat.js";
 import { useFonts } from 'expo-font';
 const Stack = createNativeStackNavigator();
 
