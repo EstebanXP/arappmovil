@@ -56,12 +56,22 @@ export default function App() {
   };
 
   const config = {
+  headerBackTitleVisible : false,
    headerStyle: {
      backgroundColor: '#4f46e5'
    },
    headerTintColor: '#fff',
    animationEnabled: false,
   };
+  const configNav = {
+    headerBackTitleVisible : false,
+    headerLeft: ()=> null,
+    headerStyle: {
+      backgroundColor: '#4f46e5'
+    },
+    headerTintColor: '#fff',
+    animationEnabled: false,
+   };
 
   useEffect(() => {
     if (user != null) {
@@ -133,7 +143,7 @@ export default function App() {
             <Stack.Screen name="Show Songs" component={showSongs} options={config}/>
             <Stack.Screen name="Manage Song" component={rsm} options={config}/>
             <Stack.Screen name="Navigation" component={Navigation} options={config}/>
-            <Stack.Screen name="Profile" component={profile} options={config} />
+            <Stack.Screen name="Profile" component={profile} options={configNav} />
           </Stack.Navigator>
           <Search style={{zIndex: 4}}></Search>
           <Edit></Edit>
