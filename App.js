@@ -145,7 +145,7 @@ export default function App() {
             <Stack.Screen name="Navigation" component={Navigation} />
             <Stack.Screen name="Profile" component={profile} />
           </Stack.Navigator>
-          <Search ></Search>
+          <Search style={{zIndex: 4}}></Search>
           <Edit></Edit>
         <Navigation ></Navigation>
         </RoleContext.Provider>
