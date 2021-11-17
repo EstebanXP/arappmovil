@@ -20,35 +20,28 @@ import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import { NavigationContext } from '@react-navigation/native';
 import * as RootNavigation from "./RootNavigation"
 
-const Example = () => {
-    return (
-        <SafeAreaView>
-            <Image
-          size={200}
-          resizeMode={"contain"}
-          borderRadius={100}
-          mt="-300"
-          source={{
-            uri: "https://wallpaperaccess.com/full/317501.jpg",
-          }}
-          alt="Alternate Text"
-        />
-        <Heading textAlign="center" color="black" fontSize="3xl" mt="-5">
-                Name
-            </Heading>
-            <Text textAlign="center" color="black" >lg</Text>
-        </SafeAreaView> 
-      )
-    }
 
     export default function profile(){
       return (
-        <SafeAreaView>
+        <View>
              <NativeBaseProvider>
-            <Center flex={1} px="9">
-                <Example />
-            </Center>
-        </NativeBaseProvider>
-        </SafeAreaView>    
+                <Center flex={1} px="9" >
+                    <Image
+                    size={200}
+                    resizeMode={"contain"}
+                    borderRadius={100}
+                    position="absolute" top="10"
+                    source={{
+                        uri: "https://wallpaperaccess.com/full/317501.jpg",
+                    }}
+                    alt="Alternate Text"
+                    />
+                    <Heading textAlign="center" color="black" fontSize="3xl" position="absolute" top="64">
+                        Name
+                    </Heading>
+                    <Text textAlign="center" color="black" position="absolute" top="72" >lg</Text>
+                </Center>
+            </NativeBaseProvider>
+        </View>    
       )
     }
