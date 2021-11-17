@@ -56,19 +56,11 @@ export default function App() {
   };
 
   const config = {
-    animation: 'spring',
-    
-    config: {
-      stiffness: 1000,
-      damping: 500,
-      mass: 3,
-      overshootClamping: true,
-      restDisplacementThreshold: 0.01,
-      restSpeedThreshold: 0.01,
-    },
-    transitionSpec: {
-      duration: 0,  // Set the animation duration time as 0 !!
-    },
+   headerStyle: {
+     backgroundColor: '#4f46e5'
+   },
+   headerTintColor: '#fff',
+   animationEnabled: false,
   };
 
   useEffect(() => {
@@ -103,47 +95,45 @@ export default function App() {
       <NativeBaseProvider>
       <NavigationContainer ref={navigationRef}>
         <RoleContext.Provider value={role}>
-          <Stack.Navigator options={{
-    transitionSpec: {
-      open: config,
-      close: config,
-    },
-  }}>
-            <Stack.Screen name="Home" component={Home} options={{animationEnabled: false,}}/>
-            <Stack.Screen name="Bands List" component={bandsList} />
-            <Stack.Screen name="Bands Create" component={bandsCreate} />
-            <Stack.Screen name="Bands Management" component={bandsManagement} />
+          <Stack.Navigator>
+            <Stack.Screen name="Home" component={Home} options={config}/>
+            <Stack.Screen name="Bands List" component={bandsList} options={config}/>
+            <Stack.Screen name="Bands Create" component={bandsCreate} options={config}/>
+            <Stack.Screen name="Bands Management" component={bandsManagement}  options={config}/>
             <Stack.Screen
               name="Band Members List"
               component={bandMembersList}
+              options={config}
             />
             <Stack.Screen
               name="Band Members Create"
               component={bandMembersCreate}
+              options={config}
             />
             <Stack.Screen
               name="Band Members Management"
               component={bandMembersManagement}
+              options={config}
             />
-            <Stack.Screen name="Live Shows List" component={liveShowsList} />
-            <Stack.Screen name="Live Shows Create" component={liveShowsCreate} />
-            <Stack.Screen name="Live Shows Management" component={liveShowsManagement} />
-            <Stack.Screen name="SetList Management" component={setListManagement} />
-            <Stack.Screen name="SetList Create" component={setListCreate} />
-            <Stack.Screen name="SetList List" component={setList} />
-            <Stack.Screen name="Sets Management" component={setsManagement} />
-            <Stack.Screen name="Sets Create" component={setsCreate} />
-            <Stack.Screen name="Sets Lists" component={setsList} />
-            <Stack.Screen name="Add Songs" component={songsManagement} />
-            <Stack.Screen name="Tags List" component={tagsList} />
-            <Stack.Screen name="Tags Create" component={tagsCreate} />
-            <Stack.Screen name="Tags Management" component={tagsManagements} />
-            <Stack.Screen name="Register User" component={RegisterUser} />
+            <Stack.Screen name="Live Shows List" component={liveShowsList} options={config}/>
+            <Stack.Screen name="Live Shows Create" component={liveShowsCreate} options={config} />
+            <Stack.Screen name="Live Shows Management" component={liveShowsManagement} options={config} />
+            <Stack.Screen name="SetList Management" component={setListManagement} options={config}/>
+            <Stack.Screen name="SetList Create" component={setListCreate} options={config} />
+            <Stack.Screen name="SetList List" component={setList} options={config} />
+            <Stack.Screen name="Sets Management" component={setsManagement} options={config}/>
+            <Stack.Screen name="Sets Create" component={setsCreate} options={config}/>
+            <Stack.Screen name="Sets Lists" component={setsList} options={config}/>
+            <Stack.Screen name="Add Songs" component={songsManagement} options={config} />
+            <Stack.Screen name="Tags List" component={tagsList} options={config}/>
+            <Stack.Screen name="Tags Create" component={tagsCreate} options={config}/>
+            <Stack.Screen name="Tags Management" component={tagsManagements} options={config}/>
+            <Stack.Screen name="Register User" component={RegisterUser} options={config}/>
             <Stack.Screen name="Login User" component={LoginUser} />
-            <Stack.Screen name="Show Songs" component={showSongs} />
-            <Stack.Screen name="Manage Song" component={rsm} />
-            <Stack.Screen name="Navigation" component={Navigation} />
-            <Stack.Screen name="Profile" component={profile} />
+            <Stack.Screen name="Show Songs" component={showSongs} options={config}/>
+            <Stack.Screen name="Manage Song" component={rsm} options={config}/>
+            <Stack.Screen name="Navigation" component={Navigation} options={config}/>
+            <Stack.Screen name="Profile" component={profile} options={config} />
           </Stack.Navigator>
           <Search style={{zIndex: 4}}></Search>
           <Edit></Edit>
