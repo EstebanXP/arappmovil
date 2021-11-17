@@ -42,7 +42,7 @@ export default class LoginUser extends React.Component{
       return (
         
         <NativeBaseProvider>
-          <Box style={styles.container} width="sm">
+          <Box style={styles.container} width="2xs">
             <Heading size="2xl" mb="10" mt="20" w="133%">
                   Welcome back
                 </Heading>
