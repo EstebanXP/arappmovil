@@ -5,7 +5,8 @@ import NavigationBMember from "../screens/NavigationBMember";
 import firebase from "../database/firebase";
 import { render } from "react-dom";
 import { useFonts } from 'expo-font';
-import { Container, Button, Center, NativeBaseProvider,Stack, Input, Heading, Text} from "native-base"
+import { Container, Button, Center, NativeBaseProvider,Stack, Input, Heading, Text, Box, Icon} from "native-base"
+import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { NavigationContainer } from "@react-navigation/native";
 export default class LoginUser extends React.Component{
@@ -41,9 +42,9 @@ export default class LoginUser extends React.Component{
       return (
         
         <NativeBaseProvider>
-          <View style={styles.container}>
-            <Heading textAlign="center" size="2xl" mb="10" mt="20">
-                  Sign In
+          <Box style={styles.container} width="sm">
+            <Heading size="2xl" mb="10" mt="20" w="133%">
+                  Welcome back
                 </Heading>
             <Stack
               space={4}
@@ -52,27 +53,32 @@ export default class LoginUser extends React.Component{
                 md: "25%",
               }}
             >
-              <Center>
-                <Input variant="underlined" placeholder="username/email" onChangeText={(email) => {
-                  this.setState({email:email})
-                }} value={this.state.email}/>
-                <Input variant="underlined" placeholder="password" mb="10" onChangeText={(password) => {
-                  this.setState({password:password})
-                }} 
-                value={this.state.password} 
-                secureTextEntry={true}
-                autoCorrect={false}/>
-              </Center>
-              
+                <Input variant="underlined" w={{base: "133%", md: "133%",}}
+                InputLeftElement={
+                <Icon
+                  as={<MaterialIcons name="person" />}
+                  size={5}
+                  ml="2"
+                  color="muted.400"
+                  />
+                    } placeholder="username/email"  onChangeText={(email) => {
+                    this.setState({email:email}) }} value={this.state.email}/>
+                <Input variant="underlined" w={{base: "133%", md: "133%",}}
+                  placeholder="password" mb="5" onChangeText={(password) => {
+                  this.setState({password:password}) }} value={this.state.password} 
+                  secureTextEntry={true}
+                  autoCorrect={false}/>
+
+                <Button size={'lg'} onPress={this.loginAccount} px="100" w="133%">Sign In</Button>
+                <Text fontSize="sm" w="133%">or sign in using</Text>  
+                <Button.Group>
+                <Button w="65%">Facebook</Button>
+                <Button w="65%">Google</Button>
+                </Button.Group>
+                <Text italic fontSize="sm" w="133%">Don’t have an account? Sign up</Text>
+             
             </Stack>
-            <Button size={'lg'} onPress={this.loginAccount} mb="5" >Sign In</Button>
-            <Text fontSize="sm">or sign in using</Text>
-            <Button.Group mt="5">
-              <Button>Facebook</Button>
-              <Button>Google</Button>
-            </Button.Group>
-            <Text italic fontSize="sm">Already have an account? Sign in</Text>
-          </View>
+          </Box>
         </NativeBaseProvider>
       );
     }
@@ -82,7 +88,8 @@ const styles = StyleSheet.create({
     container: {
       flex: 1,
       backgroundColor: '#fff',
-      alignItems: 'center',
+      alignItems: 'baseline',
       justifyContent: 'center',
+      backgroundColor: "grey",
     },
   });
