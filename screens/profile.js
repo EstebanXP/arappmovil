@@ -1,12 +1,49 @@
-import React from 'react'
-import { View, Text } from 'react-native'
+import React from 'react';
+import {
+  NativeBaseProvider,
+  Box,
+  Text,
+  Heading,
+  VStack,
+  FormControl,
+  Input,
+  Link,
+  Button,
+  Icon,
+  Image,
+  HStack,
+  Center,
+  Pressable,
+} from 'native-base';
+import { View} from 'react-native'
+import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
+import { NavigationContext } from '@react-navigation/native';
+import * as RootNavigation from "./RootNavigation"
 
-const profile = () => {
+const Example = () => {
     return (
-        <View>
-            <Text>Ejemplo</Text>
-        </View>
-    )
-}
+        <Image
+          size={200}
+          resizeMode={"contain"}
+          borderRadius={100}
+          mt="50"
+          source={{
+            uri: "https://wallpaperaccess.com/full/317501.jpg",
+          }}
+          alt="Alternate Text"
+        />
+      )
+    }
 
-export default profile
+    export default function profile(){
+      return (
+        <NativeBaseProvider>
+            <Center flex={1} px="9">
+                <Example />
+            </Center>
+            <Text textAlign="center" color="black" fontSize="80" mb="450">
+                Name 
+            </Text>
+        </NativeBaseProvider>
+      )
+    }
