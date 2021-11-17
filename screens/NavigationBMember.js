@@ -25,11 +25,11 @@ export default function nav() {
   return (
     <View>
     <NativeBaseProvider>
-      
-        <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={9} width={"60%"} position="absolute" zIndex="2" bottom="6"  left="20%" borderRadius={60} height="16">
+      <Box>
+        <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={9} width={"60%"} position="absolute" zIndex="2" bottom="6"  left="20%" right="20%" borderRadius={60} height="16">
         <Pressable
-            mb="-9"
-            ml="3"
+            position="absolute" zIndex="3"  left="5"
+            
             opacity={selected === 3 ? 1 : 0.5}
             py="2"
             flex={1}
@@ -52,7 +52,7 @@ export default function nav() {
             </Center>
           </Pressable>
           <Pressable
-            mb="-9"
+            position="absolute" zIndex="3"  left="0" right="0"
             opacity={selected === 0 ? 1 : 0.5}
             py="3"
             flex={1}
@@ -74,8 +74,8 @@ export default function nav() {
             </Center>
           </Pressable>
           <Pressable
-            mb="-9"
-            mr="3"
+            position="absolute" zIndex="3"  right="5"
+            
             opacity={selected === 2 ? 1 : 0.5}
             py="2"
             flex={1}
@@ -99,7 +99,7 @@ export default function nav() {
           </Pressable>
          
         </HStack>
-     
+     </Box>
     </NativeBaseProvider>
     </View>
   );
