@@ -14,6 +14,7 @@ import {
   Center,
   Pressable,
 } from 'native-base';
+import { View} from 'react-native'
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import { NavigationContext } from '@react-navigation/native';
 import * as RootNavigation from "./RootNavigation"
@@ -22,6 +23,7 @@ export default function nav() {
   const [selected, setSelected] = React.useState(1);
   const navigation = React.useContext(NavigationContext);
   return (
+    <View>
     <NativeBaseProvider>
       
         <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={9} width={"2xs"} position="absolute" zIndex="2" bottom="6"  left="20" borderRadius={60} height="16">
@@ -99,5 +101,6 @@ export default function nav() {
         </HStack>
      
     </NativeBaseProvider>
+    </View>
   );
 }

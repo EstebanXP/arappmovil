@@ -124,10 +124,9 @@ export default function App() {
             <Stack.Screen name="Profile" component={profile} />
           </Stack.Navigator>
         </RoleContext.Provider>
-        <Search></Search>
-        <NavigationBMember></NavigationBMember>
+        <Search style={styles.absolute}></Search>
+        <NavigationBMember style={styles.absolute}></NavigationBMember>
       </NavigationContainer>
-      
       </NativeBaseProvider>
     );
   }
@@ -142,7 +141,8 @@ const styles = StyleSheet.create({
   },
   button:{
     backgroundColor: '#000',
-  }
+  },
+
 });
 /*
 <NavigationContainer>
