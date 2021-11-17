@@ -26,7 +26,7 @@ export default function nav() {
     <View>
     <NativeBaseProvider>
       <Box>
-        <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={9} width={"60%"} position="absolute" zIndex="2" bottom="6"  left="20%" right="20%" borderRadius={60} height="16">
+        <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={9} width={"70%"} position="absolute" zIndex="2" bottom="6"  left="15%" right="15%" borderRadius={60} height="16">
         <Pressable
             position="absolute" zIndex="3"  left="5"
             

@@ -4,7 +4,7 @@ import { SafeAreaView, StyleSheet, Text, View } from "react-native";
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./screens/Home";
-import NavigationBMember from "./screens/NavigationBMember";
+import Navigation from "./screens/Navigation";
 import bandsList from "./screens/bandsList";
 import bandsCreate from "./screens/bandsCreate";
 import bandsManagement from "./screens/bandsManagement";
@@ -38,6 +38,7 @@ import {NativeBaseProvider} from "native-base"
 import profile from "./screens/profile";
 import Search from "./screens/searchFloat.js";
 import { useFonts } from 'expo-font';
+import Edit from './screens/editFloat.js' 
 const Stack = createNativeStackNavigator();
 
 export default function App() {
@@ -123,9 +124,11 @@ export default function App() {
             <Stack.Screen name="Navigation" component={NavigationBMember} />
             <Stack.Screen name="Profile" component={profile} />
           </Stack.Navigator>
+          <Search ></Search>
+          <Edit></Edit>
+        <Navigation ></Navigation>
         </RoleContext.Provider>
-        <Search style={styles.absolute}></Search>
-        <NavigationBMember style={styles.absolute}></NavigationBMember>
+        
       </NavigationContainer>
       </NativeBaseProvider>
     );
