@@ -36,10 +36,11 @@ import * as RootNavigation from "./RootNavigation"
                     }}
                     alt="Alternate Text"
                     />
-                    <Heading textAlign="center" color="black" fontSize="3xl" position="absolute" top="64">
+                    <Heading textAlign="center" color="black" fontSize="3xl" position="absolute" top="245">
                         Name
                     </Heading>
-                    <Text textAlign="center" color="black" position="absolute" top="72" >lg</Text>
+                    <Text textAlign="center" color="black" position="absolute" top="72" >@UserName</Text>
+                    <Text textAlign="center" color="black" position="absolute" top="80" >Role</Text>
                 </Center>
             </NativeBaseProvider>
         </View>    
