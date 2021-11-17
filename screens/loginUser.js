@@ -41,10 +41,10 @@ export default class LoginUser extends React.Component{
       return (
         
         <NativeBaseProvider>
-          <Box style={styles.container} width="2xs">
-            <Heading size="2xl" mb="10" mt="20" w="133%">
+          <Box  width="2xs" mt="20">   
+              <Heading size="2xl" mb="10" mt="32">
                   Welcome back
-                </Heading>
+              </Heading> 
             <Stack
               space={4}
               w={{
@@ -53,6 +53,7 @@ export default class LoginUser extends React.Component{
               }}
             >
                 <Input variant="underlined" w={{base: "133%", md: "133%",}}
+                style={{borderColor: '#4f46e5' }} 
                 InputLeftElement={
                 <Icon
                   as={<MaterialIcons name="person" />}
@@ -62,19 +63,21 @@ export default class LoginUser extends React.Component{
                   />
                     } placeholder="username/email"  onChangeText={(email) => {
                     this.setState({email:email}) }} value={this.state.email}/>
-                <Input variant="underlined" w={{base: "133%", md: "133%",}}
+                <Input variant="underlined" style={{borderColor: '#4f46e5' }} w={{base: "133%", md: "133%",}}
+                
                   placeholder="password" mb="5" onChangeText={(password) => {
                   this.setState({password:password}) }} value={this.state.password} 
                   secureTextEntry={true}
                   autoCorrect={false}/>
 
-                <Button size={'lg'} onPress={this.loginAccount} px="100" w="133%">Sign In</Button>
+                <Button  bg="indigo.600" size={'lg'} colorScheme="indigo" onPress={this.loginAccount} shadow={9} px="100" w="133%" borderRadius="50">Sign In</Button>
                 <Text fontSize="sm" w="133%">or sign in using</Text>  
                 <Button.Group>
-                <Button w="65%">Facebook</Button>
-                <Button w="65%">Google</Button>
+                <Button w="65%" bg="white" colorScheme="indigo"  shadow={9} borderRadius="50">Facebook</Button>
+                <Button w="65%" bg="white" colorScheme="indigo" shadow={9}borderRadius="50">Google</Button>
                 </Button.Group>
-                <Text italic fontSize="sm" w="133%">Don’t have an account? Sign up</Text>
+                <Center><Text color="indigo.600"  italic fontSize="sm" w="133%" position="absolute" left="0">Don’t have an account? Sign up</Text></Center>
+                
              
             </Stack>
           </Box>
@@ -83,12 +86,3 @@ export default class LoginUser extends React.Component{
     }
 }
 
-const styles = StyleSheet.create({
-    container: {
-      flex: 1,
-      backgroundColor: '#fff',
-      alignItems: 'baseline',
-      justifyContent: 'center',
-      backgroundColor: "grey",
-    },
-  });
