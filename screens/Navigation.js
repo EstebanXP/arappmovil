@@ -20,21 +20,19 @@ import { NavigationContext } from '@react-navigation/native';
 import * as RootNavigation from "./RootNavigation"
 //<Center flex={1}></Center>
 export default function nav() {
-  const [selected, setSelected] = React.useState(1);
+  const [selected, setSelected] = React.useState(4);
   const navigation = React.useContext(NavigationContext);
   return (
     <View>
     <NativeBaseProvider>
       <Box>
-        <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={9} width={"70%"} position="absolute" zIndex="2" bottom="6"  left="15%" right="15%" borderRadius={60} height="16">
+        <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={9} width={"90%"} position="absolute" zIndex="2" bottom="6"  left="5%" right="5%" borderRadius={60} height="16">
         <Pressable
-            position="absolute" zIndex="3"  left="5"
-            
-            opacity={selected === 1 ? 1 : 0.5}
-            py="2"
+            position="absolute" zIndex="4"  left="5" 
+            opacity={selected === 3 ? 1 : 0.5}
+            py="3"
             flex={1}
-            onPress={() => {setSelected(1), RootNavigation.navigate("Profile")}}
-          >
+            onPress={() => {setSelected(3), RootNavigation.navigate("Profile")}}>
             <Center>
               <Icon
                 mb="1"
@@ -47,22 +45,22 @@ export default function nav() {
                 size="sm"
               />
               <Text color="white" fontSize="12">
-                Account
+                Profile
               </Text>
             </Center>
           </Pressable>
           <Pressable
             position="absolute" zIndex="3"  left="0" right="0"
-            opacity={selected === 0 ? 1 : 0.5}
+            opacity={selected === 1 ? 1 : 0.5}
             py="3"
             flex={1}
-            onPress={() => {setSelected(0), RootNavigation.navigate("Home")}}>
+            onPress={() => {setSelected(1), RootNavigation.navigate("Home")}}>
             <Center>
               <Icon
                 mb="1"
                 as={
                   <MaterialCommunityIcons
-                    name={selected === 0 ? 'home' : 'home-outline'}
+                    name={selected === 1 ? 'home' : 'home-outline'}
                   />
                 }
                 color="white"
@@ -79,7 +77,7 @@ export default function nav() {
             opacity={selected === 2 ? 1 : 0.5}
             py="2"
             flex={1}
-            onPress={() => setSelected(2)}
+            onPress={() => {setSelected(2), RootNavigation.navigate("Sets Lists")}}
           >
             <Center>
               <Icon

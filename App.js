@@ -55,6 +55,22 @@ export default function App() {
     setRole(userData.userRole);
   };
 
+  const config = {
+    animation: 'spring',
+    
+    config: {
+      stiffness: 1000,
+      damping: 500,
+      mass: 3,
+      overshootClamping: true,
+      restDisplacementThreshold: 0.01,
+      restSpeedThreshold: 0.01,
+    },
+    transitionSpec: {
+      duration: 0,  // Set the animation duration time as 0 !!
+    },
+  };
+
   useEffect(() => {
     if (user != null) {
       //getUserFromDb(user.uid);
@@ -87,8 +103,13 @@ export default function App() {
       <NativeBaseProvider>
       <NavigationContainer ref={navigationRef}>
         <RoleContext.Provider value={role}>
-          <Stack.Navigator screenOptions={{ animationEnabled: false }}>
-            <Stack.Screen name="Home" component={Home} />
+          <Stack.Navigator options={{
+    transitionSpec: {
+      open: config,
+      close: config,
+    },
+  }}>
+            <Stack.Screen name="Home" component={Home} options={{animationEnabled: false,}}/>
             <Stack.Screen name="Bands List" component={bandsList} />
             <Stack.Screen name="Bands Create" component={bandsCreate} />
             <Stack.Screen name="Bands Management" component={bandsManagement} />
