@@ -43,13 +43,11 @@ export default class LoginUser extends React.Component{
       return (
         
         <NativeBaseProvider>
-          <Box  width="2xs" mt="20">
-              <Center><Text color="indigo.600"  italic fontSize="sm" w="133%" position="absolute" left="7" pt="12" top="56">Don’t have an account? Sign up</Text></Center>   
-              <Heading size="2xl"  position="absolute" left="1" top="56">
+          <Box  width="2xs" mt="20">   
+              <Heading size="2xl" mb="10" mt="48">
                   Welcome back
               </Heading> 
             <Stack
-              mt="80"
               space={4}
               w={{
                 base: "75%",
@@ -86,7 +84,7 @@ export default class LoginUser extends React.Component{
                 <Button w="65%" bg="white" colorScheme="indigo"  shadow={9} borderRadius="50">Facebook</Button>
                 <Button w="65%" bg="white" colorScheme="indigo" shadow={9}borderRadius="50">Google</Button>
                 </Button.Group>
-                
+                <Center><Text color="indigo.600"  italic fontSize="sm" w="133%" position="absolute" left="7" bottom="-30">Don’t have an account? Sign up</Text></Center>
                 
              
             </Stack>
