@@ -8,6 +8,8 @@ import { Container, Button, Center, NativeBaseProvider,Stack, Input, Heading, Te
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import { useNavigation } from '@react-navigation/native';
 import { NavigationContainer } from "@react-navigation/native";
+import { Link } from '@react-navigation/native';
+import * as RootNavigation from "./RootNavigation"
 export default class LoginUser extends React.Component{
 
   constructor(props){
@@ -41,28 +43,36 @@ export default class LoginUser extends React.Component{
       return (
         
         <NativeBaseProvider>
-          <Box  width="2xs" mt="20">   
-              <Heading size="2xl" mb="10" mt="32">
+          <Box  width="2xs" mt="20">
+              <Center><Text color="indigo.600"  italic fontSize="sm" w="133%" position="absolute" left="7" pt="12" top="56">Don’t have an account? Sign up</Text></Center>   
+              <Heading size="2xl"  position="absolute" left="1" top="56">
                   Welcome back
               </Heading> 
             <Stack
+              mt="80"
               space={4}
               w={{
                 base: "75%",
                 md: "25%",
               }}
             >
-                <Input variant="underlined" w={{base: "133%", md: "133%",}}
-                style={{borderColor: '#4f46e5' }} 
-                InputLeftElement={
-                <Icon
+                <Box>
+                  <Icon
                   as={<MaterialIcons name="person" />}
                   size={5}
                   ml="2"
                   color="muted.400"
+                  position="absolute"
+                  top="-13"
+                  right="-60"
                   />
-                    } placeholder="username/email"  onChangeText={(email) => {
-                    this.setState({email:email}) }} value={this.state.email}/>
+                  <Input variant="underlined" w={{base: "133%", md: "133%",}}
+                  style={{borderColor: '#4f46e5' }} 
+                  placeholder="username/email"  onChangeText={(email) => {
+                    this.setState({email:email}) }} value={this.state.email}
+                    position="absolute" left="0" top="-20"/>
+                </Box>
+                
                 <Input variant="underlined" style={{borderColor: '#4f46e5' }} w={{base: "133%", md: "133%",}}
                 
                   placeholder="password" mb="5" onChangeText={(password) => {
@@ -76,7 +86,7 @@ export default class LoginUser extends React.Component{
                 <Button w="65%" bg="white" colorScheme="indigo"  shadow={9} borderRadius="50">Facebook</Button>
                 <Button w="65%" bg="white" colorScheme="indigo" shadow={9}borderRadius="50">Google</Button>
                 </Button.Group>
-                <Center><Text color="indigo.600"  italic fontSize="sm" w="133%" position="absolute" left="0">Don’t have an account? Sign up</Text></Center>
+                
                 
              
             </Stack>

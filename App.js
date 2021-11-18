@@ -79,6 +79,15 @@ export default function App() {
     }
   });
 
+function algo(){
+    if(this.viewState == true){
+      this.setViewState(false);
+    }
+    else{
+      this.setViewState(true);
+    }
+};
+
   if (userActive === false) { 
     return (
       <View style={styles.container}>
