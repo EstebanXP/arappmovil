@@ -4,7 +4,8 @@ import firebase from "../database/firebase";
 import { NavigationContainer } from "@react-navigation/native";
 import { render } from "react-dom";
 import * as Google from 'expo-google-app-auth';
-import { Container, Button, Center, NativeBaseProvider,Stack, Input, Heading, Text} from "native-base"
+import { Container, Button, Center, NativeBaseProvider,Stack, Input, Heading, Text, Box, Icon} from "native-base"
+import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 //https://abbey-road-app.firebaseapp.com/__/auth/handler
 export default class RegisterUser extends React.Component{
   constructor(props){
@@ -62,40 +63,38 @@ export default class RegisterUser extends React.Component{
     render(){
       return (
         <NativeBaseProvider>
-        <View style={styles.container}>
+        <Box width="2xs" mt="20">
         <Heading textAlign="center" size="2xl" mb="5" mt="20">Sign Up</Heading>
-        <Center>
-            <Input variant="underlined" placeholder="email" onChangeText={(email) => {
-            this.setState({email:email})
-            }} value={this.state.email}/>
-            <Input variant="underlined" placeholder="username" onChangeText={(username) => {
+            <Input variant="underlined" placeholder="username" style={{borderColor: '#4f46e5' }} onChangeText={(username) => {
             this.setState({username:username})
             }} value={this.state.username}/>
-            <Input variant="underlined" placeholder="name" onChangeText={(name) => {
+            <Input variant="underlined" placeholder="email" style={{borderColor: '#4f46e5' }} onChangeText={(email) => {
+            this.setState({email:email})
+            }} value={this.state.email}/>
+            <Input variant="underlined" placeholder="name" style={{borderColor: '#4f46e5' }} onChangeText={(name) => {
             this.setState({name:name})
             }} value={this.state.name}/>
-            <Input variant="underlined" placeholder="password" onChangeText={(password) => {
+            <Input variant="underlined" placeholder="password" style={{borderColor: '#4f46e5' }} onChangeText={(password) => {
             this.setState({password:password})
             }} 
             value={this.state.password} 
             secureTextEntry={true}
             autoCorrect={false}/>
-            <Input variant="underlined" placeholder="confirm password" onChangeText={(confirmPassword) => {
+            <Input variant="underlined" placeholder="confirm password" style={{borderColor: '#4f46e5' }} onChangeText={(confirmPassword) => {
             this.setState({confirmPassword:confirmPassword})
             }} 
             value={this.state.confirmPassword}
             secureTextEntry={true}
             autoCorrect={false} mb="10"/>
-          </Center>
-          <Button  onPress={this.createAccount} mb="5" >Sign Up</Button>
-          <Text fontSize="sm">or sign in using</Text>
+          <Button bg="indigo.600" size={'lg'} colorScheme="indigo" onPress={this.createAccount} mb="5" shadow={9} px="100" borderRadius="50">Sign Up</Button>
+          <Text fontSize="sm">or sign up using</Text>
             <Button.Group mt="5">
-              <Button> Sign up with Facebook</Button>
-              <Button  onPress={this.signInWithGoogleAsync} >Sign Up with Google</Button>
+              <Button w="48%" bg="white" colorScheme="indigo"  shadow={9} borderRadius="50" >Facebook</Button>
+              <Button w="48%" bg="white" colorScheme="indigo"  shadow={9} borderRadius="50" onPress={this.signInWithGoogleAsync} >Google</Button>
             </Button.Group>
-            <Text italic fontSize="sm" mt="5">Don’t have an account? Sign up</Text>
+            <Text italic fontSize="sm" mt="5">Already have an account? Sign in</Text>
           
-        </View>
+        </Box>
         </NativeBaseProvider>
       );
     }
