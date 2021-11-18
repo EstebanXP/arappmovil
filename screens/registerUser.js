@@ -88,7 +88,7 @@ export default class RegisterUser extends React.Component{
             value={this.state.confirmPassword}
             secureTextEntry={true}
             autoCorrect={false} mb="10"/>
-          <Button bg="indigo.600" size={'lg'} colorScheme="indigo" onPress={this.createAccount} mb="5" shadow={9} px="100" borderRadius="50">Sign Up</Button>
+          <Button bg="indigo.600" size={'lg'} colorScheme="indigo" onPress={this.createAccount} mb="5" shadow={9}  borderRadius="50">Sign Up</Button>
           <Text fontSize="sm">or sign up using</Text>
             <Button.Group mt="5">
               <Button w="48%" bg="white" colorScheme="indigo"  shadow={9} borderRadius="50" >
@@ -126,7 +126,7 @@ export default class RegisterUser extends React.Component{
                   </HStack>
               </Button>
             </Button.Group>
-            <Text color="indigo.600" textAlign="center" italic fontSize="sm" mt="5">Already have an account? Sign in</Text>
+            <Text color="indigo.600" textAlign="center" italic fontSize="sm" mt="5" onPress={()=>{this.props.setViewState(true)}}>Already have an account? Sign in</Text>
           
         </Box>
         </NativeBaseProvider>

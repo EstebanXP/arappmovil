@@ -19,6 +19,7 @@ import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import { NavigationContext } from '@react-navigation/native';
 import * as RootNavigation from "./RootNavigation"
 import {TouchableOpacity} from 'react-native-gesture-handler'
+import { Platform } from 'react-native';
 //<Center flex={1}></Center>
 export default function nav() {
   const [selected, setSelected] = React.useState(4);
@@ -34,7 +35,7 @@ export default function nav() {
             opacity={selected === 3 ? 1 : 0.5}
             py="3"
             flex={1}
-            onPress={() => {setSelected(3), RootNavigation.navigateReplace("Profile")}}>
+            >
               <TouchableOpacity onPress={() => {setSelected(3), RootNavigation.navigateReplace("Profile")}}>
             <Center>
               <Icon
@@ -59,7 +60,7 @@ export default function nav() {
             opacity={selected === 1 ? 1 : 0.5}
             py="3"
             flex={1}
-            onPress={() => {setSelected(1), RootNavigation.navigateReplace("Home")}}>
+            >
               <TouchableOpacity onPress={() => {setSelected(1), RootNavigation.navigateReplace("Home")}}>
             <Center>
               <Icon
@@ -84,7 +85,7 @@ export default function nav() {
             opacity={selected === 2 ? 1 : 0.5}
             py="2"
             flex={1}
-            onPress={() => {setSelected(2), RootNavigation.navigateReplace("Sets Lists")}}
+            
           >
             <TouchableOpacity onPress={() => {setSelected(2), RootNavigation.navigateReplace("Sets Lists")}}>
             <Center>

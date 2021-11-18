@@ -35,7 +35,6 @@ export default function search() {
             opacity={0.5}
             
             flex={1}
-            onPress={() => {setSelected(3), RootNavigation.navigate("Profile")}}
           >
             <TouchableOpacity onPress={() => {setSelected(3), RootNavigation.navigate("Profile")}}>
             <Center>

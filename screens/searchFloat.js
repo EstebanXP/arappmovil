@@ -44,7 +44,7 @@ export default function search() {
               opacity={selected ===1 ? 1 : 0.5}
               
               flex={1}
-              onPress={() => {CollapseFunc()}}
+              
             >
               <TouchableOpacity onPress={() => {CollapseFunc()}}>
               <Center>

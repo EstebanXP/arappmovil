@@ -29,6 +29,10 @@ export default class LoginUser extends React.Component{
     this.props.setRole(userData.userRole);
   }
 
+  viewState(){
+    this.props.setViewState(false);
+  }
+
   loginAccount =()=>{
     firebase.firebase.app().auth().signInWithEmailAndPassword(this.state.email,this.state.password)
     .then((user)=>{
@@ -46,7 +50,7 @@ export default class LoginUser extends React.Component{
         
         <NativeBaseProvider>
           <Box  width="2xs" mt="20">   
-              <Heading size="2xl" mb="10" mt="48">
+              <Heading size="2xl" mb="10" mt="48" ml="1">
                   Welcome back
               </Heading> 
             <Stack
@@ -57,15 +61,6 @@ export default class LoginUser extends React.Component{
               }}
             >
                 <Box>
-                  <Icon
-                  as={<MaterialIcons name="person" />}
-                  size={5}
-                  ml="2"
-                  color="muted.400"
-                  position="absolute"
-                  top="-13"
-                  right="-60"
-                  />
                   <Input variant="underlined" w={{base: "133%", md: "133%",}}
                   style={{borderColor: '#4f46e5' }} 
                   placeholder="username/email"  onChangeText={(email) => {
@@ -81,8 +76,9 @@ export default class LoginUser extends React.Component{
                   autoCorrect={false}/>
 
                 <Button  bg="indigo.600" size={'lg'} colorScheme="indigo" onPress={this.loginAccount} shadow={9} px="100" w="133%" borderRadius="50">Sign In</Button>
-                <Text fontSize="sm" w="133%">or sign in using</Text>
-                <Center position="absolute" style={{borderColor: '#4f46e5' }}></Center>
+                <Text fontSize="sm" w="133%" position="absolute" left="20"pt="5"top="32" color="muted.600">or sign in using</Text>
+                <Center position="absolute" top="32" mt="8" bg="indigo.600" h="1px" w="16" ></Center>
+                <Center position="absolute" top="32" mt="8" bg="indigo.600" h="1px" w="16" left="48"></Center>
                 <Button.Group>
                 <Button w="65%" bg="white" colorScheme="indigo"  shadow={9} borderRadius="50" >
                   <HStack space={3} alignItems="center">
@@ -95,7 +91,7 @@ export default class LoginUser extends React.Component{
                       />
                     </Center>
                     <Center>
-                      <Text>
+                      <Text color="muted.400">
                         Facebook
                       </Text>
                       
@@ -114,16 +110,14 @@ export default class LoginUser extends React.Component{
                       />
                     </Center>
                     <Center>
-                      <Text>
+                      <Text color="muted.400">
                         Google
-                      </Text>
-                      
+                      </Text> 
                     </Center>
-                    
                   </HStack>
                 </Button>
                 </Button.Group>
-                <Center><Text color="indigo.600"  italic fontSize="sm" w="133%" position="absolute" left="7" bottom="-30">Don’t have an account? Sign up</Text></Center>
+                <Center><Text color="indigo.600" onPress={()=>{this.props.setViewState(false)}}  italic fontSize="sm" w="133%" position="absolute" left="7" bottom="-30">Don’t have an account? Sign up</Text></Center>
                 
              
             </Stack>

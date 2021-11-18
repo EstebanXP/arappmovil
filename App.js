@@ -42,6 +42,7 @@ import Edit from './screens/editFloat.js'
 const Stack = createNativeStackNavigator();
 
 export default function App() {
+  
 
   const [userActive, setUserActive] = useState(false); //SI NECESITAN TRABAJAR NADA MAS CAMBIEN ESTE ESTADO A TRUE Y DEJARLO EN FALSE ANTES DE HACER COMMIT
   const [user, setUser] = useState();
@@ -79,15 +80,6 @@ export default function App() {
     }
   });
 
-function algo(){
-    if(this.viewState == true){
-      this.setViewState(false);
-    }
-    else{
-      this.setViewState(true);
-    }
-};
-
   if (userActive === false) { 
     return (
       <View style={styles.container}>
@@ -98,15 +90,11 @@ function algo(){
             setUser={setUser}
             setRole={setRole}
             setViewState={setViewState}
+            
           />
         ) : (
           <RegisterUser setViewState={setViewState}></RegisterUser>
         )}
-        <Button
-          title="Switch"
-          onPress={() => setViewState(!viewState)}
-          style={styles.button}
-        ></Button>
       </View>
     );
   } else {
