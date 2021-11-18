@@ -35,7 +35,7 @@ export default function nav() {
             py="3"
             flex={1}
             onPress={() => {setSelected(3), RootNavigation.navigateReplace("Profile")}}>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => {setSelected(3), RootNavigation.navigateReplace("Profile")}}>
             <Center>
               <Icon
                 mb="1"
@@ -60,7 +60,7 @@ export default function nav() {
             py="3"
             flex={1}
             onPress={() => {setSelected(1), RootNavigation.navigateReplace("Home")}}>
-              <TouchableOpacity>
+              <TouchableOpacity onPress={() => {setSelected(1), RootNavigation.navigateReplace("Home")}}>
             <Center>
               <Icon
                 mb="1"
@@ -86,7 +86,7 @@ export default function nav() {
             flex={1}
             onPress={() => {setSelected(2), RootNavigation.navigateReplace("Sets Lists")}}
           >
-            <TouchableOpacity>
+            <TouchableOpacity onPress={() => {setSelected(2), RootNavigation.navigateReplace("Sets Lists")}}>
             <Center>
               <Icon
                 mb="1"
