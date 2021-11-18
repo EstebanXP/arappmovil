@@ -28,7 +28,6 @@ export default function nav() {
     <NativeBaseProvider>
       <Box>
         <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={9} width={"90%"} position="absolute" zIndex="2" bottom="6"  left="5%" right="5%" borderRadius={60} height="16">
-        <TouchableOpacity>
         <Pressable
             style={{elevation: 4}}
             position="absolute" zIndex="4"  left="5" 
@@ -36,6 +35,7 @@ export default function nav() {
             py="3"
             flex={1}
             onPress={() => {setSelected(3), RootNavigation.navigateReplace("Profile")}}>
+              <TouchableOpacity>
             <Center>
               <Icon
                 mb="1"
@@ -51,9 +51,8 @@ export default function nav() {
                 Profile
               </Text>
             </Center>
+            </TouchableOpacity>
           </Pressable>
-          </TouchableOpacity>
-          <TouchableOpacity>
           <Pressable
             style={{elevation: 4}}
             position="absolute" zIndex="3"  left="0" right="0"
@@ -61,6 +60,7 @@ export default function nav() {
             py="3"
             flex={1}
             onPress={() => {setSelected(1), RootNavigation.navigateReplace("Home")}}>
+              <TouchableOpacity>
             <Center>
               <Icon
                 mb="1"
@@ -76,9 +76,8 @@ export default function nav() {
                 Home
               </Text>
             </Center>
+            </TouchableOpacity>
           </Pressable>
-          </TouchableOpacity>
-          <TouchableOpacity>
           <Pressable
             position="absolute" zIndex="3"  right="5"
             style={{elevation: 4}}
@@ -87,6 +86,7 @@ export default function nav() {
             flex={1}
             onPress={() => {setSelected(2), RootNavigation.navigateReplace("Sets Lists")}}
           >
+            <TouchableOpacity>
             <Center>
               <Icon
                 mb="1"
@@ -102,8 +102,9 @@ export default function nav() {
                 Next Show
               </Text>
             </Center>
+            </TouchableOpacity>
           </Pressable>
-          </TouchableOpacity>
+         
         </HStack>
      </Box>
     </NativeBaseProvider>
