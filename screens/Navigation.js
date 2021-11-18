@@ -28,6 +28,7 @@ export default function nav() {
       <Box>
         <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={9} width={"90%"} position="absolute" zIndex="2" bottom="6"  left="5%" right="5%" borderRadius={60} height="16">
         <Pressable
+            style={{elevation: 4}}
             position="absolute" zIndex="4"  left="5" 
             opacity={selected === 3 ? 1 : 0.5}
             py="3"
@@ -50,6 +51,7 @@ export default function nav() {
             </Center>
           </Pressable>
           <Pressable
+            style={{elevation: 4}}
             position="absolute" zIndex="3"  left="0" right="0"
             opacity={selected === 1 ? 1 : 0.5}
             py="3"
@@ -73,7 +75,7 @@ export default function nav() {
           </Pressable>
           <Pressable
             position="absolute" zIndex="3"  right="5"
-            
+            style={{elevation: 4}}
             opacity={selected === 2 ? 1 : 0.5}
             py="2"
             flex={1}
