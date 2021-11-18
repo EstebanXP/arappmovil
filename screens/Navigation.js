@@ -22,7 +22,7 @@ import {TouchableOpacity} from 'react-native-gesture-handler'
 import { Platform } from 'react-native';
 //<Center flex={1}></Center>
 export default function nav(props) {
-  const [selected, setSelected] = React.useState(4);
+  const [selected, setSelected] = React.useState(1);
   const navigation = React.useContext(NavigationContext);
   return (
     <View>

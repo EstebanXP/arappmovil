@@ -44,7 +44,7 @@ export default function profile({route,navigation}){
                         {name}
                     </Heading>
                     <Text textAlign="center" color="black" position="absolute" top="72" >{user}</Text>
-                    <Text textAlign="center" color="black" position="absolute" top="80" >{role}</Text>
+                    <Text textAlign="center" color="black" position="absolute" top="80" >@{role}</Text>
                     <Button  bg="danger.500" size={'lg'} colorScheme="red" onPress={()=>{
                         firebase.firebase.app().auth().signOut()
                         .catch((error)=>{
