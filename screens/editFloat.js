@@ -20,6 +20,7 @@ import { NavigationContext } from '@react-navigation/native';
 import * as RootNavigation from "./RootNavigation"
 import { View} from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons';
+import { TouchableOpacity } from 'react-native-gesture-handler';
 //<Center flex={1}></Center>
 export default function search() {
   const [selected, setSelected] = React.useState(1);
@@ -36,6 +37,7 @@ export default function search() {
             flex={1}
             onPress={() => {setSelected(3), RootNavigation.navigate("Profile")}}
           >
+            <TouchableOpacity onPress={() => {setSelected(3), RootNavigation.navigate("Profile")}}>
             <Center>
               <Icon
                 mb="1"
@@ -48,6 +50,7 @@ export default function search() {
                 size="sm"
               />
             </Center>
+            </TouchableOpacity>
           </Pressable>
         </HStack>
     </NativeBaseProvider>

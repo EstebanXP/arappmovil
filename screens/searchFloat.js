@@ -20,6 +20,7 @@ import { NavigationContext } from '@react-navigation/native';
 import * as RootNavigation from "./RootNavigation"
 import { Platform } from "react-native"
 import { View} from 'react-native'
+import {TouchableOpacity} from 'react-native-gesture-handler'
 //<Center flex={1}></Center>
 export default function search() {
   const [selected, setSelected] = React.useState(0);
@@ -45,6 +46,7 @@ export default function search() {
               flex={1}
               onPress={() => {CollapseFunc()}}
             >
+              <TouchableOpacity onPress={() => {CollapseFunc()}}>
               <Center>
                 <Icon
                   mb="1"
@@ -57,6 +59,7 @@ export default function search() {
                   size="sm"
                 />
               </Center>
+              </TouchableOpacity>
             </Pressable>
           </HStack>
       </NativeBaseProvider>
