@@ -18,6 +18,7 @@ import { View} from 'react-native'
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 import { NavigationContext } from '@react-navigation/native';
 import * as RootNavigation from "./RootNavigation"
+import {TouchableOpacity} from 'react-native-gesture-handler'
 //<Center flex={1}></Center>
 export default function nav() {
   const [selected, setSelected] = React.useState(4);
@@ -27,6 +28,7 @@ export default function nav() {
     <NativeBaseProvider>
       <Box>
         <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={9} width={"90%"} position="absolute" zIndex="2" bottom="6"  left="5%" right="5%" borderRadius={60} height="16">
+        <TouchableOpacity>
         <Pressable
             style={{elevation: 4}}
             position="absolute" zIndex="4"  left="5" 
@@ -50,6 +52,8 @@ export default function nav() {
               </Text>
             </Center>
           </Pressable>
+          </TouchableOpacity>
+          <TouchableOpacity>
           <Pressable
             style={{elevation: 4}}
             position="absolute" zIndex="3"  left="0" right="0"
@@ -73,6 +77,8 @@ export default function nav() {
               </Text>
             </Center>
           </Pressable>
+          </TouchableOpacity>
+          <TouchableOpacity>
           <Pressable
             position="absolute" zIndex="3"  right="5"
             style={{elevation: 4}}
@@ -97,7 +103,7 @@ export default function nav() {
               </Text>
             </Center>
           </Pressable>
-         
+          </TouchableOpacity>
         </HStack>
      </Box>
     </NativeBaseProvider>
