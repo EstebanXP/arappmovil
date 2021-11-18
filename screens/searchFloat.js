@@ -72,6 +72,7 @@ export default function search() {
       <NativeBaseProvider>
           <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={9} width="75%" position="absolute" zIndex="5" bottom="24"  right="5%" borderRadius={60} height="12">
             <Input
+            zIndex="5"
             placeholder="Search"
             variant="filled"
             width="85%"
