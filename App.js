@@ -108,7 +108,7 @@ export default function App() {
       <NavigationContainer ref={navigationRef}>
         <RoleContext.Provider value={role}>
           <Stack.Navigator>
-            <Stack.Screen name="Home" component={Home} options={config} setUserActive={setUserActive}/>
+            <Stack.Screen name="Home" component={Home} options={config} />
             <Stack.Screen name="Bands List" component={bandsList} options={config}/>
             <Stack.Screen name="Bands Create" component={bandsCreate} options={config}/>
             <Stack.Screen name="Bands Management" component={bandsManagement}  options={config}/>
