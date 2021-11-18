@@ -27,6 +27,8 @@ export default class LoginUser extends React.Component{
     const doc = await dbRef.get();
     const userData = doc.data();
     this.props.setRole(userData.userRole);
+    this.props.setUserName(userData.userUsername);
+    this.props.setName(userData.userName);
   }
 
   viewState(){

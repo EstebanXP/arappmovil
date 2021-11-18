@@ -41,11 +41,12 @@ import { useFonts } from 'expo-font';
 import Edit from './screens/editFloat.js' 
 const Stack = createNativeStackNavigator();
 
-export default function App() {
-  
 
+export default function App() {
   const [userActive, setUserActive] = useState(false); //SI NECESITAN TRABAJAR NADA MAS CAMBIEN ESTE ESTADO A TRUE Y DEJARLO EN FALSE ANTES DE HACER COMMIT
   const [user, setUser] = useState();
+  const [name, setName] = useState();
+  const [userName, setUserName] = useState();
   const [role, setRole] = useState("");
   const [viewState, setViewState] = useState(true);
 
@@ -55,7 +56,9 @@ export default function App() {
     const userData = doc.data();
     setRole(userData.userRole);
   };
+  
 
+  
   const config = {
   headerBackTitleVisible : false,
    headerStyle: {
@@ -89,6 +92,8 @@ export default function App() {
             setUserActive={setUserActive}
             setUser={setUser}
             setRole={setRole}
+            setUserName={setUserName}
+            setName={setName}
             setViewState={setViewState}
             
           />
@@ -103,7 +108,7 @@ export default function App() {
       <NavigationContainer ref={navigationRef}>
         <RoleContext.Provider value={role}>
           <Stack.Navigator>
-            <Stack.Screen name="Home" component={Home} options={config}/>
+            <Stack.Screen name="Home" component={Home} options={config} setUserActive={setUserActive}/>
             <Stack.Screen name="Bands List" component={bandsList} options={config}/>
             <Stack.Screen name="Bands Create" component={bandsCreate} options={config}/>
             <Stack.Screen name="Bands Management" component={bandsManagement}  options={config}/>
@@ -144,7 +149,7 @@ export default function App() {
           </Stack.Navigator>
           <Search style={{zIndex: 4}}></Search>
           <Edit></Edit>
-        <Navigation ></Navigation>
+        <Navigation setUserActive={setUserActive} name={name} userName={userName} role={role}></Navigation>
         </RoleContext.Provider>
         
       </NavigationContainer>

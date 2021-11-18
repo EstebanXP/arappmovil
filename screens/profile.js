@@ -1,4 +1,4 @@
-import React from 'react';
+import React,{ useState} from 'react';
 import {
   NativeBaseProvider,
   Box,
@@ -22,7 +22,10 @@ import { NavigationContext } from '@react-navigation/native';
 import * as RootNavigation from "./RootNavigation"
 
 
-    export default function profile(){
+export default function profile({route,navigation}){
+    const [userName, setUserName] = useState("");
+    const { name, role, user } = route.params;
+     
       return (
         <View>
              <NativeBaseProvider>
@@ -38,11 +41,17 @@ import * as RootNavigation from "./RootNavigation"
                     alt="Alternate Text"
                     />
                     <Heading textAlign="center" color="black" fontSize="3xl" position="absolute" top="245">
-                        Name
+                        {name}
                     </Heading>
-                    <Text textAlign="center" color="black" position="absolute" top="72" >@UserName</Text>
-                    <Text textAlign="center" color="black" position="absolute" top="80" >Role</Text>
-                    <Button  bg="danger.500" size={'lg'} colorScheme="red" onPress={firebase.firebase.app().auth().signOut()} shadow={9} px="100" mt="64" w="100%" position="absolute" top="80" borderRadius="50">Sign Out</Button>
+                    <Text textAlign="center" color="black" position="absolute" top="72" >{user}</Text>
+                    <Text textAlign="center" color="black" position="absolute" top="80" >{role}</Text>
+                    <Button  bg="danger.500" size={'lg'} colorScheme="red" onPress={()=>{
+                        firebase.firebase.app().auth().signOut()
+                        .catch((error)=>{
+                            Alert.alert('Sorry. ' + error.message)
+                        })
+                        
+                        }} shadow={9} px="100" mt="64" w="100%" position="absolute" top="80" borderRadius="50">Sign Out</Button>
                 </Center>
             </NativeBaseProvider>
         </View>    

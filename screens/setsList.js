@@ -6,7 +6,7 @@ import {Picker} from '@react-native-picker/picker';
 import { Input } from 'react-native-elements/dist/input/Input';
 
 export default function SetsList(props,{navigation}) {
-
+    const [role, setRole] = useState("");
     const [Sets, setSets] = useState([])
     const [sort, setSort] = useState("asc");
     const [searchVar,setSearchVar] = useState("");

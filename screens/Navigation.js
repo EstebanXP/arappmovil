@@ -21,7 +21,7 @@ import * as RootNavigation from "./RootNavigation"
 import {TouchableOpacity} from 'react-native-gesture-handler'
 import { Platform } from 'react-native';
 //<Center flex={1}></Center>
-export default function nav() {
+export default function nav(props) {
   const [selected, setSelected] = React.useState(4);
   const navigation = React.useContext(NavigationContext);
   return (
@@ -36,7 +36,7 @@ export default function nav() {
             py="3"
             flex={1}
             >
-              <TouchableOpacity onPress={() => {setSelected(3), RootNavigation.navigateReplace("Profile")}}>
+              <TouchableOpacity onPress={() => {setSelected(3), RootNavigation.navigateReplace("Profile", props.name, props.userName, props.role)}}>
             <Center>
               <Icon
                 mb="1"

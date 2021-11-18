@@ -7,11 +7,13 @@ export function navigate(name, params) {
     navigationRef.navigate(name, params);
   }
 }
-export function navigateReplace(name, param) {
+export function navigateReplace(name, param, role, user) {
   if (navigationRef.isReady()) {
     navigationRef.dispatch(
       StackActions.replace(name, {
-        param,
+        name: param,
+        role : role,
+        user : user,
       }),
     );
   }
