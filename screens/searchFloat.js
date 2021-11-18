@@ -71,13 +71,6 @@ export default function search() {
       <View>
       <NativeBaseProvider>
           <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={9} width="75%" position="absolute" zIndex="5" bottom="24"  right="5%" borderRadius={60} height="12">
-          <KeyboardAvoidingView
-      h={{
-        base: "400px",
-        lg: "auto",
-      }}
-      behavior={Platform.OS === "ios" ? "padding" : "height"}
-    >
             <Input
             placeholder="Search"
             variant="filled"
@@ -96,7 +89,6 @@ export default function search() {
               _focus: { style: { boxShadow: 'none' } },
             }}
           />
-          </KeyboardAvoidingView>
           <Pressable
               position="absolute" zIndex="3" bottom="2" right="3" 
               opacity={selected ===1 ? 1 : 0.5}
@@ -104,6 +96,7 @@ export default function search() {
               flex={1}
               onPress={() => {CollapseFunc()}}
             >
+              <TouchableOpacity onPress={() => {CollapseFunc()}}>
               <Center>
                 <Icon
                   mb="1"
@@ -116,6 +109,7 @@ export default function search() {
                   size="sm"
                 />
               </Center>
+              </TouchableOpacity>
             </Pressable>
           </HStack>
       
