@@ -5,6 +5,8 @@ import { NavigationContainer } from "@react-navigation/native";
 import { render } from "react-dom";
 import * as Google from 'expo-google-app-auth';
 import { Container, Button, Center, NativeBaseProvider,Stack, Input, Heading, Text, Box, Icon} from "native-base"
+import { Flex, Spacer, HStack } from 'native-base';
+import { AntDesign } from '@expo/vector-icons';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
 //https://abbey-road-app.firebaseapp.com/__/auth/handler
 export default class RegisterUser extends React.Component{
@@ -89,10 +91,42 @@ export default class RegisterUser extends React.Component{
           <Button bg="indigo.600" size={'lg'} colorScheme="indigo" onPress={this.createAccount} mb="5" shadow={9} px="100" borderRadius="50">Sign Up</Button>
           <Text fontSize="sm">or sign up using</Text>
             <Button.Group mt="5">
-              <Button w="48%" bg="white" colorScheme="indigo"  shadow={9} borderRadius="50" >Facebook</Button>
-              <Button w="48%" bg="white" colorScheme="indigo"  shadow={9} borderRadius="50" onPress={this.signInWithGoogleAsync} >Google</Button>
+              <Button w="48%" bg="white" colorScheme="indigo"  shadow={9} borderRadius="50" >
+                  <HStack space={3} alignItems="center">
+                    <Center>
+                      <Icon
+                      as={<MaterialCommunityIcons name="facebook" />}
+                      size={4}
+                      mr="-2"
+                      color="muted.400"
+                      />
+                    </Center>
+                    <Center>
+                      <Text>
+                        Facebook
+                      </Text>
+                    </Center>
+                  </HStack>
+              </Button>
+              <Button w="48%" bg="white" colorScheme="indigo"  shadow={9} borderRadius="50" onPress={this.signInWithGoogleAsync} >
+                  <HStack space={3} alignItems="center">
+                    <Center>
+                      <Icon
+                      as={<AntDesign name="google" />}
+                      size={4}
+                      mr="-2"
+                      color="muted.400"
+                      />
+                    </Center>
+                    <Center>
+                      <Text>
+                        Google
+                      </Text>
+                    </Center>  
+                  </HStack>
+              </Button>
             </Button.Group>
-            <Text italic fontSize="sm" mt="5">Already have an account? Sign in</Text>
+            <Text color="indigo.600" textAlign="center" italic fontSize="sm" mt="5">Already have an account? Sign in</Text>
           
         </Box>
         </NativeBaseProvider>
