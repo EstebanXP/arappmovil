@@ -10,6 +10,8 @@ import { useNavigation } from '@react-navigation/native';
 import { NavigationContainer } from "@react-navigation/native";
 import { Link } from '@react-navigation/native';
 import * as RootNavigation from "./RootNavigation"
+import { Flex, Spacer, HStack } from 'native-base';
+import { AntDesign } from '@expo/vector-icons';
 export default class LoginUser extends React.Component{
 
   constructor(props){
@@ -79,10 +81,47 @@ export default class LoginUser extends React.Component{
                   autoCorrect={false}/>
 
                 <Button  bg="indigo.600" size={'lg'} colorScheme="indigo" onPress={this.loginAccount} shadow={9} px="100" w="133%" borderRadius="50">Sign In</Button>
-                <Text fontSize="sm" w="133%">or sign in using</Text>  
+                <Text fontSize="sm" w="133%">or sign in using</Text>
+                <Center position="absolute" style={{borderColor: '#4f46e5' }}></Center>
                 <Button.Group>
-                <Button w="65%" bg="white" colorScheme="indigo"  shadow={9} borderRadius="50">Facebook</Button>
-                <Button w="65%" bg="white" colorScheme="indigo" shadow={9}borderRadius="50">Google</Button>
+                <Button w="65%" bg="white" colorScheme="indigo"  shadow={9} borderRadius="50" >
+                  <HStack space={3} alignItems="center">
+                    <Center>
+                      <Icon
+                      as={<MaterialCommunityIcons name="facebook" />}
+                      size={4}
+                      mr="-2"
+                      color="muted.400"
+                      />
+                    </Center>
+                    <Center>
+                      <Text>
+                        Facebook
+                      </Text>
+                      
+                    </Center>
+                    
+                  </HStack>
+                </Button>
+                <Button w="65%" bg="white" colorScheme="indigo"  shadow={9} borderRadius="50" >
+                  <HStack space={3} alignItems="center">
+                    <Center>
+                      <Icon
+                      as={<AntDesign name="google" />}
+                      size={4}
+                      mr="-2"
+                      color="muted.400"
+                      />
+                    </Center>
+                    <Center>
+                      <Text>
+                        Google
+                      </Text>
+                      
+                    </Center>
+                    
+                  </HStack>
+                </Button>
                 </Button.Group>
                 <Center><Text color="indigo.600"  italic fontSize="sm" w="133%" position="absolute" left="7" bottom="-30">Don’t have an account? Sign up</Text></Center>
                 
