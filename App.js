@@ -145,7 +145,7 @@ export default function App() {
             <Stack.Screen name="Show Songs" component={showSongs} options={config}/>
             <Stack.Screen name="Manage Song" component={rsm} options={config}/>
             <Stack.Screen name="Navigation" component={Navigation} options={config}/>
-            <Stack.Screen name="Profile" component={profile} options={configNav} />
+            <Stack.Screen name="Profile" component={profile} options={config} />
           </Stack.Navigator>
           <Search style={{zIndex: 4}}></Search>
           <Edit></Edit>
