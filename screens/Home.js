@@ -35,6 +35,14 @@ export default function Home(
                     title="Ir a administrar sets"
                     onPress={() => navigation.navigate("Sets Lists")}
                   />
+                  <Button
+                      title="Ir a mostrar canciones"
+                      onPress={() => navigation.navigate("Show Songs")}
+                    />
+                  <Button
+                    title="Ir a Lista de etiquetas"
+                    onPress={() => navigation.navigate("Tags List")}
+                  />
                 </View>
               </NativeBaseProvider>
             );

@@ -28,16 +28,20 @@ export default function nav(props) {
     <View>
     <NativeBaseProvider>
       <Box>
-        <HStack bg="indigo.600" alignItems="center" safeAreaBottom shadow={9} width={"90%"} position="absolute" zIndex="2" bottom="6"  left="5%" right="5%" borderRadius={60} height="16">
-        <Pressable
+        <HStack bg="indigo.600" opacity="0.97" alignItems="center" safeAreaBottom shadow={9} width={"90%"} position="absolute" zIndex="2" bottom="6"  left="5%" right="5%" borderRadius={20} height="16">
+        <Pressable 
+            bg={selected === 3 ? "indigo.700" : null}
+            borderRadius={20}
             style={{elevation: 4}}
-            position="absolute" zIndex="4"  left="5" 
+            position="absolute" zIndex="4"  left="0" 
             opacity={selected === 3 ? 1 : 0.5}
-            py="3"
+            py="2"
+            px="5"
             flex={1}
+            w="30%"
             >
               <TouchableOpacity onPress={() => {setSelected(3), RootNavigation.navigateReplace("Profile", props.name, props.userName, props.role)}}>
-            <Center>
+            <Center  h="100%">
               <Icon
                 mb="1"
                 as={
@@ -55,10 +59,13 @@ export default function nav(props) {
             </TouchableOpacity>
           </Pressable>
           <Pressable
+            bg={selected === 1 ? "indigo.700" : null}
+            borderRadius={20}
             style={{elevation: 4}}
-            position="absolute" zIndex="3"  left="0" right="0"
+            position="absolute" zIndex="3"  left="35%" right="0"
             opacity={selected === 1 ? 1 : 0.5}
-            py="3"
+            py="2"
+            w="30%"
             flex={1}
             >
               <TouchableOpacity onPress={() => {setSelected(1), RootNavigation.navigateReplace("Home")}}>
@@ -80,7 +87,10 @@ export default function nav(props) {
             </TouchableOpacity>
           </Pressable>
           <Pressable
-            position="absolute" zIndex="3"  right="5"
+            bg={selected === 2 ? "indigo.700" : null}
+            borderRadius={20}
+            w="30%"
+            position="absolute" zIndex="3"  right="0"
             style={{elevation: 4}}
             opacity={selected === 2 ? 1 : 0.5}
             py="2"
