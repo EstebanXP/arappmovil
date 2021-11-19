@@ -10,7 +10,7 @@ import { useNavigation } from '@react-navigation/native';
 import { NavigationContainer } from "@react-navigation/native";
 import { Link } from '@react-navigation/native';
 import * as RootNavigation from "./RootNavigation"
-import { Flex, Spacer, HStack } from 'native-base';
+import { Flex, Spacer, HStack, useColorMode, Image} from 'native-base';
 import { AntDesign } from '@expo/vector-icons';
 export default class LoginUser extends React.Component{
 
@@ -47,6 +47,7 @@ export default class LoginUser extends React.Component{
       
     })
   }
+
     render(){
       return (
         
@@ -77,42 +78,44 @@ export default class LoginUser extends React.Component{
                   secureTextEntry={true}
                   autoCorrect={false}/>
 
-                <Button  bg="indigo.600" size={'lg'} colorScheme="indigo" onPress={this.loginAccount} shadow={9} px="100" w="133%" borderRadius="50">Sign In</Button>
-                <Text fontSize="sm" w="133%" position="absolute" left="20"pt="5"top="32" color="muted.600">or sign in using</Text>
-                <Center position="absolute" top="32" mt="8" bg="indigo.600" h="1px" w="16" ></Center>
-                <Center position="absolute" top="32" mt="8" bg="indigo.600" h="1px" w="16" left="48"></Center>
+                <Button  bg="indigo.600" size={'lg'} colorScheme="dark" onPress={this.loginAccount} shadow={9} px="100" w="133%" borderRadius="50">Sign In</Button>
+                <Text textAlign="center" fontSize="sm" w="133%" color="muted.600">or sign in using</Text>
                 <Button.Group>
-                <Button w="65%" bg="white" colorScheme="indigo"  shadow={9} borderRadius="50" >
+                <Button w="65%" bg="white" colorScheme="dark" shadow={9} borderRadius="50" >
                   <HStack space={3} alignItems="center">
                     <Center>
                       <Icon
                       as={<MaterialCommunityIcons name="facebook" />}
                       size={4}
                       mr="-2"
-                      color="muted.400"
+                      color="indigo.600"
+                      bold
                       />
                     </Center>
                     <Center>
-                      <Text color="muted.400">
+                      <Text color="indigo.600">
                         Facebook
                       </Text>
-                      
                     </Center>
-                    
                   </HStack>
                 </Button>
-                <Button w="65%" bg="white" colorScheme="indigo"  shadow={9} borderRadius="50" >
+                <Button w="65%" bg="white" colorScheme="dark"  shadow={9} borderRadius="50" onPress={() => {
+                  toggleColorMode();
+                }}>
                   <HStack space={3} alignItems="center">
-                    <Center>
-                      <Icon
-                      as={<AntDesign name="google" />}
-                      size={4}
-                      mr="-2"
-                      color="muted.400"
-                      />
+                    <Center mr="-2">
+                    <Image
+                    size={3}
+                    resizeMode={"contain"}
+                    borderRadius={1}
+                    source={{
+                        uri: "https://freesvg.org/img/1534129544.png",
+                    }}
+                    alt="Alternate Text"
+                    />
                     </Center>
                     <Center>
-                      <Text color="muted.400">
+                      <Text color="indigo.600">
                         Google
                       </Text> 
                     </Center>

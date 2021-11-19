@@ -4,7 +4,7 @@ import firebase from "../database/firebase";
 import { NavigationContainer } from "@react-navigation/native";
 import { render } from "react-dom";
 import * as Google from 'expo-google-app-auth';
-import { Container, Button, Center, NativeBaseProvider,Stack, Input, Heading, Text, Box, Icon} from "native-base"
+import { Container, Button, Center, NativeBaseProvider,Stack, Input, Heading, Text, Box, Icon, Image} from "native-base"
 import { Flex, Spacer, HStack } from 'native-base';
 import { AntDesign } from '@expo/vector-icons';
 import { MaterialCommunityIcons, MaterialIcons } from '@expo/vector-icons';
@@ -88,38 +88,41 @@ export default class RegisterUser extends React.Component{
             value={this.state.confirmPassword}
             secureTextEntry={true}
             autoCorrect={false} mb="10"/>
-          <Button bg="indigo.600" size={'lg'} colorScheme="indigo" onPress={this.createAccount} mb="5" shadow={9}  borderRadius="50">Sign Up</Button>
-          <Text fontSize="sm">or sign up using</Text>
+          <Button bg="indigo.600" size={'lg'} colorScheme="dark" onPress={this.createAccount} mb="5" shadow={9}  borderRadius="50">Sign Up</Button>
+          <Text textAlign="center" fontSize="sm" color="muted.600">or sign up using</Text>
             <Button.Group mt="5">
-              <Button w="48%" bg="white" colorScheme="indigo"  shadow={9} borderRadius="50" >
+              <Button w="48%" bg="white" colorScheme="dark"  shadow={9} borderRadius="50" >
                   <HStack space={3} alignItems="center">
                     <Center>
                       <Icon
                       as={<MaterialCommunityIcons name="facebook" />}
                       size={4}
                       mr="-2"
-                      color="muted.400"
+                      color="indigo.600"
                       />
                     </Center>
                     <Center>
-                      <Text>
+                      <Text color="indigo.600">
                         Facebook
                       </Text>
                     </Center>
                   </HStack>
               </Button>
-              <Button w="48%" bg="white" colorScheme="indigo"  shadow={9} borderRadius="50" onPress={this.signInWithGoogleAsync} >
+              <Button w="48%" bg="white" colorScheme="dark"  shadow={9} borderRadius="50" onPress={this.signInWithGoogleAsync} >
                   <HStack space={3} alignItems="center">
-                    <Center>
-                      <Icon
-                      as={<AntDesign name="google" />}
-                      size={4}
-                      mr="-2"
-                      color="muted.400"
-                      />
+                    <Center mr="-2">
+                    <Image
+                    size={3}
+                    resizeMode={"contain"}
+                    borderRadius={1}
+                    source={{
+                        uri: "https://freesvg.org/img/1534129544.png",
+                    }}
+                    alt="Alternate Text"
+                    />
                     </Center>
                     <Center>
-                      <Text>
+                      <Text color="indigo.600">
                         Google
                       </Text>
                     </Center>  
