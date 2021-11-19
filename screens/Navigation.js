@@ -28,13 +28,13 @@ export default function nav(props) {
     <View>
     <NativeBaseProvider>
       <Box>
-        <HStack bg="indigo.600" opacity="0.97" alignItems="center" safeAreaBottom shadow={9} width={"90%"} position="absolute" zIndex="2" bottom="6"  left="5%" right="5%" borderRadius={20} height="16">
+        <HStack bg="#17127D" opacity="0.96" alignItems="center" safeAreaBottom shadow={9} width={"90%"} position="absolute" zIndex="2" bottom="6"  left="5%" right="5%" borderRadius={20} height="16">
         <Pressable 
-            bg={selected === 3 ? "indigo.700" : null}
+            bg={selected === 3 ? "#140F6B" : null}
             borderRadius={20}
             style={{elevation: 4}}
             position="absolute" zIndex="4"  left="0" 
-            opacity={selected === 3 ? 1 : 0.5}
+            opacity={selected === 3 ? .99 : 0.5}
             py="2"
             px="5"
             flex={1}
@@ -59,11 +59,11 @@ export default function nav(props) {
             </TouchableOpacity>
           </Pressable>
           <Pressable
-            bg={selected === 1 ? "indigo.700" : null}
+            bg={selected === 1 ? "#140F6B" : null}
             borderRadius={20}
             style={{elevation: 4}}
             position="absolute" zIndex="3"  left="35%" right="0"
-            opacity={selected === 1 ? 1 : 0.5}
+            opacity={selected === 1 ? .99 : 0.5}
             py="2"
             w="30%"
             flex={1}
@@ -87,12 +87,12 @@ export default function nav(props) {
             </TouchableOpacity>
           </Pressable>
           <Pressable
-            bg={selected === 2 ? "indigo.700" : null}
+            bg={selected === 2 ? "#140F6B" : null}
             borderRadius={20}
             w="30%"
             position="absolute" zIndex="3"  right="0"
             style={{elevation: 4}}
-            opacity={selected === 2 ? 1 : 0.5}
+            opacity={selected === 2 ? .99 : 0.5}
             py="2"
             flex={1}
             
