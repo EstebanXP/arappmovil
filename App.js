@@ -39,6 +39,7 @@ import profile from "./screens/profile";
 import Search from "./screens/searchFloat.js";
 import { useFonts } from 'expo-font';
 import Edit from './screens/editFloat.js' 
+import Notification from './screens/notificationFloat' 
 const Stack = createNativeStackNavigator();
 
 
@@ -148,6 +149,7 @@ export default function App() {
             <Stack.Screen name="Profile" component={profile} options={config} />
           </Stack.Navigator>
           <Search style={{zIndex: 4}}></Search>
+          <Notification></Notification>
           <Edit></Edit>
         <Navigation setUserActive={setUserActive} name={name} userName={userName} role={role}></Navigation>
         </RoleContext.Provider>
