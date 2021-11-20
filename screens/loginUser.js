@@ -52,9 +52,9 @@ export default class LoginUser extends React.Component{
       return (
         
         <NativeBaseProvider>
-          <Box  width="2xs" mt="20">   
-              <Heading size="2xl" mb="10" mt="48" ml="1">
-                  Welcome back
+          <Box  width="2xs" mt="20" >   
+              <Heading size="xl" mb="10" mt="48" textAlign="center">
+                  We missed you
               </Heading> 
             <Stack
               space={4}

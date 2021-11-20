@@ -28,10 +28,10 @@ export default function nav(props) {
     <View>
     <NativeBaseProvider>
       <Box>
-        <HStack bg="coolGray.800" opacity="0.96" alignItems="center" safeAreaBottom shadow={9} width={"90%"} position="absolute" zIndex="2" bottom="6"  left="5%" right="5%" borderRadius={20} height="16">
+        <HStack bg="#151515" opacity="0.9" alignItems="center" safeAreaBottom shadow={9} width={"90%"} position="absolute" zIndex="2" bottom="6"  left="5%" right="5%" borderRadius={12} height="16">
         <Pressable 
-            bg={selected === 3 ? "coolGray.900" : null}
-            borderRadius={20}
+            bg={selected === 3 ? "#000" : null}
+            borderRadius={12}
             style={{elevation: 4}}
             position="absolute" zIndex="4"  left="0" 
             opacity={selected === 3 ? .99 : 0.5}
@@ -39,6 +39,7 @@ export default function nav(props) {
             px="5"
             flex={1}
             w="30%"
+            
             >
               <TouchableOpacity onPress={() => {setSelected(3), RootNavigation.navigateReplace("Profile", props.name, props.userName, props.role)}}>
             <Center  h="100%">
@@ -59,8 +60,8 @@ export default function nav(props) {
             </TouchableOpacity>
           </Pressable>
           <Pressable
-            bg={selected === 1 ? "coolGray.900" : null}
-            borderRadius={20}
+            bg={selected === 1 ? "#000" : null}
+            borderRadius={12}
             style={{elevation: 4}}
             position="absolute" zIndex="3"  left="35%" right="0"
             opacity={selected === 1 ? .99 : 0.5}
@@ -87,8 +88,8 @@ export default function nav(props) {
             </TouchableOpacity>
           </Pressable>
           <Pressable
-            bg={selected === 2 ? "coolGray.900" : null}
-            borderRadius={20}
+            bg={selected === 2 ? "#000" : null}
+            borderRadius={12}
             w="30%"
             position="absolute" zIndex="3"  right="0"
             style={{elevation: 4}}

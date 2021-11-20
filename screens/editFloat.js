@@ -29,7 +29,7 @@ export default function search() {
     <View>
     <NativeBaseProvider>
       
-        <HStack bg="#241CC4" opacity="0.96" alignItems="center" safeAreaBottom shadow={9} width="12" position="absolute" zIndex="2" bottom="24"  left="5%" borderRadius={60} height="12">
+        <HStack bg="indigo.600" opacity="0.96" alignItems="center" safeAreaBottom shadow={9} width="12" position="absolute" zIndex="2" bottom="24"  left="5%" borderRadius={60} height="12">
         <Pressable
             position="absolute" zIndex="3" bottom="2" left="0" right="0" 
             opacity={1}

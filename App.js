@@ -40,6 +40,7 @@ import Search from "./screens/searchFloat.js";
 import { useFonts } from 'expo-font';
 import Edit from './screens/editFloat.js' 
 import Notification from './screens/notificationFloat' 
+
 const Stack = createNativeStackNavigator();
 
 
@@ -63,7 +64,7 @@ export default function App() {
   const config = {
   headerBackTitleVisible : false,
    headerStyle: {
-     backgroundColor: '#241CC4'
+     backgroundColor: "rgba(0,0,0,.9)"
    },
    headerTintColor: '#fff',
    animationEnabled: false,
@@ -72,7 +73,7 @@ export default function App() {
     headerBackTitleVisible : false,
     headerLeft: ()=> null,
     headerStyle: {
-      backgroundColor: '#241CC4'
+      backgroundColor: "rgba(0,0,0,.9)"
     },
     headerTintColor: '#fff',
     animationEnabled: false,
@@ -107,7 +108,9 @@ export default function App() {
     return (
       <NativeBaseProvider>
       <NavigationContainer ref={navigationRef}>
+      
         <RoleContext.Provider value={role}>
+        
           <Stack.Navigator>
             <Stack.Screen name="Home" component={Home} options={config} />
             <Stack.Screen name="Bands List" component={bandsList} options={config}/>
@@ -148,8 +151,9 @@ export default function App() {
             <Stack.Screen name="Navigation" component={Navigation} options={config}/>
             <Stack.Screen name="Profile" component={profile} options={config} />
           </Stack.Navigator>
+         
           <Search style={{zIndex: 4}}></Search>
-          <Notification></Notification>
+          
           <Edit></Edit>
         <Navigation setUserActive={setUserActive} name={name} userName={userName} role={role}></Navigation>
         </RoleContext.Provider>

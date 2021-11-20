@@ -4,7 +4,7 @@ import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 import {Picker} from '@react-native-picker/picker';
 import { Input } from 'react-native-elements/dist/input/Input';
-import { NativeBaseProvider, VStack, Center, Button, Pressable, Text, Box } from "native-base";
+import { NativeBaseProvider, VStack, Center, Button, Pressable, Text, Box, Container} from "native-base";
 import {TouchableOpacity} from 'react-native-gesture-handler'
 
 export default function liveShowsManagement(props,{navigation}) {
@@ -39,6 +39,7 @@ export default function liveShowsManagement(props,{navigation}) {
 
     return ( 
       <SafeAreaView>
+      <Box alignItems="center" position="absolute" top="2" w="90%" right="5%" left="5%">
         <Input placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
           <Button
             title="Crear live show 1"
@@ -63,19 +64,15 @@ export default function liveShowsManagement(props,{navigation}) {
             }).map(liveShow =>{
               return(
                 <Pressable
-                      width="100%" h="32" bg="#241CC4" borderRadius="30" shadow={3}
-                      textColor="white"
-                      bg="indigo.600"
-                      title="Ir a lista de live shows"
+                      width="100%" h="32" bg="#241CC4" borderRadius="20" shadow={9}
+                      textColor="black"
+                      bg="info.300"
+                      mb="4"
                       >
-                        <TouchableOpacity /*key={liveShow.id} onPress={() => {
-                            props.navigation.navigate('Live Shows Management', {
-                              showId: liveShow.id 
-                            })
-                          }}*/>
-                          <Box>
-                          <Text>{liveShow.showName} {liveShow.showDate} {liveShow.showLocation} 
-                          {liveShow.showTour} {liveShow.showPlace} {liveShow.showBand}</Text></Box></TouchableOpacity></Pressable>
+                        
+                          <Box width="100%" h="32">
+                          <Text textAlign="center" mt="auto" mb="auto" color="black">{liveShow.showName} {liveShow.showDate} {liveShow.showLocation} 
+                          {liveShow.showTour} {liveShow.showPlace} {liveShow.showBand}</Text></Box></Pressable>
                 /*
                 <ListItem key={liveShow.id} bottomDivider onPress={() => {
                   props.navigation.navigate('Live Shows Management', {
@@ -90,6 +87,7 @@ export default function liveShowsManagement(props,{navigation}) {
               )
             })
           }
+      </Box>
       </SafeAreaView>
     );
 }
