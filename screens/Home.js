@@ -1,15 +1,16 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View, Alert } from "react-native";
+import { StyleSheet, View, Alert } from "react-native";
 import firebase from "../database/firebase";
 import Item from "./Item";
 import LoginUser from "./loginUser";
 import RegisterUser from "./registerUser";
 import songsManagement from "../screens/songsManagement";
 import useRoleContext from "../useContext/useRoleContext";
-import { NativeBaseProvider, VStack, Center, Button } from "native-base";
+import { NativeBaseProvider, VStack, Center, Button, Pressable, Text } from "native-base";
 import Demo from "../screens/demoNavigation";
+import {TouchableOpacity} from 'react-native-gesture-handler'
 export default function Home(
   {
     navigation,
@@ -28,31 +29,20 @@ export default function Home(
               <NativeBaseProvider>
                   <VStack space={4} alignItems="center" mt="4" position="absolute" top="2" w="90%" right="5%" left="5%">                
                     
-                      <Button
+                      <Pressable
                       width="100%" h="32" bg="#241CC4" borderRadius="30" shadow={3}
                       textColor="white"
                       bg="indigo.600"
                       title="Ir a administrar set lists"
                       onPress={() => navigation.navigate("SetList List")}
-                      >Ir a administrar set lists</Button>
+                      >
+                      <TouchableOpacity><Text>Ir a administrar set lists</Text></TouchableOpacity></Pressable>
                    
                     <Center w="64" h="20" bg="secondary.500" rounded="md" shadow={3} />
                     <Center w="64" h="20" bg="emerald.500" rounded="md" shadow={3} />
                     <Button
                     title="Ir a administrar sets"
                     onPress={() => navigation.navigate("Sets Lists")}
-                  />
-                  <Button
-                      title="Ir a mostrar canciones"
-                      onPress={() => navigation.navigate("Show Songs")}
-                    />
-                  <Button
-                    title="Ir a Lista de etiquetas"
-                    onPress={() => navigation.navigate("Tags List")}
-                  />
-                  <Button
-                    title="Ir a administrar set lists"
-                    onPress={() => navigation.navigate("SetList List")}
                   />
                   </VStack>
                   
