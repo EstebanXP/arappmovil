@@ -1,14 +1,14 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import React, { useEffect, useState } from "react";
-import { StyleSheet, Text, View, Button, Alert } from "react-native";
+import { StyleSheet, Text, View, Alert } from "react-native";
 import firebase from "../database/firebase";
 import Item from "./Item";
 import LoginUser from "./loginUser";
 import RegisterUser from "./registerUser";
 import songsManagement from "../screens/songsManagement";
 import useRoleContext from "../useContext/useRoleContext";
-import { NativeBaseProvider } from "native-base";
+import { NativeBaseProvider, VStack, Center, Button } from "native-base";
 import Demo from "../screens/demoNavigation";
 export default function Home(
   {
@@ -27,6 +27,19 @@ export default function Home(
             return (
               <NativeBaseProvider>
                 <View>
+                  <VStack space={4} alignItems="center" w="sm" mt="4">                
+                    
+                      <Button
+                      w="sm" h="32" bg="#241CC4" borderRadius="30" shadow={3}
+                      textColor="white"
+                      bg="indigo.600"
+                      title="Ir a administrar set lists"
+                      onPress={() => navigation.navigate("SetList List")}
+                      >Ir a administrar set lists</Button>
+                   
+                    <Center w="64" h="20" bg="secondary.500" rounded="md" shadow={3} />
+                    <Center w="64" h="20" bg="emerald.500" rounded="md" shadow={3} />
+                  </VStack>
                   <Button
                     title="Ir a administrar set lists"
                     onPress={() => navigation.navigate("SetList List")}

@@ -63,7 +63,7 @@ export default function App() {
   const config = {
   headerBackTitleVisible : false,
    headerStyle: {
-     backgroundColor: '#17127D'
+     backgroundColor: '#241CC4'
    },
    headerTintColor: '#fff',
    animationEnabled: false,
@@ -72,7 +72,7 @@ export default function App() {
     headerBackTitleVisible : false,
     headerLeft: ()=> null,
     headerStyle: {
-      backgroundColor: '##17127D'
+      backgroundColor: '#241CC4'
     },
     headerTintColor: '#fff',
     animationEnabled: false,

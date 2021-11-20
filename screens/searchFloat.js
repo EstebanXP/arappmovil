@@ -38,7 +38,7 @@ export default function search() {
     return (
       <View>
       <NativeBaseProvider>
-          <HStack bg="#17127D" opacity="0.96"  alignItems="center" safeAreaBottom shadow={9} width="12" position="absolute" zIndex="5" bottom="24"  right="5%" borderRadius={60} height="12">
+          <HStack bg="#241CC4" opacity="0.96"  alignItems="center" safeAreaBottom shadow={9} width="12" position="absolute" zIndex="5" bottom="24"  right="5%" borderRadius={60} height="12">
           <Pressable
               position="absolute" zIndex="3" bottom="2" left="0" right="0" 
               opacity={selected ===1 ? 1 : 0.5}
@@ -70,7 +70,7 @@ export default function search() {
     return (
       <View>
       <NativeBaseProvider>
-          <HStack bg="#17127D" opacity="1" alignItems="center" safeAreaBottom shadow={9} width="75%" position="absolute" zIndex="5" bottom="24"  right="5%" borderRadius={60} height="12">
+          <HStack bg="#241CC4" opacity="1" alignItems="center" safeAreaBottom shadow={9} width="75%" position="absolute" zIndex="5" bottom="24"  right="5%" borderRadius={60} height="12">
             <Input
             zIndex="5"
             placeholder="Search"

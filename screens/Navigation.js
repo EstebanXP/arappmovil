@@ -28,9 +28,9 @@ export default function nav(props) {
     <View>
     <NativeBaseProvider>
       <Box>
-        <HStack bg="#17127D" opacity="0.96" alignItems="center" safeAreaBottom shadow={9} width={"90%"} position="absolute" zIndex="2" bottom="6"  left="5%" right="5%" borderRadius={20} height="16">
+        <HStack bg="coolGray.800" opacity="0.96" alignItems="center" safeAreaBottom shadow={9} width={"90%"} position="absolute" zIndex="2" bottom="6"  left="5%" right="5%" borderRadius={20} height="16">
         <Pressable 
-            bg={selected === 3 ? "#140F6B" : null}
+            bg={selected === 3 ? "coolGray.900" : null}
             borderRadius={20}
             style={{elevation: 4}}
             position="absolute" zIndex="4"  left="0" 
@@ -59,7 +59,7 @@ export default function nav(props) {
             </TouchableOpacity>
           </Pressable>
           <Pressable
-            bg={selected === 1 ? "#140F6B" : null}
+            bg={selected === 1 ? "coolGray.900" : null}
             borderRadius={20}
             style={{elevation: 4}}
             position="absolute" zIndex="3"  left="35%" right="0"
@@ -87,7 +87,7 @@ export default function nav(props) {
             </TouchableOpacity>
           </Pressable>
           <Pressable
-            bg={selected === 2 ? "#140F6B" : null}
+            bg={selected === 2 ? "coolGray.900" : null}
             borderRadius={20}
             w="30%"
             position="absolute" zIndex="3"  right="0"
