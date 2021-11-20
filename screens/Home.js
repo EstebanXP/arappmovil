@@ -34,9 +34,9 @@ export default function Home(
                       textColor="white"
                       bg="indigo.600"
                       title="Ir a administrar set lists"
-                      onPress={() => navigation.navigate("SetList List")}
+                     
                       >
-                      <TouchableOpacity><Text>Ir a administrar set lists</Text></TouchableOpacity></Pressable>
+                      <TouchableOpacity onPress={() => navigation.navigate("SetList List")}><Text>Ir a administrar set lists</Text></TouchableOpacity></Pressable>
                    
                     <Center w="64" h="20" bg="secondary.500" rounded="md" shadow={3} />
                     <Center w="64" h="20" bg="emerald.500" rounded="md" shadow={3} />
