@@ -8,7 +8,7 @@ import LoginUser from "./loginUser";
 import RegisterUser from "./registerUser";
 import songsManagement from "../screens/songsManagement";
 import useRoleContext from "../useContext/useRoleContext";
-import { NativeBaseProvider, VStack, Center, Button, Pressable, Text } from "native-base";
+import { NativeBaseProvider, VStack, Center, Button, Pressable, Text, Box } from "native-base";
 import Demo from "../screens/demoNavigation";
 import {TouchableOpacity} from 'react-native-gesture-handler'
 export default function Home(
@@ -34,9 +34,11 @@ export default function Home(
                       textColor="white"
                       bg="indigo.600"
                       title="Ir a administrar set lists"
-                     
+                      onPress={() => navigation.navigate("SetList List")}
                       >
-                      <TouchableOpacity onPress={() => navigation.navigate("SetList List")}><Text>Ir a administrar set lists</Text></TouchableOpacity></Pressable>
+                        <TouchableOpacity>
+                          <Box>
+                          <Text>Ir a administrar set lists</Text></Box></TouchableOpacity></Pressable>
                    
                     <Center w="64" h="20" bg="secondary.500" rounded="md" shadow={3} />
                     <Center w="64" h="20" bg="emerald.500" rounded="md" shadow={3} />
