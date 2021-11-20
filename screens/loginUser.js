@@ -108,9 +108,7 @@ export default class LoginUser extends React.Component{
                     size={3}
                     resizeMode={"contain"}
                     borderRadius={1}
-                    source={{
-                        uri: "https://freesvg.org/img/1534129544.png",
-                    }}
+                    source={require('../assets/google-logo-9808.png')}
                     alt="Alternate Text"
                     />
                     </Center>
