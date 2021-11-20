@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from "react";
-import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput} from 'react-native';
+import { View, SafeAreaView,StyleSheet,TextInput} from 'react-native';
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 import {Picker} from '@react-native-picker/picker';
 import { Input } from 'react-native-elements/dist/input/Input';
+import { NativeBaseProvider, VStack, Center, Button, Pressable, Text, Box } from "native-base";
+import {TouchableOpacity} from 'react-native-gesture-handler'
 
 export default function liveShowsManagement(props,{navigation}) {
 
@@ -60,6 +62,21 @@ export default function liveShowsManagement(props,{navigation}) {
               }
             }).map(liveShow =>{
               return(
+                <Pressable
+                      width="100%" h="32" bg="#241CC4" borderRadius="30" shadow={3}
+                      textColor="white"
+                      bg="indigo.600"
+                      title="Ir a lista de live shows"
+                      >
+                        <TouchableOpacity /*key={liveShow.id} onPress={() => {
+                            props.navigation.navigate('Live Shows Management', {
+                              showId: liveShow.id 
+                            })
+                          }}*/>
+                          <Box>
+                          <Text>{liveShow.showName} {liveShow.showDate} {liveShow.showLocation} 
+                          {liveShow.showTour} {liveShow.showPlace} {liveShow.showBand}</Text></Box></TouchableOpacity></Pressable>
+                /*
                 <ListItem key={liveShow.id} bottomDivider onPress={() => {
                   props.navigation.navigate('Live Shows Management', {
                     showId: liveShow.id 
@@ -69,7 +86,7 @@ export default function liveShowsManagement(props,{navigation}) {
                     <ListItem.Title>{liveShow.showName}</ListItem.Title>
                     <ListItem.Subtitle>{liveShow.showDate}</ListItem.Subtitle>
                   </ListItem.Content>
-                </ListItem>
+                </ListItem>*/
               )
             })
           }

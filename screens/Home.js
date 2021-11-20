@@ -33,18 +33,21 @@ export default function Home(
                       width="100%" h="32" bg="#241CC4" borderRadius="30" shadow={3}
                       textColor="white"
                       bg="indigo.600"
-                      title="Ir a administrar set lists"
-                      onPress={() => navigation.navigate("SetList List")}
+                      title="Ir a lista de live shows"
                       >
-                        <TouchableOpacity>
+                        <TouchableOpacity  onPress={() => navigation.navigate("Live Shows List")}>
                           <Box>
-                          <Text>Ir a administrar set lists</Text></Box></TouchableOpacity></Pressable>
+                          <Text>Ir a lista de live shows</Text></Box></TouchableOpacity></Pressable>
                    
                     <Center w="64" h="20" bg="secondary.500" rounded="md" shadow={3} />
                     <Center w="64" h="20" bg="emerald.500" rounded="md" shadow={3} />
                     <Button
                     title="Ir a administrar sets"
                     onPress={() => navigation.navigate("Sets Lists")}
+                  />
+                  <Button
+                    title="Ir a administrar set lists"
+                    onPress={() => navigation.navigate("SetList List")}
                   />
                   </VStack>
                   
