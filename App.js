@@ -69,6 +69,9 @@ export default function App() {
    },
    headerTintColor: '#fff',
    animationEnabled: false,
+   headerRight: () => (
+    <Notification/>
+  ),
   };
   const configNav = {
     headerBackTitleVisible : false,
@@ -108,10 +111,11 @@ export default function App() {
   } else {
     return (
       <NativeBaseProvider>
+        
       <NavigationContainer ref={navigationRef}>
       
         <RoleContext.Provider value={role}>
-          <Notification />
+          
           <Stack.Navigator>
             <Stack.Screen name="Home" component={Home} options={config} />
             <Stack.Screen name="Bands List" component={bandsList} options={config}/>
@@ -152,7 +156,7 @@ export default function App() {
             <Stack.Screen name="Navigation" component={Navigation} options={config}/>
             <Stack.Screen name="Profile" component={profile} options={config} />
           </Stack.Navigator>
-         
+          <Notification  />
           <Search style={{zIndex: 4}}></Search>
           
           <Edit></Edit>

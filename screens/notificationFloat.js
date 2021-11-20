@@ -29,7 +29,7 @@ export default function notification() {
     <SafeAreaView>
     <NativeBaseProvider>
 
-        <Box bg="#17127D" opacity="0.96" alignItems="center" safeAreaBottom shadow={9} width="12" position="absolute" zIndex="7000000" bottom="-40"  left="15%" borderRadius={60} height="12">
+        <Box  alignItems="center" safeAreaBottom shadow={9} width="12"  borderRadius={60} height="12">
         <Pressable
             position="absolute" zIndex="3" bottom="2" left="0" right="0" 
             opacity={1}
