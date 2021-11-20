@@ -64,7 +64,8 @@ export default function App() {
   const config = {
   headerBackTitleVisible : false,
    headerStyle: {
-     backgroundColor: "rgba(0,0,0,.9)"
+     backgroundColor: "rgba(0,0,0,.9)",
+     zIndex : 1
    },
    headerTintColor: '#fff',
    animationEnabled: false,
@@ -110,7 +111,7 @@ export default function App() {
       <NavigationContainer ref={navigationRef}>
       
         <RoleContext.Provider value={role}>
-        
+          <Notification />
           <Stack.Navigator>
             <Stack.Screen name="Home" component={Home} options={config} />
             <Stack.Screen name="Bands List" component={bandsList} options={config}/>
