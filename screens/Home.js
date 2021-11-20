@@ -20,17 +20,16 @@ export default function Home(
 
   useEffect(() => {});
   return (
-    <View style={styles.container}>
+    <View>
       {(() => {
         switch (roleAux) {
           case "Band Member":
             return (
               <NativeBaseProvider>
-                <View>
-                  <VStack space={4} alignItems="center" w="sm" mt="4" width={"sm"}>                
+                  <VStack space={4} alignItems="center" mt="4" position="absolute" top="2" w="90%" right="5">                
                     
                       <Button
-                      w="sm" h="32" bg="#241CC4" borderRadius="30" shadow={3}
+                      width="100%" h="32" bg="#241CC4" borderRadius="30" shadow={3}
                       textColor="white"
                       bg="indigo.600"
                       title="Ir a administrar set lists"
@@ -39,12 +38,7 @@ export default function Home(
                    
                     <Center w="64" h="20" bg="secondary.500" rounded="md" shadow={3} />
                     <Center w="64" h="20" bg="emerald.500" rounded="md" shadow={3} />
-                  </VStack>
-                  <Button
-                    title="Ir a administrar set lists"
-                    onPress={() => navigation.navigate("SetList List")}
-                  />
-                  <Button
+                    <Button
                     title="Ir a administrar sets"
                     onPress={() => navigation.navigate("Sets Lists")}
                   />
@@ -56,7 +50,14 @@ export default function Home(
                     title="Ir a Lista de etiquetas"
                     onPress={() => navigation.navigate("Tags List")}
                   />
-                </View>
+                  <Button
+                    title="Ir a administrar set lists"
+                    onPress={() => navigation.navigate("SetList List")}
+                  />
+                  </VStack>
+                  
+                  
+                
               </NativeBaseProvider>
             );
           case "Live Experience Designer":
