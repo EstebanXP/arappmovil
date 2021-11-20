@@ -26,7 +26,7 @@ export default function Home(
           case "Band Member":
             return (
               <NativeBaseProvider>
-                  <VStack space={4} alignItems="center" mt="4" position="absolute" top="2" w="90%" right="5">                
+                  <VStack space={4} alignItems="center" mt="4" position="absolute" top="2" w="90%" right="5%" left="5%">                
                     
                       <Button
                       width="100%" h="32" bg="#241CC4" borderRadius="30" shadow={3}
