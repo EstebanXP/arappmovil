@@ -27,7 +27,7 @@ export default function Home(
             return (
               <NativeBaseProvider>
                 <View>
-                  <VStack space={4} alignItems="center" w="sm" mt="4">                
+                  <VStack space={4} alignItems="center" w="sm" mt="4" width={"sm"}>                
                     
                       <Button
                       w="sm" h="32" bg="#241CC4" borderRadius="30" shadow={3}
