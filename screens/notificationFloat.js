@@ -33,10 +33,9 @@ export default function notification() {
         <Pressable
             position="absolute" zIndex="3" bottom="2" left="0" right="0" 
             opacity={1}
-            
             flex={1}
           >
-            <TouchableOpacity onPress={() => {setSelected(3), RootNavigation.navigate("Profile")}}>
+            <TouchableOpacity onPress={() => {setSelected(3)}}>
             <Center>
               <Icon
                 mb="1"

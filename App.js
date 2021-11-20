@@ -33,14 +33,15 @@ import LoginTest from "./screens/LoginTest";
 import demo from "./screens/demoNavigation.js";
 import firebase from "./database/firebase";
 import RoleContext from "./exports/RoleContext";
-import { Button } from "react-native";
+
 import {NativeBaseProvider} from "native-base"
 import profile from "./screens/profile";
 import Search from "./screens/searchFloat.js";
 import { useFonts } from 'expo-font';
 import Edit from './screens/editFloat.js' 
 import Notification from './screens/notificationFloat' 
-
+import Empty from './screens/empty.js'
+import {Button} from 'native-base'
 const Stack = createNativeStackNavigator();
 
 
@@ -70,12 +71,38 @@ export default function App() {
    headerTintColor: '#fff',
    animationEnabled: false,
    headerRight: () => (
-    <Notification/>
+    <Notification onPress={()=>{navigationRef.navigate("Profile")}}/>
   ),
   };
   const configNav = {
     headerBackTitleVisible : false,
-    headerLeft: ()=> null,
+    headerLeft: () => (
+      <Empty/>
+    ),
+    headerRight: () => (
+      <Notification onPress={()=>{navigationRef.navigate("Profile")}}/>
+    ),
+    headerStyle: {
+      backgroundColor: "rgba(0,0,0,.9)"
+    },
+    headerTintColor: '#fff',
+    animationEnabled: false,
+   };
+
+   const configProfile = {
+    headerBackTitleVisible : false,
+    headerLeft: () => (
+      <Button  bg="danger.500" size={'xs'} colorScheme="red" onPress={()=>{
+        firebase.firebase.app().auth().signOut()
+        .catch((error)=>{
+            Alert.alert('Sorry. ' + error.message)
+        })
+        
+        }} shadow={9}  borderRadius="50">Sign Out</Button>
+    ),
+    headerRight: () => (
+      <Notification onPress={()=>{navigationRef.navigate("Profile")}}/>
+    ),
     headerStyle: {
       backgroundColor: "rgba(0,0,0,.9)"
     },
@@ -117,7 +144,7 @@ export default function App() {
         <RoleContext.Provider value={role}>
           
           <Stack.Navigator>
-            <Stack.Screen name="Home" component={Home} options={config} />
+            <Stack.Screen name="Home" component={Home} options={configNav} />
             <Stack.Screen name="Bands List" component={bandsList} options={config}/>
             <Stack.Screen name="Bands Create" component={bandsCreate} options={config}/>
             <Stack.Screen name="Bands Management" component={bandsManagement}  options={config}/>
@@ -154,7 +181,7 @@ export default function App() {
             <Stack.Screen name="Show Songs" component={showSongs} options={config}/>
             <Stack.Screen name="Manage Song" component={rsm} options={config}/>
             <Stack.Screen name="Navigation" component={Navigation} options={config}/>
-            <Stack.Screen name="Profile" component={profile} options={config} />
+            <Stack.Screen name="Profile" component={profile} options={configProfile} />
           </Stack.Navigator>
           <Notification  />
           <Search style={{zIndex: 4}}></Search>
