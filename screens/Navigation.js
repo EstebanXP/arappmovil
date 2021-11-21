@@ -148,7 +148,7 @@ export default function nav(props) {
                           size="sm"
                         />
                         <Text color="white" fontSize="12">
-                          Tags
+                          Backup
                         </Text>
                       </Center>
                       </TouchableOpacity>
