@@ -42,6 +42,7 @@ import Edit from './screens/editFloat.js'
 import Notification from './screens/notificationFloat' 
 import Empty from './screens/empty.js'
 import {Button} from 'native-base'
+import notificationScreen from "./screens/notificationScreen";
 const Stack = createNativeStackNavigator();
 
 
@@ -149,7 +150,7 @@ export default function App() {
       
         <RoleContext.Provider value={role}>
           
-          <Stack.Navigator>
+          <Stack.Navigator initialRouteName="Home">
             <Stack.Screen name="Home" component={Home} options={configNav} />
             <Stack.Screen name="Bands List" component={bandsList} options={config}/>
             <Stack.Screen name="Bands Create" component={bandsCreate} options={config}/>
@@ -188,6 +189,7 @@ export default function App() {
             <Stack.Screen name="Manage Song" component={rsm} options={config}/>
             <Stack.Screen name="Navigation" component={Navigation} options={config}/>
             <Stack.Screen name="Profile" component={profile} options={configProfile} />
+            <Stack.Screen name="notifications" component={notificationScreen}></Stack.Screen>
           </Stack.Navigator>
           <Notification  />
           <Search style={{zIndex: 4}}></Search>
