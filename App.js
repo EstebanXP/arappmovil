@@ -55,7 +55,7 @@ export default function App() {
   const [userName, setUserName] = useState();
   const [role, setRole] = useState("");
   const [viewState, setViewState] = useState(true);
-  const [navState, setNavState] = useState(4);
+  const [navState, setNavState] = useState(1);
   const getUserFromDb = async (id) => {
     const dbRef = firebase.db.collection("Users").doc(id);
     const doc = await dbRef.get();
