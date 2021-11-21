@@ -43,6 +43,14 @@ export default function BandsList(props,{navigation}) {
             title="Crear Banda"
             onPress={() => props.navigation.navigate('Bands Create')}
         />
+        <Select
+          selectedValue={sort}
+          onValueChange={(itemValue,itemIndex)=>setSort(itemValue)}
+        >
+        <Select.Item label="Nombre" value="bandName" />
+        <Select.Item label="Genero" value="bandGenres" />
+        </Select>
+        {/*
         <Picker
           selectedValue={sort}
           onValueChange={(itemValue,itemIndex)=>setSort(itemValue)}
@@ -50,6 +58,7 @@ export default function BandsList(props,{navigation}) {
         <Picker.Item label="Nombre" value="bandName" />
         <Picker.Item label="Genero" value="bandGenres" />
         </Picker>
+        */}
         <Box w="100%" h="100%" display="flex" flexDirection="row" flexWrap="wrap">
           {
             
@@ -64,7 +73,11 @@ export default function BandsList(props,{navigation}) {
             }).map(band =>{
               return(
                 
-                <Pressable
+                <Pressable /*key={band.id} bottomDivider onPress={() => {
+                        props.navigation.navigate('Bands Management', {
+                          bandId: band.id 
+                        })
+                      }}No lo borres xfa*/
                       width="32" h="32" bg="#241CC4" borderRadius="20" shadow={9}
                       textColor="black"
                       bg="info.300"
