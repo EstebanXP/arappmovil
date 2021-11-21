@@ -1,9 +1,11 @@
 import React, {useEffect, useState} from "react";
-import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput} from 'react-native';
+import { View, SafeAreaView,StyleSheet,TextInput} from 'react-native';
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 import {Picker} from '@react-native-picker/picker';
 import { Input } from 'react-native-elements/dist/input/Input';
+import { NativeBaseProvider, VStack, Center, Button, Pressable, Text, Box, Container, FlatList, Flex, Select} from "native-base";
+import {TouchableOpacity} from 'react-native-gesture-handler'
 
 export default function BandsList(props,{navigation}) {
 
@@ -35,6 +37,7 @@ export default function BandsList(props,{navigation}) {
 
     return ( 
       <SafeAreaView>
+        <Box alignItems="center" position="absolute" top="2" w="90%" right="5%" left="5%">
         <Input placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
           <Button
             title="Crear Banda"
@@ -47,7 +50,9 @@ export default function BandsList(props,{navigation}) {
         <Picker.Item label="Nombre" value="bandName" />
         <Picker.Item label="Genero" value="bandGenres" />
         </Picker>
+        <Box w="100%" h="100%" display="flex" flexDirection="row" flexWrap="wrap">
           {
+            
             Bands.filter((val)=>{
               if(searchVar===""){
                 return val;
@@ -58,6 +63,33 @@ export default function BandsList(props,{navigation}) {
               }
             }).map(band =>{
               return(
+                
+                <Pressable
+                      width="32" h="32" bg="#241CC4" borderRadius="20" shadow={9}
+                      textColor="black"
+                      bg="info.300"
+                      mb="4"
+                      >
+                          
+                          <Box width="100%" h="32" > 
+                          <Text textAlign="center" mt="auto" mb="auto" color="black">
+                          {band.bandName} 
+                          </Text>
+                          <Text textAlign="center" mt="auto" mb="auto" color="black">
+                          {band.bandGenres}
+                          </Text>
+                          <Text textAlign="center" mt="auto" mb="auto" color="black">
+                          {band.bandLogo}  
+                          </Text>
+                          <Text textAlign="center" mt="auto" mb="auto" color="black">
+                          {band.bandDescription}
+                          </Text>
+                          </Box>
+                          
+                </Pressable>
+                
+                
+                /*
                 <ListItem key={band.id} bottomDivider onPress={() => {
                   props.navigation.navigate('Bands Management', {
                     bandId: band.id 
@@ -67,10 +99,12 @@ export default function BandsList(props,{navigation}) {
                     <ListItem.Title>{band.bandName}</ListItem.Title>
                     <ListItem.Subtitle>{band.bandGenres}</ListItem.Subtitle>
                   </ListItem.Content>
-                </ListItem>
+                </ListItem>*/
               )
             })
-          }
+          }  
+        </Box>
+      </Box>
       </SafeAreaView>
     );
 }
