@@ -189,7 +189,7 @@ export default function App() {
             <Stack.Screen name="Manage Song" component={rsm} options={config}/>
             <Stack.Screen name="Navigation" component={Navigation} options={config}/>
             <Stack.Screen name="Profile" component={profile} options={configProfile} />
-            <Stack.Screen name="notifications" component={notificationScreen}></Stack.Screen>
+            <Stack.Screen name="Notifications" component={notificationScreen} options={config}></Stack.Screen>
           </Stack.Navigator>
           <Notification  />
           <Search style={{zIndex: 4}}></Search>

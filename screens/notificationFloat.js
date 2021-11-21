@@ -37,7 +37,7 @@ export default function notification() {
           >
             <TouchableOpacity onPress={() => {
               setSelected(3)
-              RootNavigation.navigateReplace("notifications", "props.name", "props.userName", "props.role")
+              RootNavigation.navigateReplaceSingle("Notifications")
               }}>
             <Center>
               <Icon

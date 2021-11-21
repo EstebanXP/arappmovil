@@ -18,3 +18,11 @@ export function navigateReplace(name, param, role, user) {
     );
   }
 }
+
+export function navigateReplaceSingle(name) {
+  if (navigationRef.isReady()) {
+    navigationRef.dispatch(
+      StackActions.replace(name)
+    );
+  }
+}
