@@ -73,11 +73,11 @@ export default function BandsList(props,{navigation}) {
             }).map(band =>{
               return(
                 
-                <Pressable /*key={band.id} bottomDivider onPress={() => {
-                        props.navigation.navigate('Bands Management', {
+                <Pressable key={band.id} bottomDivider onPress={() => {
+                        props.navigation.navigate('Bands Info', {
                           bandId: band.id 
                         })
-                      }}No lo borres xfa*/
+                      }}
                       width="32" h="32" bg="#241CC4" borderRadius="20" shadow={9}
                       textColor="black"
                       bg="info.300"
