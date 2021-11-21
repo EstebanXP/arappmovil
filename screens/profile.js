@@ -44,8 +44,7 @@ export default function profile({route,navigation}){
                         {name}
                     </Heading>
                     <Text textAlign="center" color="black" position="absolute" top="72" >{user}</Text>
-                    <Text textAlign="center" color="black" position="absolute" top="80" >@{role}</Text>
-                    
+                    <Text textAlign="center" color="black" position="absolute" top="80" >@{role}</Text>      
                 </Center>
             </NativeBaseProvider>
         </View>    

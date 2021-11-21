@@ -40,7 +40,8 @@ import profile from "./screens/profile";
 import Search from "./screens/searchFloat.js";
 import { useFonts } from 'expo-font';
 import Edit from './screens/editFloat.js' 
-import Notification from './screens/notificationFloat' 
+import Notification from './screens/notificationFloat'
+import NotificationOff from './screens/notificationFloatOff' 
 import Empty from './screens/empty.js'
 import {Button} from 'native-base'
 import notificationScreen from "./screens/notificationScreen";
@@ -74,9 +75,24 @@ export default function App() {
    headerTitleAlign: 'center',
    animationEnabled: false,
    headerRight: () => (
-    <Notification onPress={()=>{navigationRef.navigate("Profile")}}/>
+    <NotificationOff onPress={()=>{navigationRef.navigate("Profile")}}/>
   ),
   };
+
+  const configNotif = {
+    headerBackTitleVisible : false,
+     headerStyle: {
+       backgroundColor: "rgba(0,0,0,.9)",
+       zIndex : 1
+     },
+     headerTintColor: '#fff',
+     headerTitleAlign: 'center',
+     animationEnabled: false,
+     headerRight: () => (
+      <Notification onPress={()=>{navigationRef.navigate("Home")}}/>
+    ),
+    };
+
   const configNav = {
     headerBackTitleVisible : false,
     headerTitleAlign: 'center',
@@ -84,7 +100,7 @@ export default function App() {
       <Empty/>
     ),
     headerRight: () => (
-      <Notification onPress={()=>{navigationRef.navigate("Profile")}}/>
+      <NotificationOff onPress={()=>{navigationRef.navigate("Profile")}}/>
     ),
     headerStyle: {
       backgroundColor: "rgba(0,0,0,.9)",
@@ -109,7 +125,7 @@ export default function App() {
         }} shadow={9}  borderRadius="50">Sign Out</Button>
     ),
     headerRight: () => (
-      <Notification onPress={()=>{navigationRef.navigate("Profile")}}/>
+      <NotificationOff onPress={()=>{navigationRef.navigate("Profile")}}/>
     ),
     headerStyle: {
       backgroundColor: "rgba(0,0,0,.9)"
@@ -191,7 +207,7 @@ export default function App() {
             <Stack.Screen name="Manage Song" component={rsm} options={config}/>
             <Stack.Screen name="Navigation" component={Navigation} options={config}/>
             <Stack.Screen name="Profile" component={profile} options={configProfile} />
-            <Stack.Screen name="Notifications" component={notificationScreen} options={config}></Stack.Screen>
+            <Stack.Screen name="Notifications" component={notificationScreen} options={configNotif}></Stack.Screen>
           </Stack.Navigator>
           <Notification  />
           <Search style={{zIndex: 4}}></Search>

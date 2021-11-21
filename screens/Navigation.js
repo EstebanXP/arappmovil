@@ -24,6 +24,7 @@ import { Platform } from 'react-native';
 export default function nav(props) {
   const [selected, setSelected] = React.useState(1);
   const navigation = React.useContext(NavigationContext);
+  const role = props.role;
   return (
     <View>
     <NativeBaseProvider>
@@ -69,7 +70,7 @@ export default function nav(props) {
             w="30%"
             flex={1}
             >
-              <TouchableOpacity onPress={() => {setSelected(1), RootNavigation.navigateReplace("Home")}}>
+            <TouchableOpacity onPress={() => {setSelected(1), RootNavigation.navigateReplace("Home")}}>
             <Center>
               <Icon
                 mb="1"
@@ -87,35 +88,111 @@ export default function nav(props) {
             </Center>
             </TouchableOpacity>
           </Pressable>
-          <Pressable
-            bg={selected === 2 ? "#000" : null}
-            borderRadius={12}
-            w="30%"
-            position="absolute" zIndex="3"  right="0"
-            style={{elevation: 4}}
-            opacity={selected === 2 ? .99 : 0.5}
-            py="2"
-            flex={1}
-            
-          >
-            <TouchableOpacity onPress={() => {setSelected(2), RootNavigation.navigateReplace("Sets Lists")}}>
-            <Center>
-              <Icon
-                mb="1"
-                as={
-                  <MaterialCommunityIcons
-                    name={selected === 2 ? 'play-circle' : 'play-circle-outline'}
-                  />
-                }
-                color="white"
-                size="sm"
-              />
-              <Text color="white" fontSize="12">
-                Next Show
-              </Text>
-            </Center>
-            </TouchableOpacity>
-          </Pressable>
+          {(
+            ()=>{
+              switch(role){
+                case "Band Member":
+                  return(
+                    <Pressable
+                    bg={selected === 2 ? "#000" : null}
+                    borderRadius={12}
+                    w="30%"
+                    position="absolute" zIndex="3"  right="0"
+                    style={{elevation: 4}}
+                    opacity={selected === 2 ? .99 : 0.5}
+                    py="2"
+                    flex={1}
+                    >
+                      <TouchableOpacity onPress={() => {setSelected(2), RootNavigation.navigateReplace("Sets Lists")}}>
+                      <Center>
+                        <Icon
+                          mb="1"
+                          as={
+                            <MaterialCommunityIcons
+                              name={selected === 2 ? 'play-circle' : 'play-circle-outline'}
+                            />
+                          }
+                          color="white"
+                          size="sm"
+                        />
+                        <Text color="white" fontSize="12">
+                          Next Show
+                        </Text>
+                      </Center>
+                      </TouchableOpacity>
+                    </Pressable>
+                    
+                  );
+                  break;
+                case "Band Manager":
+                  return(
+                    <Pressable
+                    bg={selected === 2 ? "#000" : null}
+                    borderRadius={12}
+                    w="30%"
+                    position="absolute" zIndex="3"  right="0"
+                    style={{elevation: 4}}
+                    opacity={selected === 2 ? .99 : 0.5}
+                    py="2"
+                    flex={1}
+                    >
+                      <TouchableOpacity onPress={() => {setSelected(2), RootNavigation.navigateReplace("Sets Lists")}}>
+                      <Center>
+                        <Icon
+                          mb="1"
+                          as={
+                            <MaterialCommunityIcons
+                              name={selected === 2 ? 'cloud' : 'cloud-outline'}
+                            />
+                          }
+                          color="white"
+                          size="sm"
+                        />
+                        <Text color="white" fontSize="12">
+                          Tags
+                        </Text>
+                      </Center>
+                      </TouchableOpacity>
+                    </Pressable>
+                    
+                  );
+                break;
+                case "Live Experience Designer":
+                  return(
+                    <Pressable
+                    bg={selected === 2 ? "#000" : null}
+                    borderRadius={12}
+                    w="30%"
+                    position="absolute" zIndex="4"  right="0"
+                    style={{elevation: 4}}
+                    opacity={selected === 2 ? .99 : 0.5}
+                    py="2"
+                    flex={1}
+                    >
+                      <TouchableOpacity onPress={() => {setSelected(2), RootNavigation.navigateReplace("Sets Lists")}}>
+                      <Center>
+                        <Icon
+                          mb="1"
+                          as={
+                            <MaterialCommunityIcons
+                              name={selected === 2 ? 'tag' : 'tag-outline'}
+                            />
+                          }
+                          color="white"
+                          size="sm"
+                        />
+                        <Text color="white" fontSize="12">
+                          Tags
+                        </Text>
+                      </Center>
+                      </TouchableOpacity>
+                    </Pressable>
+                    
+                  );
+                break;
+              }
+            }
+          )()}
          
         </HStack>
      </Box>
