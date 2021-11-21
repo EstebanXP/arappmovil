@@ -55,7 +55,7 @@ export default function App() {
   const [userName, setUserName] = useState();
   const [role, setRole] = useState("");
   const [viewState, setViewState] = useState(true);
-
+  const [navState, setNavState] = useState(4);
   const getUserFromDb = async (id) => {
     const dbRef = firebase.db.collection("Users").doc(id);
     const doc = await dbRef.get();
@@ -75,7 +75,7 @@ export default function App() {
    headerTitleAlign: 'center',
    animationEnabled: false,
    headerRight: () => (
-    <NotificationOff onPress={()=>{navigationRef.navigate("Profile")}}/>
+    <NotificationOff setNavState={setNavState} navState={navState} />
   ),
   };
 
@@ -89,7 +89,7 @@ export default function App() {
      headerTitleAlign: 'center',
      animationEnabled: false,
      headerRight: () => (
-      <Notification onPress={()=>{navigationRef.navigate("Home")}}/>
+      <Notification setNavState={setNavState} navState={navState}/>
     ),
     };
 
@@ -100,7 +100,7 @@ export default function App() {
       <Empty/>
     ),
     headerRight: () => (
-      <NotificationOff onPress={()=>{navigationRef.navigate("Profile")}}/>
+      <NotificationOff setNavState={setNavState} navState={navState}/>
     ),
     headerStyle: {
       backgroundColor: "rgba(0,0,0,.9)",
@@ -125,7 +125,7 @@ export default function App() {
         }} shadow={9}  borderRadius="50">Sign Out</Button>
     ),
     headerRight: () => (
-      <NotificationOff onPress={()=>{navigationRef.navigate("Profile")}}/>
+      <NotificationOff setNavState={setNavState} navState={navState}/>
     ),
     headerStyle: {
       backgroundColor: "rgba(0,0,0,.9)"
@@ -213,7 +213,7 @@ export default function App() {
           <Search style={{zIndex: 4}}></Search>
           
           <Edit></Edit>
-        <Navigation setUserActive={setUserActive} name={name} userName={userName} role={role}></Navigation>
+        <Navigation setNavState={setNavState} navState={navState} name={name} userName={userName} role={role}></Navigation>
         </RoleContext.Provider>
         
       </NavigationContainer>

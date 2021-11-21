@@ -22,21 +22,21 @@ import { View, SafeAreaView} from 'react-native'
 import { FontAwesome5 } from '@expo/vector-icons';
 import { TouchableOpacity } from 'react-native-gesture-handler';
 //<Center flex={1}></Center>
-export default function notification() {
+export default function notification(props) {
   const [selected, setSelected] = React.useState(1);
   const navigation = React.useContext(NavigationContext);
   return (
     <SafeAreaView>
     <NativeBaseProvider>
 
-        <Box  alignItems="center" safeAreaBottom shadow={9} width="12"  borderRadius={60} height="12">
+        <Box  alignItems="center" safeAreaBottom shadow={9} width="10"  borderRadius={60} height="10">
         <Pressable
-            position="absolute" zIndex="3" bottom="2" left="0" right="0" 
+            position="absolute" zIndex="3" bottom="1" left="0" right="0" 
             opacity={.5}
             flex={1}
           >
             <TouchableOpacity onPress={() => {
-              setSelected(3)
+              props.setNavState(4)
               RootNavigation.navigateReplaceSingle("Notifications")
               }}>
             <Center>
