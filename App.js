@@ -6,6 +6,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import Home from "./screens/Home";
 import Navigation from "./screens/Navigation";
 import bandsList from "./screens/bandsList";
+import bandsInfo from "./screens/bandsInfo(bMember)";
 import bandsCreate from "./screens/bandsCreate";
 import bandsManagement from "./screens/bandsManagement";
 import bandMembersList from "./screens/bandMembersList";
@@ -153,6 +154,7 @@ export default function App() {
           <Stack.Navigator initialRouteName="Home">
             <Stack.Screen name="Home" component={Home} options={configNav} />
             <Stack.Screen name="Bands List" component={bandsList} options={config}/>
+            <Stack.Screen name="Bands Info" component={bandsInfo} options={config}/>
             <Stack.Screen name="Bands Create" component={bandsCreate} options={config}/>
             <Stack.Screen name="Bands Management" component={bandsManagement}  options={config}/>
             <Stack.Screen
