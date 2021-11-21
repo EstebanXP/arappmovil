@@ -69,6 +69,7 @@ export default function App() {
      zIndex : 1
    },
    headerTintColor: '#fff',
+   headerTitleAlign: 'center',
    animationEnabled: false,
    headerRight: () => (
     <Notification onPress={()=>{navigationRef.navigate("Profile")}}/>
@@ -76,6 +77,7 @@ export default function App() {
   };
   const configNav = {
     headerBackTitleVisible : false,
+    headerTitleAlign: 'center',
     headerLeft: () => (
       <Empty/>
     ),
@@ -83,7 +85,7 @@ export default function App() {
       <Notification onPress={()=>{navigationRef.navigate("Profile")}}/>
     ),
     headerStyle: {
-      backgroundColor: "rgba(0,0,0,.9)"
+      backgroundColor: "rgba(0,0,0,.9)",
     },
     headerTintColor: '#fff',
     animationEnabled: false,
@@ -91,12 +93,16 @@ export default function App() {
 
    const configProfile = {
     headerBackTitleVisible : false,
+    headerTitleAlign: 'center',
     headerLeft: () => (
       <Button  bg="danger.500" size={'xs'} colorScheme="red" onPress={()=>{
         firebase.firebase.app().auth().signOut()
         .catch((error)=>{
             Alert.alert('Sorry. ' + error.message)
         })
+        .then(
+          setUserActive(false)
+        )
         
         }} shadow={9}  borderRadius="50">Sign Out</Button>
     ),
