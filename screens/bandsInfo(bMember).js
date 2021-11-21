@@ -59,7 +59,7 @@ export default function bandsInfo(props,{navigation}) {
                     }}
                     alt="Alternate Text"
                     />       
-                    <Box alignItems="center" position="absolute" top="80" w="100%" >
+                    <Box alignItems="center" position="absolute" top="80" w="100%">
                     <Heading textAlign="center" color="black" fontSize="3xl">
                     {band.bandName}
                     </Heading>
