@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput, Alert} from 'react-native';
+import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput, Alert, ScrollView} from 'react-native';
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 
@@ -61,6 +61,7 @@ export default function bandsManagement(props,{navigation}) {
 
     return ( 
       <SafeAreaView>
+        <ScrollView>
           <TextInput 
             style={styles.input}
             placeholder="Nombre banda"
@@ -91,6 +92,7 @@ export default function bandsManagement(props,{navigation}) {
           <View>
               <Button title = "Eliminar banda" onPress = {() => openConfirmationAlert()}/>
           </View>
+          </ScrollView>
       </SafeAreaView>
     );
 }

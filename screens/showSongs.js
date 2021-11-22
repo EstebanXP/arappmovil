@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react'
-import { Text, View, SafeAreaView, ScrollView, FlatList} from 'react-native';
+import { Text, View, SafeAreaView, ScrollView, FlatList, ScrollView} from 'react-native';
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 import {Picker} from '@react-native-picker/picker';
@@ -37,6 +37,7 @@ export default function showSongs(props,{navigation}){
 
     return (
       <SafeAreaView>
+        <ScrollView>
         <Input placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
         <Picker
           selectedValue={sort}
@@ -73,6 +74,7 @@ export default function showSongs(props,{navigation}){
           )
         })
       }
+    </ScrollView>
   </SafeAreaView>
     )
 }

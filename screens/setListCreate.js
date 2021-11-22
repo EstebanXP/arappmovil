@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput} from 'react-native';
+import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput, ScrollView} from 'react-native';
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 
@@ -31,6 +31,7 @@ export default function setListCreate({navigation}) {
 
     return ( 
       <SafeAreaView>
+        <ScrollView>
           <TextInput 
             style={styles.input}
             placeholder="Nombre del SetList"
@@ -54,6 +55,7 @@ export default function setListCreate({navigation}) {
           <View>
               <Button title = "Guardar SetList" onPress = {() => addSetList()}/>
           </View>
+          </ScrollView>
       </SafeAreaView>
     );
 }

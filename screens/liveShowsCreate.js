@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput} from 'react-native';
+import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput, ScrollView} from 'react-native';
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 
@@ -36,6 +36,7 @@ export default function liveShowsCreate({navigation}) {
 
     return ( 
       <SafeAreaView>
+        <ScrollView>
           <TextInput 
             style={styles.input}
             placeholder="Locación del show"
@@ -69,6 +70,7 @@ export default function liveShowsCreate({navigation}) {
           <View>
               <Button title = "Guardar show" onPress = {() => addShow()}/>
           </View>
+        </ScrollView>
       </SafeAreaView>
     );
 }

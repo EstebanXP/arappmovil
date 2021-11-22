@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput, Alert} from 'react-native';
+import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput, Alert, ScrollView} from 'react-native';
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 
@@ -59,6 +59,7 @@ const openConfirmationAlert = () =>{
 
 return ( 
   <SafeAreaView>
+    <ScrollView>
       <TextInput 
         style={styles.input}
         placeholder="Nombre del miembro"
@@ -83,6 +84,7 @@ return (
       <View>
           <Button title = "Eliminar miembro" onPress = {() => openConfirmationAlert()}/>
       </View>
+      </ScrollView>
   </SafeAreaView>
 );
 }

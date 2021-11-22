@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput} from 'react-native';
+import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput, ScrollView} from 'react-native';
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 import {Picker} from '@react-native-picker/picker';
@@ -33,6 +33,7 @@ export default function ListOfSets(props,{navigation}) {
 
     return ( 
       <SafeAreaView>
+        <ScrollView>
         <Input placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
           <Button
             title="Crear Set"
@@ -65,6 +66,7 @@ export default function ListOfSets(props,{navigation}) {
               )
             })
           }
+          </ScrollView>
       </SafeAreaView>
     );
 }

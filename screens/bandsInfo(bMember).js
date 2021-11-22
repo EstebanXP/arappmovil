@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { View,SafeAreaView,StyleSheet,TextInput, Alert} from 'react-native';
+import { View,SafeAreaView,StyleSheet,TextInput, Alert, ScrollView} from 'react-native';
 import {
     NativeBaseProvider,
     Box,
@@ -47,6 +47,7 @@ export default function bandsInfo(props,{navigation}) {
 
     return ( 
       <SafeAreaView>
+        <ScrollView>
           <NativeBaseProvider>
                 <Center flex={1} px="9" >
                     <Image
@@ -69,7 +70,7 @@ export default function bandsInfo(props,{navigation}) {
                     </Box>
                 </Center>
             </NativeBaseProvider>
-          
+            </ScrollView> 
       </SafeAreaView>
     );
 }
