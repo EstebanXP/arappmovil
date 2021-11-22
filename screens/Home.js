@@ -22,7 +22,7 @@ export default function Home(
   useEffect(() => {});
   return (
     <View>
-      <ScrollView>
+      
       {(() => {
         switch (roleAux) {
           case "Band Member":
@@ -182,7 +182,7 @@ export default function Home(
             break;
         }
       })()}
-      </ScrollView>
+      
     </View>
   );
 }
