@@ -39,13 +39,18 @@ export default function BandsList(props,{navigation}) {
 
     return ( 
       <SafeAreaView>
-        <Box alignItems="center" position="absolute" top="2" w="90%" right="5%" left="5%">
+        
         <ScrollView>
         <Input placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
-          <Button
+        {(()=>{if(props.role === "Band Manager"){
+          return(
+            <Button
             title="Crear Banda"
             onPress={() => props.navigation.navigate('Bands Create')}
-        />
+            >Create</Button>
+          )
+        }
+        })()}
         <Select
           selectedValue={sort}
           onValueChange={(itemValue,itemIndex)=>setSort(itemValue)}
@@ -62,7 +67,7 @@ export default function BandsList(props,{navigation}) {
         <Picker.Item label="Genero" value="bandGenres" />
         </Picker>
         */}
-        <Box w="100%" h="100%" display="flex" flexDirection="row" flexWrap="wrap">
+        <Box w="100%"display="flex" flexDirection="row" flexWrap="wrap" ml="5%">
           {
             
             Bands.filter((val)=>{
@@ -81,10 +86,11 @@ export default function BandsList(props,{navigation}) {
                           bandId: band.id 
                         })
                       }}
-                      width="32" h="32" bg="#241CC4" borderRadius="20" shadow={9}
+                      width="40%" h="32" bg="#241CC4" borderRadius="20" shadow={9}
                       textColor="black"
-                      bg="info.300"
+                      bg="white"
                       mb="4"
+                      mx="2%"
                       >
                           
                           <Box width="100%" h="32" > 
@@ -120,9 +126,10 @@ export default function BandsList(props,{navigation}) {
             })
           }  
         </Box>
+        <Box width="100%" h="40" ></Box>
         </ScrollView>
         
-      </Box>
+      
       {/*<Search style={{zIndex: 4}}></Search>
         <Edit></Edit>*/}
       </SafeAreaView>
