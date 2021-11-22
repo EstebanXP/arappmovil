@@ -4,7 +4,7 @@ import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 import {Picker} from '@react-native-picker/picker';
 import { Input } from 'react-native-elements/dist/input/Input';
-import { NativeBaseProvider, VStack, Center, Button, Pressable, Text, Box, Container} from "native-base";
+import { NativeBaseProvider, VStack, Center, Button, Pressable, Text, Box, Container, Select} from "native-base";
 import {TouchableOpacity} from 'react-native-gesture-handler'
 
 export default function liveShowsManagement(props,{navigation}) {
@@ -42,17 +42,13 @@ export default function liveShowsManagement(props,{navigation}) {
       <Box alignItems="center" position="absolute" top="2" w="90%" right="5%" left="5%">
       <ScrollView>
         <Input placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
-          <Button
-            title="Crear live show 1"
-            onPress={() => props.navigation.navigate('Live Shows Create')}
-        />
-        <Picker
+        <Select
           selectedValue={sort}
           onValueChange={(itemValue,itemIndex)=>setSort(itemValue)}
         > 
-        <Picker.Item label="Nombre" value="showName" />
-        <Picker.Item label="Fecha" value="showDate" />
-        </Picker>
+        <Select.Item label="Nombre" value="showName" />
+        <Select.Item label="Fecha" value="showDate" />
+        </Select>
           {
             liveShows.filter((val)=>{
               if(searchVar===""){
@@ -65,21 +61,18 @@ export default function liveShowsManagement(props,{navigation}) {
             }).map(liveShow =>{
               return(
                 <Pressable
-                      width="100%" h="32" bg="#241CC4" borderRadius="20" shadow={9}
+                      width="100%" h="32" borderRadius="20" 
                       textColor="black"
                       mb="4"
+                      shadow={2}
                       >
-                        
-                          <Box width="100%" h="32"
+                          <Box width="100%" h="32" 
                           borderRadius="20"
-                           bg={{
-                          linearGradient: {
-                          colors: ['#204F06A', '#FFFFFF'],
-                          start: [0, 0],
-                          end: [2, 0],
-                        }
-                      }}>
-                          <Text textAlign="center" mt="auto" mb="auto" color="white">{liveShow.showName} {liveShow.showDate} {liveShow.showLocation} 
+                          
+                         
+                          bg="#FFF"
+                      >
+                          <Text textAlign="center" mt="auto" mb="auto" color="black">{liveShow.showName} {liveShow.showDate} {liveShow.showLocation} 
                           {liveShow.showTour} {liveShow.showPlace} {liveShow.showBand}</Text></Box></Pressable>
                 /*
                 <ListItem key={liveShow.id} bottomDivider onPress={() => {
