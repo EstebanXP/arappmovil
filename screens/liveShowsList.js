@@ -4,7 +4,7 @@ import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 import {Picker} from '@react-native-picker/picker';
 import { Input } from 'react-native-elements/dist/input/Input';
-import { NativeBaseProvider, VStack, Center, Button, Pressable, Text, Box, Container, Select} from "native-base";
+import { NativeBaseProvider, VStack, Center, Button, Pressable, Text, Box, Container, Select, Heading} from "native-base";
 import {TouchableOpacity} from 'react-native-gesture-handler'
 
 export default function liveShowsManagement(props,{navigation}) {
@@ -18,7 +18,7 @@ export default function liveShowsManagement(props,{navigation}) {
         firebase.db.collection('LiveShows').orderBy(sort).onSnapshot(querySnapshot=>{
           const liveShows = [];
           querySnapshot.docs.forEach(doc=>{
-            const {showLocation, showName, showTour, showDate, showPlace, showBand,} = doc.data()
+            const {showLocation, showName, showTour, showDate, showPlace, showBand,showTag} = doc.data()
             liveShows.push({
               id: doc.id,
               showLocation,
@@ -27,6 +27,7 @@ export default function liveShowsManagement(props,{navigation}) {
               showDate,
               showPlace,
               showBand,
+              showTag
             })
           })
           if(!unmounted)
@@ -72,8 +73,22 @@ export default function liveShowsManagement(props,{navigation}) {
                          
                           bg="#FFF"
                       >
-                          <Text textAlign="center" mt="auto" mb="auto" color="black">{liveShow.showName} {liveShow.showDate} {liveShow.showLocation} 
-                          {liveShow.showTour} {liveShow.showPlace} {liveShow.showBand}</Text></Box></Pressable>
+                        <Heading position="absolute" left="4" top="3">
+                          {liveShow.showName}
+                        </Heading>
+                          <Text position="absolute" left="4" bottom="3">
+
+                             {liveShow.showDate}{"\n"}{liveShow.showLocation} 
+                          </Text>
+                          <Box>
+                            <Text>
+                            {liveShow.showTag}
+                            </Text>
+                          </Box>
+                          <Button size={"xs"} w="20" borderRadius="20">
+                            Show more
+                          </Button>
+                      </Box></Pressable>
                 /*
                 <ListItem key={liveShow.id} bottomDivider onPress={() => {
                   props.navigation.navigate('Live Shows Management', {
