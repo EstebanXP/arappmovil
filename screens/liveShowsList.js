@@ -39,7 +39,7 @@ export default function liveShowsManagement(props,{navigation}) {
 
     return ( 
       <SafeAreaView>
-      <Box alignItems="center" position="absolute" top="2" w="90%" right="5%" left="5%">
+      
       <ScrollView>
         <Input placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
         <Select
@@ -61,7 +61,7 @@ export default function liveShowsManagement(props,{navigation}) {
             }).map(liveShow =>{
               return(
                 <Pressable
-                      width="100%" h="32" borderRadius="20" 
+                      width="90%" ml="auto" mr="auto" h="32" borderRadius="20" 
                       textColor="black"
                       mb="4"
                       shadow={2}
@@ -88,8 +88,13 @@ export default function liveShowsManagement(props,{navigation}) {
               )
             })
           }
+          <Box
+                      width="90%" ml="auto" mr="auto" h="32" borderRadius="20" 
+                      bg="rgba(0,0,0,0)"
+                      mb="4"
+                      ></Box>
         </ScrollView>
-      </Box>
+      
       </SafeAreaView>
     );
 }
