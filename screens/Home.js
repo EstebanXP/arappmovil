@@ -84,9 +84,9 @@ export default function Home(
                   textColor="white"
                   bg="#000"
                   >
-                    <TouchableOpacity  onPress={() => navigation.navigate("Live Shows List")}>
+                    <TouchableOpacity  onPress={() => navigation.navigate("Show Song")}>
                       <Box  width="100%" h="32">
-                        <Heading textAlign="center" mt="auto" mb="auto" zIndex="3"  color="white">Shows</Heading>
+                        <Heading textAlign="center" mt="auto" mb="auto" zIndex="3"  color="white">Songs</Heading>
                         <Image
                         opacity=".5"
                         width="100%" h="32"
@@ -94,9 +94,9 @@ export default function Home(
                         resizeMode={"cover"}
                         position="absolute"
                         source={{
-                            uri: "https://images.unsplash.com/photo-1501694159270-7b55f5eb85fc?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=387&q=80",
+                            uri: "https://images.unsplash.com/photo-1596301448249-860401fa31a3?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=774&q=80",
                         }}
-                        alt="Shows"
+                        alt="Songs"
                         />
                       </Box>
                     </TouchableOpacity>
@@ -106,9 +106,9 @@ export default function Home(
                   textColor="white"
                   bg="#000"
                   >
-                    <TouchableOpacity  onPress={() => navigation.navigate("Bands List")}>
+                    <TouchableOpacity  onPress={() => navigation.navigate("SetList List")}>
                       <Box  width="100%" h="32">
-                        <Heading textAlign="center" mt="auto" mb="auto" zIndex="3"  color="white">Bands</Heading>
+                        <Heading textAlign="center" mt="auto" mb="auto" zIndex="3"  color="white">Setlists</Heading>
                         <Image
                         opacity=".5"
                         width="100%" h="32"
@@ -116,39 +116,14 @@ export default function Home(
                         resizeMode={"cover"}
                         position="absolute"
                         source={{
-                            uri: "https://images.unsplash.com/photo-1598518141787-5be70e839626?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80",
+                            uri: "https://images.unsplash.com/photo-1540829016269-e05670f88adb?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=800&q=80",
                         }}
-                        alt="Bands"
+                        alt="Setlists"
                         />
                       </Box>
                     </TouchableOpacity>
                   </Pressable>
                 </VStack>
-                <View>
-                  <View>
-                    <Button
-                      title="Ir a Lista de etiquetas"
-                      onPress={() => navigation.navigate("Tags List")}
-                    />
-                    <Button
-                      title="Ir a mostrar canciones"
-                      onPress={() => navigation.navigate("Show Songs")}
-                    />
-                    <Button
-                      title="Ir a administrar canciones"
-                      onPress={() => navigation.navigate("Add Songs")}
-                    />
-                    <Button
-                      title="Ir a administrar set lists"
-                      onPress={() => navigation.navigate("SetList List")}
-                    />
-                    <Button
-                      title="Ir a administrar sets"
-                      onPress={() => navigation.navigate("Sets Lists")}
-                    />
-                  </View>
-                  
-                </View>
               </NativeBaseProvider>
             );
           case "Band Manager":
@@ -200,20 +175,6 @@ export default function Home(
                     </TouchableOpacity>
                   </Pressable>
                 </VStack>
-                <View>
-                  <Button
-                    title="Ir a administrar miembros de banda"
-                    onPress={() => navigation.navigate("Band Members List")}
-                  />
-                  <Button
-                    title="Ir a administrar bandas"
-                    onPress={() => navigation.navigate("Bands List")}
-                  />
-                  <Button
-                    title="Ir a lista de live shows"
-                    onPress={() => navigation.navigate("Live Shows List")}
-                  />
-                </View>
               </NativeBaseProvider>
             );
           default:
