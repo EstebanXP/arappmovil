@@ -213,7 +213,7 @@ export default function App() {
             <Stack.Screen name="Manage Song" component={rsm} options={config}/>
             <Stack.Screen name="Navigation" component={Navigation} options={config}/>
             <Stack.Screen name="Profile" component={profile} options={configProfile} />
-            <Stack.Screen name="backup" component={backup} options={configProfile} />
+            <Stack.Screen name="Backup" component={backup} options={configNav} />
             <Stack.Screen name="Notifications" component={notificationScreen} options={configNotif}></Stack.Screen>
           </Stack.Navigator>
           <Notification  />

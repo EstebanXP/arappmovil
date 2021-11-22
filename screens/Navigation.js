@@ -135,7 +135,7 @@ export default function nav(props) {
                     py="2"
                     flex={1}
                     >
-                      <TouchableOpacity onPress={() => {props.setNavState(2), RootNavigation.navigateReplace("backup")}}>
+                      <TouchableOpacity onPress={() => {props.setNavState(2), RootNavigation.navigateReplace("Backup")}}>
                       <Center>
                         <Icon
                           mb="1"
