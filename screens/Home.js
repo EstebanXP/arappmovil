@@ -84,7 +84,7 @@ export default function Home(
                   textColor="white"
                   bg="#000"
                   >
-                    <TouchableOpacity  onPress={() => navigation.navigate("Show Song")}>
+                    <TouchableOpacity  onPress={() => navigation.navigate("Show Songs")}>
                       <Box  width="100%" h="32">
                         <Heading textAlign="center" mt="auto" mb="auto" zIndex="3"  color="white">Songs</Heading>
                         <Image
