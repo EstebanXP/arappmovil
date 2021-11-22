@@ -119,6 +119,7 @@ export default function App() {
             Alert.alert('Sorry. ' + error.message)
         })
         .then(
+          setNavState(1),
           setUserActive(false)
         )
         

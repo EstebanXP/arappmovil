@@ -36,7 +36,6 @@ export default function notification(props) {
             flex={1}
           >
             <TouchableOpacity onPress={() => {
-              setSelected(3)
               RootNavigation.navigateReplaceSingle("Home")
               props.setNavState(1)
               }}>
