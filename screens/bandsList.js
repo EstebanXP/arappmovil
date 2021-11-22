@@ -38,6 +38,7 @@ export default function BandsList(props,{navigation}) {
     return ( 
       <SafeAreaView>
         <Box alignItems="center" position="absolute" top="2" w="90%" right="5%" left="5%">
+        <ScrollView>
         <Input placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
           <Button
             title="Crear Banda"
@@ -117,6 +118,7 @@ export default function BandsList(props,{navigation}) {
             })
           }  
         </Box>
+        </ScrollView>
       </Box>
       </SafeAreaView>
     );

@@ -47,6 +47,7 @@ export default function bandsInfo(props,{navigation}) {
 
     return ( 
       <SafeAreaView>
+        <ScrollView>
           <NativeBaseProvider>
                 <Center flex={1} px="9" >
                     <Image
@@ -69,7 +70,7 @@ export default function bandsInfo(props,{navigation}) {
                     </Box>
                 </Center>
             </NativeBaseProvider>
-          
+            </ScrollView>
       </SafeAreaView>
     );
 }

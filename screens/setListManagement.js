@@ -61,6 +61,7 @@ export default function setListsManagement(props,{navigation}) {
 
     return ( 
       <SafeAreaView>
+        <ScrollView>
           <TextInput 
             style={styles.input}
             placeholder="Nombre Del SetList"
@@ -91,6 +92,7 @@ export default function setListsManagement(props,{navigation}) {
           <View>
               <Button title = "Eliminar SetList" onPress = {() => openConfirmationAlert()}/>
           </View>
+          </ScrollView>
       </SafeAreaView>
     );
 }

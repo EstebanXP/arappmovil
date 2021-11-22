@@ -24,6 +24,7 @@ export default function tagsManagements({navigation}) {
 
     return ( 
       <SafeAreaView>
+        <ScrollView>
           <TextInput 
             style={styles.input}
             placeholder="Nombre Tag"
@@ -32,6 +33,7 @@ export default function tagsManagements({navigation}) {
           <View>
               <Button title = "Guardar etiqueta" onPress = {() => addTag()}/>
           </View>
+          </ScrollView>
       </SafeAreaView>
     );
 }

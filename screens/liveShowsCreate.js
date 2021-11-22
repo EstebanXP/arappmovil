@@ -36,6 +36,7 @@ export default function liveShowsCreate({navigation}) {
 
     return ( 
       <SafeAreaView>
+        <ScrollView>
           <TextInput 
             style={styles.input}
             placeholder="Locación del show"
@@ -69,6 +70,7 @@ export default function liveShowsCreate({navigation}) {
           <View>
               <Button title = "Guardar show" onPress = {() => addShow()}/>
           </View>
+          </ScrollView>
       </SafeAreaView>
     );
 }

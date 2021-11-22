@@ -27,6 +27,7 @@ export default function setCreate({navigation}) {
 
     return ( 
       <SafeAreaView>
+        <ScrollView>
           <TextInput 
             style={styles.input}
             placeholder="Nombre de set"
@@ -40,6 +41,7 @@ export default function setCreate({navigation}) {
           <View>
               <Button title = "Guardar set" onPress = {() => addSet()}/>
           </View>
+          </ScrollView>
       </SafeAreaView>
     );
 }

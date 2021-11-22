@@ -33,6 +33,7 @@ export default function tagsManagements(props,{navigation}) {
 
     return ( 
       <SafeAreaView>
+        <ScrollView>
         <Input placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
           <Button
             title="Crear etiqueta"
@@ -66,6 +67,7 @@ export default function tagsManagements(props,{navigation}) {
               )
             })
           }
+          </ScrollView>
       </SafeAreaView>
     );
 }

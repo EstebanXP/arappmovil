@@ -31,6 +31,7 @@ export default function setListCreate({navigation}) {
 
     return ( 
       <SafeAreaView>
+        <ScrollView>
           <TextInput 
             style={styles.input}
             placeholder="Nombre del SetList"
@@ -54,6 +55,7 @@ export default function setListCreate({navigation}) {
           <View>
               <Button title = "Guardar SetList" onPress = {() => addSetList()}/>
           </View>
+          </ScrollView>
       </SafeAreaView>
     );
 }

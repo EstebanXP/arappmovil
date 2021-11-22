@@ -67,6 +67,7 @@ export default function liveShowsManagement(props,{navigation}) {
 
     return ( 
       <SafeAreaView>
+        <ScrollView>
           <TextInput 
             style={styles.input}
             placeholder="Locación del show"
@@ -109,6 +110,7 @@ export default function liveShowsManagement(props,{navigation}) {
           <View>
               <Button title = "Eliminar show" onPress = {() => openConfirmationAlert()}/>
           </View>
+          </ScrollView>
       </SafeAreaView>
     );
 }

@@ -61,6 +61,7 @@ export default function bandsManagement(props,{navigation}) {
 
     return ( 
       <SafeAreaView>
+        <ScrollView>
           <TextInput 
             style={styles.input}
             placeholder="Nombre banda"
@@ -91,6 +92,7 @@ export default function bandsManagement(props,{navigation}) {
           <View>
               <Button title = "Eliminar banda" onPress = {() => openConfirmationAlert()}/>
           </View>
+          </ScrollView>
       </SafeAreaView>
     );
 }

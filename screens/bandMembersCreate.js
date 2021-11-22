@@ -28,6 +28,7 @@ export default function bandMembersCreate({navigation}) {
 
     return ( 
       <SafeAreaView>
+        <ScrollView>
           <TextInput 
             style={styles.input}
             placeholder="Nombre del miembro"
@@ -46,6 +47,7 @@ export default function bandMembersCreate({navigation}) {
           <View>
               <Button title = "Guardar miembro" onPress = {() => addMember()}/>
           </View>
+          </ScrollView>
       </SafeAreaView>
     );
 }

@@ -31,6 +31,7 @@ export default function bandCreate({navigation}) {
 
     return ( 
       <SafeAreaView>
+        <ScrollView>
           <TextInput 
             style={styles.input}
             placeholder="Nombre banda"
@@ -54,6 +55,7 @@ export default function bandCreate({navigation}) {
           <View>
               <Button title = "Guardar banda" onPress = {() => addBand()}/>
           </View>
+          </ScrollView>
       </SafeAreaView>
     );
 }

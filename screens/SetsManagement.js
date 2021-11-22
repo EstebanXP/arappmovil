@@ -57,6 +57,7 @@ export default function setsManagement(props,{navigation}) {
 
     return ( 
       <SafeAreaView>
+        <ScrollView>
           <TextInput 
             style={styles.input}
             placeholder="Nombre del set"
@@ -75,6 +76,7 @@ export default function setsManagement(props,{navigation}) {
           <View>
               <Button title = "Eliminar set" onPress = {() => openConfirmationAlert()}/>
           </View>
+          </ScrollView>
       </SafeAreaView>
     );
 }

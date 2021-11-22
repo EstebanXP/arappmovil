@@ -34,6 +34,7 @@ export default function bandmembersManagement(props,{navigation}) {
 
     return ( 
       <SafeAreaView>
+        <ScrollView>
         <Input placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
           <Button
             title="Crear miembro"
@@ -70,6 +71,7 @@ export default function bandmembersManagement(props,{navigation}) {
               )
             })
           }
+          </ScrollView>
       </SafeAreaView>
     );
 }

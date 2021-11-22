@@ -62,6 +62,7 @@ export default function songsManagement() {
   return (
     <View>
       <SafeAreaView>
+      <ScrollView>
         <TextInput
           style={styles.input}
           placeholder="Nombre de la cancion"
@@ -78,6 +79,7 @@ export default function songsManagement() {
         ) : (
           <Text>Tu cancion se encontrara abajo!</Text>
         )}
+      </ScrollView>
       </SafeAreaView>
       {status === true ? (
         <View>
@@ -91,7 +93,7 @@ export default function songsManagement() {
         </View>
       ) : (
         <View>
-          <Text>Boludo</Text>
+          <Text></Text>
         </View>
       )}
     </View>

@@ -55,6 +55,7 @@ export default function tagsManagements(props,{navigation}) {
 
     return ( 
       <SafeAreaView>
+        <ScrollView>
           <TextInput 
             style={styles.input}
             placeholder="Nombre Tag"
@@ -67,6 +68,7 @@ export default function tagsManagements(props,{navigation}) {
           <View>
               <Button title = "Eliminar Tag" onPress = {() => openConfirmationAlert()}/>
           </View>
+        </ScrollView>
       </SafeAreaView>
     );
 }

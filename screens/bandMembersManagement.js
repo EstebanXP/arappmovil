@@ -59,6 +59,7 @@ const openConfirmationAlert = () =>{
 
 return ( 
   <SafeAreaView>
+    <ScrollView>
       <TextInput 
         style={styles.input}
         placeholder="Nombre del miembro"
@@ -83,6 +84,7 @@ return (
       <View>
           <Button title = "Eliminar miembro" onPress = {() => openConfirmationAlert()}/>
       </View>
+      </ScrollView>
   </SafeAreaView>
 );
 }
