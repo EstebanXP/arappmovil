@@ -67,12 +67,19 @@ export default function liveShowsManagement(props,{navigation}) {
                 <Pressable
                       width="100%" h="32" bg="#241CC4" borderRadius="20" shadow={9}
                       textColor="black"
-                      bg="info.300"
                       mb="4"
                       >
                         
-                          <Box width="100%" h="32">
-                          <Text textAlign="center" mt="auto" mb="auto" color="black">{liveShow.showName} {liveShow.showDate} {liveShow.showLocation} 
+                          <Box width="100%" h="32"
+                          borderRadius="20"
+                           bg={{
+                          linearGradient: {
+                          colors: ['#204F06A', '#FFFFFF'],
+                          start: [0, 0],
+                          end: [2, 0],
+                        }
+                      }}>
+                          <Text textAlign="center" mt="auto" mb="auto" color="white">{liveShow.showName} {liveShow.showDate} {liveShow.showLocation} 
                           {liveShow.showTour} {liveShow.showPlace} {liveShow.showBand}</Text></Box></Pressable>
                 /*
                 <ListItem key={liveShow.id} bottomDivider onPress={() => {

@@ -63,7 +63,11 @@ export default function App() {
     setRole(userData.userRole);
   };
   
-
+  const configNative = {
+    dependencies: {
+      'linear-gradient': require('expo-linear-gradient').LinearGradient
+    }
+  }
   
   const config = {
   headerBackTitleVisible : false,
@@ -162,7 +166,7 @@ export default function App() {
     );
   } else {
     return (
-      <NativeBaseProvider>
+      <NativeBaseProvider config={configNative}>
         
       <NavigationContainer ref={navigationRef}>
       
