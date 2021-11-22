@@ -76,8 +76,9 @@ export default function showSongs(props,{navigation}){
                       }}*/
                       width="32" h="32" bg="#241CC4" borderRadius="20" shadow={9}
                       textColor="black"
-                      bg="info.300"
+                      bg="white"
                       mb="4"
+                      ml="4"
                       >
                           <Box width="100%" h="32" > 
                           <Text textAlign="center" mt="auto" mb="auto" color="black">
