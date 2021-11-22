@@ -42,7 +42,7 @@ export default function liveShowsManagement(props,{navigation}) {
       <SafeAreaView>
       
       <ScrollView>
-        <Input placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
+        
         <Select
           selectedValue={sort}
           onValueChange={(itemValue,itemIndex)=>setSort(itemValue)}

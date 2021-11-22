@@ -168,7 +168,7 @@ export default function nav(props) {
                     py="2"
                     flex={1}
                     >
-                      <TouchableOpacity onPress={() => {props.setNavState(2), RootNavigation.navigateReplace("Tags List")}}>
+                      <TouchableOpacity onPress={() => {props.setNavState(2)}}>
                       <Center>
                         <Icon
                           mb="1"

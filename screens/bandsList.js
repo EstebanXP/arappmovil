@@ -41,7 +41,7 @@ export default function BandsList(props,{navigation}) {
       <SafeAreaView>
         
         <ScrollView>
-        <Input placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
+       
         {(()=>{if(props.role === "Band Manager"){
           return(
             <Button
