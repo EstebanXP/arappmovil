@@ -80,13 +80,23 @@ export default function liveShowsManagement(props,{navigation}) {
 
                              {liveShow.showDate}{"\n"}{liveShow.showLocation} 
                           </Text>
-                          <Box>
-                            <Text>
-                            {liveShow.showTag}
-                            </Text>
-                          </Box>
-                          <Button size={"xs"} w="20" borderRadius="20">
-                            Show more
+                          {
+                            (()=>{
+                              if(liveShow.showTag != ""){
+                                return(
+                                  <Box position="absolute" right="4" top="3" borderRadius="30" bg="rgba(79, 70, 229,0.5)"> 
+                                    <Text p="1" fontSize="12">
+                                    {liveShow.showTag}
+                                    </Text>
+                                  </Box>
+                                );
+                              }
+                            })()}
+                          
+                          <Button size={"xs"} w="20" borderRadius="20" bg="white" shadow={1} colorScheme="indigo"borderWidth="1" borderColor="indigo.600"
+                          position="absolute" right="4" bottom="3"
+                          >
+                            Show more...
                           </Button>
                       </Box></Pressable>
                 /*
