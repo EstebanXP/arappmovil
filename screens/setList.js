@@ -43,6 +43,14 @@ export default function setList(props,{navigation}) {
             title="Crear SetList"
             onPress={() => props.navigation.navigate('SetList Create')}
         />
+        <Select
+          selectedValue={sort}
+          onValueChange={(itemValue,itemIndex)=>setSort(itemValue)}
+        > 
+        <Select.Item label="Nombre" value="name" />
+        <Select.Item label="Show" value="show" />
+        </Select>
+        {/*
         <Picker
           selectedValue={sort}
           onValueChange={(itemValue,itemIndex)=>setSort(itemValue)}
@@ -50,6 +58,7 @@ export default function setList(props,{navigation}) {
         <Picker.Item label="Nombre" value="name" />
         <Picker.Item label="Show" value="show" />
         </Picker>
+        */}
           {
             SetList.filter((val)=>{
               if(searchVar===""){
