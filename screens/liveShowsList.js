@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { View, SafeAreaView,StyleSheet,TextInput} from 'react-native';
+import { View, SafeAreaView,StyleSheet,TextInput, ScrollView} from 'react-native';
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 import {Picker} from '@react-native-picker/picker';
@@ -40,6 +40,7 @@ export default function liveShowsManagement(props,{navigation}) {
     return ( 
       <SafeAreaView>
       <Box alignItems="center" position="absolute" top="2" w="90%" right="5%" left="5%">
+      <ScrollView>
         <Input placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
           <Button
             title="Crear live show 1"
@@ -87,6 +88,7 @@ export default function liveShowsManagement(props,{navigation}) {
               )
             })
           }
+        </ScrollView>
       </Box>
       </SafeAreaView>
     );

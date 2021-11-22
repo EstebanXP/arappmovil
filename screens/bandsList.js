@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { View, SafeAreaView,StyleSheet,TextInput} from 'react-native';
+import { View, SafeAreaView,StyleSheet,TextInput, ScrollView} from 'react-native';
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 import {Picker} from '@react-native-picker/picker';

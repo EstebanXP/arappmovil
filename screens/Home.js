@@ -1,6 +1,6 @@
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, ScrollView } from "react";
 import { StyleSheet, View, Alert } from "react-native";
 import firebase from "../database/firebase";
 import Item from "./Item";

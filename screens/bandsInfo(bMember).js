@@ -1,5 +1,5 @@
 import React, {useEffect, useState} from "react";
-import { View,SafeAreaView,StyleSheet,TextInput, Alert} from 'react-native';
+import { View,SafeAreaView,StyleSheet,TextInput, Alert, ScrollView} from 'react-native';
 import {
     NativeBaseProvider,
     Box,
