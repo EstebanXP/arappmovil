@@ -46,13 +46,16 @@ export default function bandsInfo(props,{navigation}) {
   }, [])
 
     return ( 
-      <SafeAreaView>
-          <NativeBaseProvider>
+      <View>
+       
+          
           <Image
                     size={300}
                     w="100%"
-                    resizeMode={"contain"}
-                    position="absolute" 
+                    
+                    position="absolute"
+                    top="0"
+                    
                     source={{
                         uri: "https://images.unsplash.com/photo-1598518141787-5be70e839626?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80",
                     }}
@@ -68,8 +71,8 @@ export default function bandsInfo(props,{navigation}) {
                     <Text textAlign="center" color="black">{band.bandDescription}</Text>
                     </Box>
                 </Center>
-            </NativeBaseProvider>
-      </SafeAreaView>
+           
+      </View>
     );
 }
 
