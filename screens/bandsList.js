@@ -103,9 +103,6 @@ export default function BandsList(props,{navigation}) {
                           <Text textAlign="center" mt="auto" mb="auto" color="black">
                           {band.bandLogo}  
                           </Text>
-                          <Text textAlign="center" mt="auto" mb="auto" color="black">
-                          {band.bandDescription}
-                          </Text>
                           </Box>
                           
                 </Pressable>

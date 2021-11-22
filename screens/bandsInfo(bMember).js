@@ -48,17 +48,17 @@ export default function bandsInfo(props,{navigation}) {
     return ( 
       <SafeAreaView>
           <NativeBaseProvider>
-                <Center flex={1} px="9" >
-                    <Image
+          <Image
                     size={300}
+                    w="100%"
                     resizeMode={"contain"}
-                    borderRadius={100}
-                    position="absolute" top="0"
+                    position="absolute" 
                     source={{
                         uri: "https://images.unsplash.com/photo-1598518141787-5be70e839626?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80",
                     }}
                     alt="Alternate Text"
-                    />       
+                    />      
+                <Center flex={1} px="9" > 
                     <Box alignItems="center" position="absolute" top="80" w="100%">
                     <Heading textAlign="center" color="black" fontSize="3xl">
                     {band.bandName}
