@@ -36,7 +36,7 @@ export default function search() {
             
             flex={1}
           >
-            <TouchableOpacity onPress={() => {setSelected(3), RootNavigation.navigate("Profile")}}>
+            <TouchableOpacity /*onPress={() => {setSelected(3), RootNavigation.navigate("Profile")}}*/>
             <Center>
               <Icon
                 mb="1"

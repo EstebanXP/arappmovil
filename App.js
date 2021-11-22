@@ -219,7 +219,7 @@ export default function App() {
           <Notification  />
           <Search style={{zIndex: 4}}></Search>
           
-          <Edit></Edit>
+        <Edit></Edit>
         <Navigation setNavState={setNavState} navState={navState} name={name} userName={userName} role={role}></Navigation>
         </RoleContext.Provider>
         

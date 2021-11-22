@@ -6,6 +6,8 @@ import {Picker} from '@react-native-picker/picker';
 import { Input } from 'react-native-elements/dist/input/Input';
 import { NativeBaseProvider, VStack, Center, Button, Pressable, Text, Box, Container, FlatList, Flex, Select} from "native-base";
 import {TouchableOpacity} from 'react-native-gesture-handler'
+import Search from "./searchFloat.js";
+import Edit from './editFloat.js' 
 
 export default function BandsList(props,{navigation}) {
 
@@ -119,7 +121,10 @@ export default function BandsList(props,{navigation}) {
           }  
         </Box>
         </ScrollView>
+        
       </Box>
+      {/*<Search style={{zIndex: 4}}></Search>
+        <Edit></Edit>*/}
       </SafeAreaView>
     );
 }
