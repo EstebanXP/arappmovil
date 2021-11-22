@@ -30,27 +30,31 @@ export default function profile({route,navigation}){
       return (
         <View>
              <NativeBaseProvider>
+               <Box position="absolute" top="40">
                 <Center flex={1} px="9" >
-                    <Heading textAlign="center" color="black" fontSize="3xl" position="absolute" top="10">
+                    <Heading textAlign="center" color="black" fontSize="3xl">
                         Backup the song catalog
                     </Heading>     
                 </Center>
-                <Box alignItems="center" position="absolute" top="2" w="90%" right="5%" left="5%">
+                <HStack ml="auto" mr="auto" mt="10">
+                  <Center>
                 <Icon
                       as={<MaterialCommunityIcons name="apple-icloud" />}
                       size={60}
-                      left="30%"
-                      position="absolute" top="150"
+                      
                       bold
                       />
+                </Center>
+                <Center>
                 <Icon
                       as={<MaterialCommunityIcons name="dropbox" />}
                       size={60}
-                       left="60%"
-                      position="absolute" top="150"
+                       
                       bold
-                      />      
-                </Box>
+                      />
+                </Center> 
+                </HStack>
+              </Box>
             </NativeBaseProvider>
         </View>    
       )
