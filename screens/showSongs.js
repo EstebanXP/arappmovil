@@ -1,7 +1,8 @@
 import React,{useState,useEffect} from 'react'
-import { Text, View, SafeAreaView, ScrollView, FlatList} from 'react-native';
+import { View, SafeAreaView, ScrollView } from 'react-native';
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
+import { NativeBaseProvider, VStack, Center, Button, Pressable, Text, Box, Container, FlatList, Flex, Select} from "native-base";
 import {Picker} from '@react-native-picker/picker';
 import { Input } from 'react-native-elements/dist/input/Input';
 
@@ -39,6 +40,14 @@ export default function showSongs(props,{navigation}){
       <SafeAreaView>
         <ScrollView>
         <Input placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
+        <Select
+          selectedValue={sort}
+          onValueChange={(itemValue,itemIndex)=>setSort(itemValue)}
+        >
+        <Select.Item label="Title" value="title" />
+        <Select.Item label="Artist" value="artist" />
+        </Select>
+        {/*
         <Picker
           selectedValue={sort}
           onValueChange={(itemValue,itemIndex)=>setSort(itemValue)}
@@ -46,6 +55,8 @@ export default function showSongs(props,{navigation}){
         <Picker.Item label="Title" value="title" />
         <Picker.Item label="Artist" value="artist" />
         </Picker>
+        */}
+        <Box w="100%" h="100%" display="flex" flexDirection="row" flexWrap="wrap">
       {
         songs.filter((val)=>{
           if(searchVar===""){
@@ -58,6 +69,27 @@ export default function showSongs(props,{navigation}){
         }).map(song =>{
           return(
             <ScrollView>
+              <Pressable /*key={band.id} bottomDivider onPress={() => {
+                        props.navigation.navigate('Bands Info', {
+                          bandId: band.id 
+                        })
+                      }}*/
+                      width="32" h="32" bg="#241CC4" borderRadius="20" shadow={9}
+                      textColor="black"
+                      bg="info.300"
+                      mb="4"
+                      >
+                          <Box width="100%" h="32" > 
+                          <Text textAlign="center" mt="auto" mb="auto" color="black">
+                          {song.title} 
+                          </Text>
+                          <Text textAlign="center" mt="auto" mb="auto" color="black">
+                          {song.artist}
+                          </Text>
+                          </Box>
+                          
+                </Pressable>
+            {/*  
             <ListItem key={song.id} bottomDivider onPress={() => {props.navigation.navigate('Manage Song',{
               songId:song.id,
               songTitle:song.title,
@@ -70,10 +102,13 @@ export default function showSongs(props,{navigation}){
                 <ListItem.Subtitle>{song.artist}</ListItem.Subtitle>
               </ListItem.Content>
             </ListItem>
+          */}
+          
             </ScrollView>
           )
         })
       }
+      </Box>
       </ScrollView>
   </SafeAreaView>
     )
