@@ -65,7 +65,8 @@ export default class RegisterUser extends React.Component{
     render(){
       return (
         <NativeBaseProvider>
-        <Box width="2xs" mt="32">
+        <Center flex={1}>
+        <Box width="2xs" >
         <Heading textAlign="center" size="2xl" mb="5" mt="20">Hello there :)</Heading>
             <Input  variant="underlined" placeholder="username" style={{borderColor: '#4f46e5' }} onChangeText={(username) => {
             this.setState({username:username})
@@ -130,6 +131,7 @@ export default class RegisterUser extends React.Component{
             <Text color="indigo.600" textAlign="center" italic fontSize="sm" mt="5" onPress={()=>{this.props.setViewState(true)}}>Already have an account? Sign in</Text>
           
         </Box>
+        </Center>
         </NativeBaseProvider>
       );
     }

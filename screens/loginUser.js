@@ -52,36 +52,33 @@ export default class LoginUser extends React.Component{
       return (
         
         <NativeBaseProvider>
-          <Box  width="2xs" mt="20" >   
-              <Heading size="xl" mb="10" mt="48" textAlign="center">
+          <Center flex={1}>
+          <Box  width="2xs" >   
+              <Heading size="xl" mb="10"  textAlign="center">
                   We missed you
               </Heading> 
-            <Stack
-              space={4}
-              w={{
-                base: "75%",
-                md: "25%",
-              }}
-            >
-                <Box>
-                  <Input variant="underlined" w={{base: "133%", md: "133%",}}
+          
+              
+                  <Input variant="underlined" w={{base: "100%", md: "100%",}}
                   style={{borderColor: '#4f46e5' }} 
                   placeholder="email"  onChangeText={(email) => {
                     this.setState({email:email}) }} value={this.state.email}
-                    position="absolute" left="0" top="-20"/>
-                </Box>
+                   />
                 
-                <Input variant="underlined" style={{borderColor: '#4f46e5' }} w={{base: "133%", md: "133%",}}
+                
+                <Input variant="underlined" style={{borderColor: '#4f46e5' }} w={{base: "100%", md: "100S%",}}
                 
                   placeholder="password" mb="5" onChangeText={(password) => {
                   this.setState({password:password}) }} value={this.state.password} 
                   secureTextEntry={true}
-                  autoCorrect={false}/>
+                  autoCorrect={false}
+                  mb="10"
+                  />
 
-                <Button  bg="indigo.600" size={'lg'} colorScheme="dark" onPress={this.loginAccount} shadow={9} px="100" w="133%" borderRadius="50">Sign In</Button>
-                <Text textAlign="center" fontSize="sm" w="133%" color="muted.600">or sign in using</Text>
+                <Button  bg="indigo.600" size={'lg'} colorScheme="dark" mb="5"  onPress={this.loginAccount} shadow={9} px="100" w="100%" borderRadius="50">Sign In</Button>
+                <Text textAlign="center" fontSize="sm" w="100%" mb="5"  color="muted.600">or sign in using</Text>
                 <Button.Group>
-                <Button w="65%" bg="white" colorScheme="dark" shadow={9} borderRadius="50" >
+                <Button w="50%" bg="white" colorScheme="dark" shadow={9} borderRadius="50" >
                   <HStack space={3} alignItems="center">
                     <Center>
                       <Icon
@@ -99,7 +96,7 @@ export default class LoginUser extends React.Component{
                     </Center>
                   </HStack>
                 </Button>
-                <Button w="65%" bg="white" colorScheme="dark"  shadow={9} borderRadius="50" onPress={() => {
+                <Button w="50%" bg="white" colorScheme="dark"  shadow={9} borderRadius="50" onPress={() => {
                   toggleColorMode();
                 }}>
                   <HStack space={3} alignItems="center">
@@ -107,7 +104,7 @@ export default class LoginUser extends React.Component{
                     <Image
                     size={3}
                     resizeMode={"contain"}
-                    borderRadius={1}
+                    borderRadius={1}S
                     source={require('../assets/google-logo-9808.png')}
                     alt="Alternate Text"
                     />
@@ -120,11 +117,12 @@ export default class LoginUser extends React.Component{
                   </HStack>
                 </Button>
                 </Button.Group>
-                <Center><Text color="indigo.600" onPress={()=>{this.props.setViewState(false)}}  italic fontSize="sm" w="133%" position="absolute" left="7" bottom="-30">Don’t have an account? Sign up</Text></Center>
+                <Center><Text mt="5" color="indigo.600" textAlign="center" onPress={()=>{this.props.setViewState(false)}}  italic fontSize="sm" w="100%">Don’t have an account? Sign up</Text></Center>
                 
              
-            </Stack>
+            
           </Box>
+          </Center>
         </NativeBaseProvider>
       );
     }
