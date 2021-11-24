@@ -4,7 +4,8 @@ import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 import {Picker} from '@react-native-picker/picker';
 import { Input } from 'react-native-elements/dist/input/Input';
-import { NativeBaseProvider, VStack, Center, Button, Pressable, Text, Box, Container, FlatList, Flex, Select} from "native-base";
+import { NativeBaseProvider, VStack, Center, Button, Pressable, Text, Box, Container, FlatList, Flex, Select
+  , Image} from "native-base";
 import {TouchableOpacity} from 'react-native-gesture-handler'
 import Search from "./searchFloat.js";
 import Edit from './editFloat.js' 
@@ -94,17 +95,21 @@ export default function BandsList(props,{navigation}) {
                       >
                           
                           <Box width="100%" h="32" > 
+                          <Image
+                          opacity=".5"
+                          width="100%" h="32"
+                          borderRadius="20" 
+                          resizeMode={"cover"}
+                          position="absolute"
+                          source={{
+                              uri: band.bandLogo,
+                          }}
+                          />
                           <Text textAlign="center" mt="auto" mb="auto" color="black">
                           {band.bandName} 
                           </Text>
                           <Text textAlign="center" mt="auto" mb="auto" color="black">
                           {band.bandGenres}
-                          </Text>
-                          <Text textAlign="center" mt="auto" mb="auto" color="black">
-                          {band.bandLogo}  
-                          </Text>
-                          <Text textAlign="center" mt="auto" mb="auto" color="black">
-                          {band.bandDescription}
                           </Text>
                           </Box>
                           

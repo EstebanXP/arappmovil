@@ -28,7 +28,7 @@ export default function bandsInfo(props,{navigation}) {
     bandGenres: "",
       //showTag: "", hace falta saber como conectar los tags
   }
-
+  
   const [band, setBand] = useState(initialState)
 
   const getBandId = async (id) =>{
@@ -38,38 +38,43 @@ export default function bandsInfo(props,{navigation}) {
     setBand({
       ...band,
       id: doc.id,
+      
     })
     }
 
   useEffect (()=>{
       getBandId(props.route.params.bandId);
   }, [])
-
+  console.log(band.bandLogo)
     return ( 
-      <SafeAreaView>
-          <NativeBaseProvider>
-                <Center flex={1} px="9" >
-                    <Image
+      <View>
+       
+          
+          <Image
                     size={300}
-                    resizeMode={"contain"}
-                    borderRadius={100}
-                    position="absolute" top="0"
+                    w="100%"
+                    
+                    position="absolute"
+                    top="0"
+                    
                     source={{
                         uri: "https://images.unsplash.com/photo-1598518141787-5be70e839626?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1776&q=80",
                     }}
                     alt="Alternate Text"
-                    />       
+                    />      
+                <Center flex={1} px="9" > 
                     <Box alignItems="center" position="absolute" top="80" w="100%">
                     <Heading textAlign="center" color="black" fontSize="3xl">
                     {band.bandName}
+                    
                     </Heading>
                     <Text textAlign="center" color="black">Genero de banda</Text>
                     <Box textAlign="center" color="black">{band.bandGenres}</Box>
                     <Text textAlign="center" color="black">{band.bandDescription}</Text>
                     </Box>
                 </Center>
-            </NativeBaseProvider>
-      </SafeAreaView>
+           
+      </View>
     );
 }
 

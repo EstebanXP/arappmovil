@@ -47,16 +47,6 @@ export default function showSongs(props,{navigation}){
         <Select.Item label="Title" value="title" />
         <Select.Item label="Artist" value="artist" />
         </Select>
-        {/*
-        <Picker
-          selectedValue={sort}
-          onValueChange={(itemValue,itemIndex)=>setSort(itemValue)}
-        > 
-        <Picker.Item label="Title" value="title" />
-        <Picker.Item label="Artist" value="artist" />
-        </Picker>
-        */}
-        <Box w="100%" h="100%" display="flex" flexDirection="row" flexWrap="wrap">
       {
         songs.filter((val)=>{
           if(searchVar===""){
@@ -68,19 +58,19 @@ export default function showSongs(props,{navigation}){
           }
         }).map(song =>{
           return(
-            <ScrollView>
               <Pressable /*key={band.id} bottomDivider onPress={() => {
                         props.navigation.navigate('Bands Info', {
                           bandId: band.id 
                         })
                       }}*/
-                      width="32" h="32" bg="#241CC4" borderRadius="20" shadow={9}
+                      width="100%" h="32" borderRadius="20" 
                       textColor="black"
-                      bg="white"
                       mb="4"
-                      ml="4"
+                      shadow={2}
                       >
-                          <Box width="100%" h="32" > 
+                          <Box width="100%" h="32" 
+                          borderRadius="20"
+                          bg="#FFF" > 
                           <Text textAlign="center" mt="auto" mb="auto" color="black">
                           {song.title} 
                           </Text>
@@ -90,26 +80,9 @@ export default function showSongs(props,{navigation}){
                           </Box>
                           
                 </Pressable>
-            {/*  
-            <ListItem key={song.id} bottomDivider onPress={() => {props.navigation.navigate('Manage Song',{
-              songId:song.id,
-              songTitle:song.title,
-              songLyrics:song.lyrics
-            }
-              )}}>
-                
-              <ListItem.Content>
-                <ListItem.Title>{song.title}</ListItem.Title>
-                <ListItem.Subtitle>{song.artist}</ListItem.Subtitle>
-              </ListItem.Content>
-            </ListItem>
-          */}
-          
-            </ScrollView>
           )
         })
       }
-      </Box>
       </ScrollView>
   </SafeAreaView>
     )
