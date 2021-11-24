@@ -3,8 +3,8 @@ import { Text, View,SafeAreaView,StyleSheet,TextInput, ScrollView} from 'react-n
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 import {Picker} from '@react-native-picker/picker';
-import { Input } from 'react-native-elements/dist/input/Input';
-import {Button, Center, Select} from "native-base"
+
+import {Button, Center, Select, Input} from "native-base"
 export default function tagsManagements(props,{navigation}) {
 
     const [tags, setTags] = useState([])
@@ -34,14 +34,14 @@ export default function tagsManagements(props,{navigation}) {
     return ( 
       <Center>
         
-        <Input placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
+        <Input w="90%" placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
           <Button
             w="90%"
             title="Crear etiqueta"
             onPress={() => props.navigation.navigate('Tags Create')}
           >Create</Button>
 
-        <Select
+        <Select w="90%"
           selectedValue={sort}
           onValueChange={(itemValue,itemIndex)=>setSort(itemValue)}
         > 
