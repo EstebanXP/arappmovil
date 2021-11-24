@@ -67,16 +67,16 @@ export default class RegisterUser extends React.Component{
         <NativeBaseProvider>
         <Box width="2xs" mt="32">
         <Heading textAlign="center" size="2xl" mb="5" mt="20">Hello there :)</Heading>
-            <Input mb="1" variant="underlined" placeholder="username" style={{borderColor: '#4f46e5' }} onChangeText={(username) => {
+            <Input  variant="underlined" placeholder="username" style={{borderColor: '#4f46e5' }} onChangeText={(username) => {
             this.setState({username:username})
             }} value={this.state.username}/>
-            <Input mb="1" variant="underlined" placeholder="email" style={{borderColor: '#4f46e5' }} onChangeText={(email) => {
+            <Input  variant="underlined" placeholder="email" style={{borderColor: '#4f46e5' }} onChangeText={(email) => {
             this.setState({email:email})
             }} value={this.state.email}/>
-            <Input mb="1" variant="underlined" placeholder="name" style={{borderColor: '#4f46e5' }} onChangeText={(name) => {
+            <Input  variant="underlined" placeholder="name" style={{borderColor: '#4f46e5' }} onChangeText={(name) => {
             this.setState({name:name})
             }} value={this.state.name}/>
-            <Input mb="1" variant="underlined" placeholder="password" style={{borderColor: '#4f46e5' }} onChangeText={(password) => {
+            <Input variant="underlined" placeholder="password" style={{borderColor: '#4f46e5' }} onChangeText={(password) => {
             this.setState({password:password})
             }} 
             value={this.state.password} 
