@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
-import { Text, View, Button ,SafeAreaView,StyleSheet,TextInput, ScrollView} from 'react-native';
+import { Text, View,SafeAreaView,StyleSheet,TextInput, ScrollView} from 'react-native';
 import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 import {Picker} from '@react-native-picker/picker';
 import { Input } from 'react-native-elements/dist/input/Input';
-
+import {Button, Center, Select} from "native-base"
 export default function tagsManagements(props,{navigation}) {
 
     const [tags, setTags] = useState([])
@@ -32,20 +32,23 @@ export default function tagsManagements(props,{navigation}) {
     },[sort])
 
     return ( 
-      <SafeAreaView>
-        <ScrollView>
+      <Center>
+        
         <Input placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
           <Button
+            w="90%"
             title="Crear etiqueta"
             onPress={() => props.navigation.navigate('Tags Create')}
-        />
-        <Picker
+          >Create</Button>
+
+        <Select
           selectedValue={sort}
           onValueChange={(itemValue,itemIndex)=>setSort(itemValue)}
         > 
-        <Picker.Item label="A-Z" value="asc" />
-        <Picker.Item label="Z-A" value="desc" />
-        </Picker>
+        <Select.Item label="A-Z" value="asc" />
+        <Select.Item label="Z-A" value="desc" />
+        </Select>
+        <ScrollView style={{width:"100%"}}>
           {
             tags.filter((val)=>{
               if(searchVar===""){
@@ -68,7 +71,7 @@ export default function tagsManagements(props,{navigation}) {
             })
           }
           </ScrollView>
-      </SafeAreaView>
+      </Center>
     );
 }
 
