@@ -99,7 +99,9 @@ export default class LoginUser extends React.Component{
                     </Center>
                   </HStack>
                 </Button>
-                <Button w="65%" bg="white" colorScheme="dark"  shadow={9} borderRadius="50">
+                <Button w="65%" bg="white" colorScheme="dark"  shadow={9} borderRadius="50" onPress={() => {
+                  toggleColorMode();
+                }}>
                   <HStack space={3} alignItems="center">
                     <Center mr="-2">
                     <Image
