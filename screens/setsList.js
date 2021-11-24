@@ -34,7 +34,7 @@ export default function SetsList(props,{navigation}) {
     return ( 
       <SafeAreaView>
         <ScrollView>
-        
+        <Input placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
           <Button
             title="Crear Set"
             onPress={() => props.navigation.navigate('Sets Create')}

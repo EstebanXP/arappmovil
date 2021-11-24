@@ -38,11 +38,11 @@ export default function setList(props,{navigation}) {
       <SafeAreaView>
         <Box alignItems="center" position="absolute" top="2" w="90%" right="5%" left="5%">
         <ScrollView>
-        
+        <Input placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
           <Button
             title="Crear SetList"
-            bg="indigo.600" borderRadius="20"
-        >Crear</Button>
+            onPress={() => props.navigation.navigate('SetList Create')}
+        />
         <Select
           selectedValue={sort}
           onValueChange={(itemValue,itemIndex)=>setSort(itemValue)}

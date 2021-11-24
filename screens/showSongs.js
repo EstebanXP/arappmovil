@@ -39,6 +39,7 @@ export default function showSongs(props,{navigation}){
     return (
       <SafeAreaView>
         <ScrollView>
+        <Input placeholder="Search..." onChangeText={(event)=>{setSearchVar(event)}}></Input>
         <Select
           selectedValue={sort}
           onValueChange={(itemValue,itemIndex)=>setSort(itemValue)}
