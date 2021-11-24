@@ -66,7 +66,7 @@ export default class LoginUser extends React.Component{
                 <Box>
                   <Input variant="underlined" w={{base: "133%", md: "133%",}}
                   style={{borderColor: '#4f46e5' }} 
-                  placeholder="username/email"  onChangeText={(email) => {
+                  placeholder="email"  onChangeText={(email) => {
                     this.setState({email:email}) }} value={this.state.email}
                     position="absolute" left="0" top="-20"/>
                 </Box>
