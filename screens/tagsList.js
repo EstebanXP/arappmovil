@@ -58,7 +58,7 @@ export default function tagsManagements(props,{navigation}) {
               }
             }).map(tag =>{
               return(
-                <Pressable key={tag.id} bottomDivider onPress={() => {
+                <Pressable w="90%" key={tag.id} bottomDivider onPress={() => {
                     props.navigation.navigate('Tags Management', {
                         tagId: tag.id 
                     })
