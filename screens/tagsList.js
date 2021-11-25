@@ -4,7 +4,7 @@ import firebase from "../database/firebase";
 import {ListItem} from 'react-native-elements'
 import {Picker} from '@react-native-picker/picker';
 
-import {Button, Center, Select, Input} from "native-base"
+import {Button, Center, Select, Input, Pressable} from "native-base"
 export default function tagsManagements(props,{navigation}) {
 
     const [tags, setTags] = useState([])
@@ -58,7 +58,7 @@ export default function tagsManagements(props,{navigation}) {
               }
             }).map(tag =>{
               return(
-                <ListItem key={tag.id} bottomDivider onPress={() => {
+                <Pressable key={tag.id} bottomDivider onPress={() => {
                     props.navigation.navigate('Tags Management', {
                         tagId: tag.id 
                     })
@@ -66,7 +66,7 @@ export default function tagsManagements(props,{navigation}) {
                   <ListItem.Content>
                     <ListItem.Title>{tag.tagName}</ListItem.Title>
                   </ListItem.Content>
-                </ListItem>
+                </Pressable>
               )
             })
           }
