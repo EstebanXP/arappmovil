@@ -28,7 +28,6 @@ export default function notification(props) {
   return (
     <SafeAreaView>
     <NativeBaseProvider>
-
         <Box  alignItems="center" safeAreaBottom shadow={9} width="10"  borderRadius={60} height="10">
         <Pressable
             position="absolute" zIndex="3" bottom="1" left="0" right="0" 

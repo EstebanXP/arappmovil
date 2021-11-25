@@ -50,7 +50,6 @@ export default class LoginUser extends React.Component{
 
     render(){
       return (
-        
         <NativeBaseProvider>
           <Center flex={1}>
           <Box  width="2xs" >   

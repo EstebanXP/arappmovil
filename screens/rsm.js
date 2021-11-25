@@ -11,7 +11,8 @@ import firebase from "../database/firebase";
 import { ListItem } from "react-native-elements";
 import { TextInput } from "react-native-gesture-handler";
 
-export default function rsm(props, { navigation }) {
+export default function rsm(props, { route, navigation }) {
+  const {songID} = props.route.params;
   const [song, setSong] = useState({
     id: "",
     title: "",
@@ -32,7 +33,22 @@ export default function rsm(props, { navigation }) {
   }
 
   async function sendData(id) {
+    console.log(songID);
     const dbRef = firebase.db.collection("songs").doc(id);
+    console.log(song.title);
+    console.log(song.artist);
+
+    dbRef
+      .update({
+        title: song.title,
+        lyrics: song.lyrics,
+        artist: song.artist,
+        chords: song.chords,
+      })
+      .then(() => console.log("AAA"))
+      .catch((error)=>{
+        console.log(error)
+      });
     await dbRef.set({
       title: song.title,
       lyrics: song.lyrics,
@@ -48,7 +64,7 @@ export default function rsm(props, { navigation }) {
   }
 
   useEffect(() => {
-    getSong(props.route.params.songId);
+    getSong(songID);
   }, []);
 
   return (
@@ -58,7 +74,7 @@ export default function rsm(props, { navigation }) {
         value={song.title}
         onChangeText={(value) => handleChangeText("title", value)}
       ></TextInput>
-      <Text>Lyrics: </Text>
+      {}
       <TextInput
         onChangeText={(value) => handleChangeText("lyrics", value)}
         style={{ height: 400 }}
@@ -77,11 +93,11 @@ export default function rsm(props, { navigation }) {
       ></TextInput>
       <Button
         title="Save"
-        onPress={() => sendData(props.route.params.songId)}
+        onPress={() => sendData(songID)}
       ></Button>
       <Button
         title="Delete"
-        onPress={() => deleteSong(props.route.params.songId)}
+        onPress={() => deleteSong(songID)}
       ></Button>
     </SafeAreaView>
   );
