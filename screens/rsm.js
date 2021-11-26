@@ -55,7 +55,7 @@ export default function rsm(props, { route, navigation }) {
       artist: song.artist,
       chords: song.chords,
     });
-    props.navigation.navigate("Show Songs");
+    navigation.navigate("Show Songs");
   }
   async function deleteSong(id) {
     const dbRef = firebase.db.collection("songs").doc(id);

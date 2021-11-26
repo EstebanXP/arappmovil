@@ -59,6 +59,7 @@ export default function showSongs(props, { navigation }) {
             setSearchVar(event);
           }}
         ></Input>
+
         <Select
           selectedValue={sort}
           onValueChange={(itemValue, itemIndex) => setSort(itemValue)}
@@ -66,6 +67,15 @@ export default function showSongs(props, { navigation }) {
           <Select.Item label="Title" value="title" />
           <Select.Item label="Artist" value="artist" />
         </Select>
+        {/**inicio Boton añadir canciones "+" */}
+        <Pressable onPress={() => props.navigation.navigate("Add Songs")}>
+          <Box width="100%" h="32" borderRadius="20" bg="#FFF">
+            <Text textAlign="center" mt="auto" mb="auto" color="black">
+              +
+            </Text>
+          </Box>
+        </Pressable>
+        {/**fin Boton añadir canciones "+" */}
         {songs
           .filter((val) => {
             if (searchVar === "") {
@@ -84,7 +94,9 @@ export default function showSongs(props, { navigation }) {
             return (
               <Pressable
                 bottomDivider
-                onPress={()=>props.navigation.navigate("Manage Song",{songID:song.id})}
+                onPress={() =>
+                  props.navigation.navigate("Manage Song", { songID: song.id })
+                }
                 width="100%"
                 h="32"
                 w={"90%"}
@@ -97,11 +109,10 @@ export default function showSongs(props, { navigation }) {
                   <Text textAlign="center" mt="auto" mb="auto" color="black">
                     {song.title}
                   </Text>
-                  
+
                   <Text textAlign="center" mt="auto" mb="auto" color="black">
-                    {song.artist }
+                    {song.artist}
                   </Text>
-                  
                 </Box>
               </Pressable>
             );
