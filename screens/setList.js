@@ -70,11 +70,11 @@ export default function setList(props,{navigation}) {
               }
             }).map(setList =>{
               return(
-                <Pressable /*key={setList.id} bottomDivider onPress={() => {
+                <Pressable key={setList.id} bottomDivider onPress={() => {
                         props.navigation.navigate('SetList Management', {
                           setListId: setList.id 
                         })
-                      }}*/
+                      }}
                       width="100%" h="32" borderRadius="20" 
                       textColor="black"
                       mb="4"

@@ -29,6 +29,7 @@ export default class LoginUser extends React.Component{
     this.props.setRole(userData.userRole);
     this.props.setUserName(userData.userUsername);
     this.props.setName(userData.userName);
+    
   }
 
   viewState(){
@@ -41,6 +42,7 @@ export default class LoginUser extends React.Component{
       this.props.setUserActive(true);
       this.props.setUser(user.user);
       this.getData(user.user.uid);
+      this.props.setIdU(user.user.uid);
     })
     .catch((error)=>{
       Alert.alert('Sorry. ' + error.message)
