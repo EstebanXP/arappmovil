@@ -95,7 +95,7 @@ export default function setListCreate({ navigation }) {
       <ScrollView>
         <TextInput
           style={styles.input}
-          placeholder="Nombre del SetList 1"
+          placeholder="Nombre del SetList"
           onChangeText={(value) => handleChangeText("set", value)}
         />
         
@@ -146,7 +146,7 @@ export default function setListCreate({ navigation }) {
               placeholder="Banda"
               onChangeText={(value) => handleChangeText("band", value)}
             />
-            <Button title="Guardar SetList" onPress={() => addSetList()} />
+            <Button title="Guardar SetList" onPress={() => addSetList()} >Save</Button>
           </View>
         )}
       </ScrollView>

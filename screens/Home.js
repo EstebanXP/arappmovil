@@ -122,7 +122,6 @@ export default function Home(
                         />
                       </Box>
                     </TouchableOpacity>
-                    <Button onPress={()=>console.log("assa")}>AAAA</Button>
                   </Pressable>
                 </VStack>
               </NativeBaseProvider>
